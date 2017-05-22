@@ -1,0 +1,15 @@
+<section>
+  <section-title @title="Rev Emmanuel Singh" @sectionTitleClass="small" />
+  <div class="img-container">
+    <img src={{displayRevImg}} alt="" class="👨🏾 {{fadeIn}}">
+  </div>
+
+  <div class="bio-container">
+    <h2 class="bold bio-heading">Bio</h2>
+    {{#each bioData key="@item" as |obj key|}}
+      <p class="bio-text"><span>{{key}}</span>: <span>{{obj}}</span></p>
+    {{/each}}
+  </div>
+
+  <p class="👨🏾-details">{{revDetails}}</p>
+</section>

@@ -1,3 +1,14 @@
-<div>
-  <h1>Welcome to Glimmer!</h1>
+<div id="main">
+  <main-menu @gray={{gray}} />
+  <header-section class="header-section"/>
+  <history-section id="history" class="history-section" @actionHandler={{action actionHandler}} />
+  <fellowship-section id="fellowship" class="fellowship-section" />
+  <sermon-outlines-section id="sermon-outlines" class="sermon-outlines-section" />
+  <missionary-section id="missionary" class="missionary-section" />
+  <letter-section id="letters" class="letter-section" @title="Our Letter to Kolkata" @letters={{ourLetters}} />
+  <gallery-section class="gallery-section" />
+  <letter-section class="letter-section" @title="Their Letter to Us" @letters={{theirLetters}} />
+  <friend-section id="make-a-friend" class="friend-section" />
+  <listing-section id="prayer-requests" class="listing-section" @title="Prayer Requests" @subtitle={{"Phillipians 4:6"}} @list={{prayerRequestsArray}} />
+  <listing-section id="updates" class="listing-section" @title="Updates" @subtitle={{false}} @list={{updatesArray}} />
 </div>

@@ -1,0 +1,15 @@
+<div class="main-menu">
+  <div class="menu-icon-container" onclick={{action toggleMenu}}>
+    <i class="{{faIcon}} {{@gray}} fa menu-icon" aria-hidden="true"></i>
+  </div>
+
+  <div class="menu-bg {{showMenu}}" onclick={{action toggleMenu}} />
+
+  <div class="menu-list {{showMenu}}">
+    {{#each menuItems key="@index" as |menuItem|}}
+      <menu-item class="menu-item" @title={{menuItem}} />
+    {{/each}}
+  </div>
+</div>
+
+

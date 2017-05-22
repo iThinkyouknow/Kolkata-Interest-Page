@@ -1,0 +1,20 @@
+.menu-item {
+
+  color: $white;
+
+  .title-container {
+    padding: $standard-gap;
+    border-top: 1px solid white;
+
+  }
+
+  &:first-of-type {
+    margin-top: 73px;
+  }
+
+  &:last-of-type {
+    .title-container {
+      border-bottom: 1px solid white;
+    }
+  }
+}

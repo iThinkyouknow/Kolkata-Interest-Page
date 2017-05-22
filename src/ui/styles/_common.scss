@@ -1,0 +1,88 @@
+$white: rgb(255, 255, 255);
+$off-white: rgb(255, 250, 240);
+$dark-gray: rgb(84, 84, 84);
+$highlight-col: rgb(0,191,255);
+$standard-gap: 20px;
+$standard-gap-w: (20/414) * 100vw;
+$HN: 'Helvetica Neue';
+$Hel: 'Helvetica';
+$fw-light: 200;
+$fw-thin: 100;
+
+$behind-z: -1;
+$low-z: 100;
+$mid-z: 500;
+$high-z: 1000;
+$ultra-high-z: 100000;
+
+
+h1 {
+  margin: 0;
+  line-height: 1;
+  font-size: 1rem;
+}
+
+h2 {
+  margin: 0;
+  line-height: 1;
+}
+
+a {
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+p {
+  font-family: $HN;
+  font-size: 1.25rem;
+  overflow-y: scroll;
+  max-width: 88vw;
+  text-align: justify;
+  margin: 0 auto;
+}
+
+section {
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.page-title {
+  font-family: $HN;
+  font-weight: $fw-light;
+  font-size: 4.5rem;
+  color: $white;
+}
+
+// need to be adjusted for responsive
+.main-menu-links {
+  font-family: 'Helvetica';
+  font-weight: 300;
+  font-size: 2.25rem
+}
+
+.subtitle {
+  font-family: $HN;
+  font-weight: $fw-thin;
+  font-size: 2.25rem;
+}
+
+
+
+
+
+
+

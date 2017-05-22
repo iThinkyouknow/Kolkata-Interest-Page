@@ -1,3 +1,18 @@
-h1 {
-  color: #444;
-}
+@import '../../../vendor/foundation.min';
+@import '../../../vendor/font-awesome/scss/font-awesome';
+
+@import 'common';
+
+//Components
+@import 'section-title';
+@import 'main-menu';
+@import 'menu-item';
+@import 'header-section';
+@import 'history-section';
+@import 'fellowship-section';
+@import 'sermon-outlines-section';
+@import 'missionary-section';
+@import 'letter-section';
+@import 'gallery-section';
+@import 'friend-section';
+@import 'listing-section';

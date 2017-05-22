@@ -1,0 +1,84 @@
+.fellowship-section {
+  width: 100vw;
+  height: 100vh;
+  background-color: $off-white;
+  position: relative;
+
+  .info-section {
+    left: 0;
+    position: relative;
+    margin: $standard-gap auto;
+    overflow: hidden;
+    max-height: 216px;
+    height: 30vh;
+    white-space: nowrap;
+    font-size: 0;
+
+    &.slide-left{
+      transition: transform 0.3s linear;
+    }
+
+
+
+
+
+    .info-section-text {
+      position: relative;
+      //left: 100vw;
+      top: 0;
+      //margin-left: 100vw;
+      display: inline-block;
+      vertical-align: middle;
+      font-family: $HN;
+      font-weight: 100;
+      font-size: 4rem;
+      text-align: center;
+      width: 100vw;
+      white-space: normal;
+
+
+    }
+  }
+
+  .profile-pic-container {
+    position: relative;
+    height: 47vh;
+    width: 100vw;
+    left: 0;
+    bottom: 0;
+    padding: 0 10%;
+    margin-top: $standard-gap * 2;
+    text-align: right;
+
+    .profile-pic-small {
+      opacity: 0;
+      position: relative;
+      width: 35vw;
+      max-width: 150px;
+      height: 35vw;
+      max-height: 150px;
+      border-radius: 50%;
+      clear: both;
+
+      &:nth-child(odd) {
+        float: left;
+
+      }
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        margin-bottom: $standard-gap;
+      }
+
+      &.fade-in {
+        opacity: 1;
+        -webkit-transition: opacity 1s ease-in-out;
+        -moz-transition: opacity 1s ease-in-out;
+        -ms-transition: opacity 1s ease-in-out;
+        -o-transition: opacity 1s ease-in-out;
+        transition: opacity 1s ease-in-out;
+      }
+    }
+  }
+}
+

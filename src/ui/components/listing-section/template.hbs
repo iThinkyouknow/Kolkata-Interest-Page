@@ -1,0 +1,17 @@
+<section class="listing-section">
+  <section-title @title={{@title}} />
+  {{#if @subtitle}}
+    <div class="verse-subtitle">{{@subtitle}}</div>
+  {{/if}}
+
+  <div class="list-container">
+    <ol>
+      {{#each @list key="@index" as |item|}}
+        <li class="list-item"> {{item}}</li>
+      {{/each}}
+    </ol>
+  </div>
+
+
+
+</section>

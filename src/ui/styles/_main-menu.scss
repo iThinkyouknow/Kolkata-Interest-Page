@@ -1,0 +1,65 @@
+.main-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: $high-z;
+
+  .menu-icon-container {
+    position: absolute;
+    top: $standard-gap;
+    right: $standard-gap;
+    z-index: $ultra-high-z;
+
+    @media only screen and (min-width: 64.063em) {
+      display: none;
+    }
+
+    .menu-icon {
+      font-size: 2rem;
+      color: $white;
+      transition: color 0.3s ease-in;
+
+      &.gray {
+        color: $dark-gray;
+      }
+    }
+  }
+
+  .menu-bg {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: $low-z;
+
+    &.slide-down {
+      display: block;
+    }
+  }
+
+  .menu-list {
+    @media only screen and (min-width: 64.063em) {
+
+
+    }
+
+    position: relative;
+    height: 0px;
+    width: 100vw;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0 ,0, 0.3));
+    overflow-y: scroll;
+    z-index: $mid-z;
+    -webkit-transition: height 0.5s ease-in-out;
+
+    &.slide-down{
+      display: block;
+      height: 90vh;
+    }
+
+  }
+
+}
+

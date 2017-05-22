@@ -1,0 +1,51 @@
+.gallery-section {
+  position: relative;
+
+  .img-container-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50vh;
+    width: 1000px;
+    font-size: 0;
+    white-space: nowrap;
+    -webkit-animation: scrollOne 60s linear infinite;
+    -o-animation: scrollOne 60s linear infinite;
+    animation: scrollOne 60s linear infinite;
+    & img {
+      display: inline-block;
+      width: auto;
+      height: 50vh;
+    }
+  }
+
+  .img-container-2 {
+    @extend .img-container-1;
+    top: 50vh;
+    -webkit-animation: scrollOne 80s linear infinite;
+    -o-animation: scrollOne 80s linear infinite;
+    animation: scrollOne 80s linear infinite;
+  }
+
+  @keyframes scrollOne {
+    0% {
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+      transform: translateX(0);
+
+    }
+    100% {
+      -webkit-transform: translateX(-100%);
+      -moz-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      -o-transform: translateX(-100%);
+      transform: translateX(-100%);
+    }
+  }
+
+
+
+  // end of class
+}

@@ -1,0 +1,43 @@
+.friend-section {
+  background-color: $off-white;
+
+  .friends-container {
+    font-size: 0;
+    white-space: nowrap;
+    transition: transform 0.5s ease-in-out;
+
+    .friend-container {
+      position: relative;
+      display: inline-block;
+      width: 100vw;
+      vertical-align: top;
+
+      .friend-picture {
+        display: block;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        max-height: 35vh;
+        width: auto;
+        margin: 1.5 * $standard-gap auto;
+      }
+
+      .name {
+        font-family: $Hel;
+        font-weight: $fw-light;
+        font-size: 2rem;
+        text-align: center;
+        margin: 1.5 * $standard-gap auto;
+      }
+
+      .description {
+        margin: 1.5 * $standard-gap auto;
+        white-space: normal;
+      }
+    }
+  }
+
+
+
+  // end of class
+}

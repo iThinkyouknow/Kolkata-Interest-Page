@@ -1,0 +1,54 @@
+.missionary-section {
+  background-color: $off-white;
+  min-height: 100vh;
+
+  .img-container {
+    padding: 0 $standard-gap-w;
+    height: 16rem;
+    margin: 1.5 * $standard-gap 0;
+    display: block;
+    text-align: center;
+    .👨🏾 {
+      opacity: 0;
+      max-height: 16rem;
+      //margin: 0 auto;
+
+      &.fade-in {
+        opacity: 1;
+        transition: opacity 1.5s;
+      }
+    }
+  }
+
+
+  .bio-container {
+    margin-left: 2 * $standard-gap;
+
+    .bio-text {
+      font-family: 'Helvetica';
+      font-weight: $fw-light;
+      font-size: 2rem;
+      line-height: 1;
+      margin: 0;
+      margin-top: 5px;
+      overflow: visible;
+      text-align: left;
+
+
+
+      span {
+        top: 0;
+        display: inline-block;
+        max-width: 70%;
+        vertical-align: text-top;
+
+      }
+    }
+  }
+
+  .👨🏾-details {
+    margin: 1 * $standard-gap auto;
+    max-height: 40vh;
+
+  }
+}

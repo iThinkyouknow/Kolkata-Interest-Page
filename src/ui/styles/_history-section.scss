@@ -1,0 +1,16 @@
+.history-section {
+  height: 100vh;
+  width:100vw;
+
+  .picture-container {
+    margin: 1.5*$standard-gap auto 0 auto;
+    width: 70vw;
+    max-width: 400px;
+    box-shadow: 10px 10px 5px #888888;
+  }
+
+  .history-text {
+    margin-top: 2*$standard-gap;
+    height: 42.5vh;
+  }
+}

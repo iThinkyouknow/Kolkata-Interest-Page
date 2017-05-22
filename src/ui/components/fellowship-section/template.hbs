@@ -1,0 +1,17 @@
+<Section>
+  <section-title @title="The Fellowship" />
+
+  <div class="info-section {{slideLeft}}" style="transform: translate3d(-{{leftPosition}}vw, 0, 0); width: {{width}}">
+    {{#each infoArray key="@index" as |info|}}
+      <h2 class="info-section-text {{info.transClass}}">{{info.title}}</h2>
+    {{/each}}
+
+  </div>
+
+  <div class="profile-pic-container">
+    {{#each photosForDisplay key="@index" as |photo|}}
+      <img class="profile-pic-small {{photo.className}}" src={{photo.url}} alt="" />
+    {{/each}}
+
+  </div>
+</Section>

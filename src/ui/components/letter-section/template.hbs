@@ -1,0 +1,24 @@
+<section>
+  <section-title @title={{@title}} />
+  <select class="letter-selector" oninput={{action monthSelected}}>
+    {{#each @letters key="@index" as |letter|}}
+      <option value={{letter.date}}>{{letter.date}}</option>
+    {{/each}}
+  </select>
+
+
+  <div class="letter-container">
+    <p class="letter">{{letterToDisplay}}</p>
+    <div class="veil hide-for-large" />
+  </div>
+
+  <div class="pdf-link">
+    <a href={{pdfLink}} target="_blank">
+      <span class="pdf-link-text">Full Letter in</span>
+      &nbsp;
+      <i class="fa fa-file-pdf-o pdf-icon" />
+    </a>
+  </div>
+
+
+</section>

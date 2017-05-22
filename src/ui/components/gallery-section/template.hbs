@@ -1,0 +1,15 @@
+<section>
+  <div class="img-container-1" style="width: {{imgContainerWidth}}">
+    {{#each galleryOne key="@index" as |imgURL|}}
+      <img src={{imgURL}} alt="">
+    {{/each}}
+  </div>
+  <div class="img-container-2" style="width: {{imgContainerWidth}}">
+    {{#each galleryTwo key="@index" as |imgURL|}}
+      <img src={{imgURL}} alt="">
+    {{/each}}
+  </div>
+
+  <div><p>{{style}}</p></div>
+
+</section>

@@ -1,0 +1,58 @@
+.letter-section {
+  min-height: 100vh;
+
+  .letter-selector {
+    display: block;
+    margin: 1.5 * $standard-gap auto;
+    width: 80vw;
+    text-align: center;
+    height: 2 * $standard-gap;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-family: $Hel;
+    font-weight: $fw-light;
+    padding-left: 22%;
+    background-image: linear-gradient(rgb(248,248,248), rgb(232,232,232));
+  }
+
+  .letter-container {
+    position: relative;
+    height: 45vh;
+
+    .letter {
+      max-height: 45vh;
+      overflow: hidden;
+    }
+
+    .veil {
+      position: absolute;
+      top: 50%;
+      width: 100vw;
+      height: 50%;
+      //background: $off-white;
+      background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    }
+  }
+
+  .pdf-link {
+    margin: $standard-gap * 1.5 auto;
+    text-align: center;
+    font-family: $Hel;
+    font-size: 2rem;
+    font-weight: $fw-light;
+
+
+    .pdf-icon {
+      font-size: 3rem;
+    }
+
+    .pdf-link-text {
+      vertical-align: text-bottom;
+      display: inline-block;
+    }
+  }
+
+
+
+  // end of class
+}

@@ -18,9 +18,12 @@
     "@glimmer/component": "^0.3.8",
     "@glimmer/resolver": "^0.3.0",
     "broccoli-asset-rev": "^2.5.0",
-    "ember-cli": "github:ember-cli/ember-cli",
+    "ember-cli": "2.14.0-beta.1",
     "ember-cli-inject-live-reload": "^1.6.1",
+    "ember-cli-moment-shim": "^3.1.0",
+    "ember-cli-sass": "^6.1.2",
     "ember-cli-uglify": "^1.2.0",
+    "ember-moment": "^7.3.0",
     "typescript": "^2.2.2"
   },
   "engines": {

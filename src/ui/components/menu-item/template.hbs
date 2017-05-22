@@ -1,0 +1,9 @@
+<div>
+  <div class="title-container">
+    {{#if isLink}}
+      <h1 class="main-menu-links show-for-sm"><a href={{scrollToID}}>{{@title}}</a></h1>
+    {{else}}
+      <h1 class="main-menu-links"><a href={{scrollToID}} onclick={{action scrollTo}}>{{@title}}</a></h1>
+    {{/if}}
+  </div>
+</div>

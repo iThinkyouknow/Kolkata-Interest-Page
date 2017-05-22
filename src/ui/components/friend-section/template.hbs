@@ -1,0 +1,17 @@
+<section>
+  <section-title @title="Make a Friend!" />
+  <div class="friends-container" style="transform: translate3d({{shiftLeftBy}}vw, 0, 0)">
+    {{#each friends key="@index" as |friend|}}
+      <div class="friend-container">
+        <img src={{friend.imgURL}} class="friend-picture" alt="">
+        <h1 class="name">{{friend.name}}</h1>
+        <p class="description">{{friend.description}}</p>
+      </div>
+    {{/each}}
+  </div>
+
+
+
+
+
+</section>

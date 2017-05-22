@@ -1,0 +1,15 @@
+.section-title-container {
+  margin: 8.15vh auto 0 auto;
+  text-align: center;
+  max-width: 95vw;
+
+  .section-title {
+    font-family: $HN;
+    font-weight: 300;
+    font-size: 3rem;
+
+    &.small {
+      font-size: 2.5rem;
+    }
+  }
+}
