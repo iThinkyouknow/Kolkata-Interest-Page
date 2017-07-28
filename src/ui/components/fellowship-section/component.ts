@@ -5,34 +5,34 @@ export default class FellowshipSection extends Component {
   timeOut;
 
   @tracked photosArraySource = [{
-    url: 'assets/profile-circle-1.png',
+    img: 'assets/profile-circle-1.png',
     className: null
   }, {
-    url: 'assets/profile-circle-5.png',
+    img: 'assets/profile-circle-5.png',
     className: null
   }, {
-    url: 'assets/profile-circle-2.png',
+    img: 'assets/profile-circle-2.png',
     className: null
   }, {
-    url: 'assets/profile-circle-6.png',
+    img: 'assets/profile-circle-6.png',
     className: null
   }, {
-    url: 'assets/profile-circle-3.png',
+    img: 'assets/profile-circle-3.png',
     className: null
   }, {
-    url: 'assets/profile-circle-7.jpeg',
+    img: 'assets/profile-circle-7.jpeg',
     className: null
   }, {
-    url: 'assets/profile-circle-4.jpg',
+    img: 'assets/profile-circle-4.jpg',
     className: null
   }, {
-    url: 'assets/profile-circle-8.jpeg',
+    img: 'assets/profile-circle-8.jpeg',
     className: null
   }, {
-    url: 'assets/profile-circle-9.jpeg',
+    img: 'assets/profile-circle-9.jpeg',
     className: null
   }, {
-    url: 'assets/profile-circle-10.png',
+    img: 'assets/profile-circle-10.png',
     className: null
   }
   ];
@@ -150,10 +150,6 @@ export default class FellowshipSection extends Component {
 
     return this.infoCycle * 100;
 }
-
-  didInsertElement() {
-
-  }
 
   willDestroyElement() {
     Object.keys(this.timeIntervalObj).forEach(key => {

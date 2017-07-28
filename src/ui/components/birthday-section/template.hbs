@@ -1,0 +1,18 @@
+<section>
+  <section-title @title="Birthdays in {{month}}" />
+
+  <div class="persons-container {{slideUp}}">
+    {{#each persons key="@index" as |person index|}}
+      <div class="person-container person-{{index}}">
+        <img src={{person.img}} alt={{person.name}} class="person-image" />
+        <div class="text-container">
+          <h2 class="person-birthday">{{person.birthday}}</h2>
+          <h3 class="person-name">{{person.name}}</h3>
+        </div>
+
+      </div>
+
+    {{/each}}
+  </div>
+
+</section>

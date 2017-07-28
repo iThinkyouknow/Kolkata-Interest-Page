@@ -1,0 +1,65 @@
+.birthday-section {
+
+  .persons-container {
+    margin-top: 3 * $standard-gap;
+
+    .person-container {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      width: auto;
+      margin: 1.5 * $standard-gap auto;
+      overflow: hidden;
+      transform: translate3d(0, 100vh, 0);
+
+      .person-image {
+        width: 30vw;
+        //display: inline-block;
+        //vertical-align: top;
+      }
+
+      .text-container {
+        //display: inline-block;
+        margin: 0 0 0 $standard-gap;
+        white-space: normal;
+        max-width: 50vw;
+
+
+
+        //max-width: 65vw;
+
+        .person-birthday {
+          font-size: 1.5rem;
+          white-space: normal;
+          font-weight: normal;
+        }
+
+        .person-name {
+          font-size: 2rem;
+          white-space: normal;
+          font-weight: $fw-light;
+        }
+      }
+    }
+    &.slide-up {
+      .person-0 {
+        transform: translate3d(0, 0, 0);
+        transition: transform 0.65s ease-in-out 0.1s;
+      }
+      .person-1 {
+        @extend .person-0;
+        transition: transform 0.65s ease-in-out 0.15s;
+      }
+      .person-2 {
+        @extend .person-0;
+        transition: transform 0.65s ease-in-out 0.2s;
+      }
+
+    }
+  }
+
+
+
+  // end of class
+}

@@ -1,0 +1,72 @@
+<section>
+  <section-title @title="Encourage Rev Emmanuel Singh" />
+
+  <h1 class="subtitle sub-title">The program</h1>
+  <div class="info">You will be joining a group to write to Pastor Singh and his wife to encourage them in the faith and the mission work which God has called them to
+    <br />
+    <br />
+    Only members of CERC may join
+    <br />
+    <br />
+    Participation is voluntary and there are is no minimum duration
+    <br />
+    <br />
+    Members of this program will take turns to write on a periodic basis. The person in charge will inform you when it is your turn
+    <br />
+    <br />
+    Mode of delivery (post or email) will be up to you
+    <br />
+    <br />
+    You may also contact Elder Chan directly if you wish to be on this program
+  </div>
+
+  <h1 class="subtitle sub-title sign-up">Sign up Now</h1>
+
+  <div class="sign-up-container">
+    <div class="input-block-container">
+      <div class="input-container">
+        <input id="name-input" class="input name-input" type="text" oninput={{action customizedDebouncer nameValidator 300}}/>
+        <label class="input-label" for="name-input">Name</label>
+      </div>
+      <label for="name-input" class="error-message {{invalidName}}">Your name should look like "Your Name" or "Your Name @ Alias Name" (if you have an alias)</label>
+    </div>
+
+    <div class="input-block-container">
+      <div class="input-container">
+        <input id="email-input"
+               class="input email-input"
+               type="email"
+               oninput={{action customizedDebouncer emailValidator 300}}
+               onblur={{action setNoEmailOrContact}} />
+        <label class="input-label" for="email-input">Email</label>
+      </div>
+      <label for="email-input" class="error-message {{invalidEmail}}">Email should be in an "example123@email.com" format</label>
+      <label for="email-input" class="error-message {{noEmailOrContact}}">Either email or contact must be provided.</label>
+    </div>
+
+    <div class="input-block-container">
+      <div class="input-container">
+        <input id="contact-input"
+               class="input contact-input"
+               type="tel"
+               oninput={{action customizedDebouncer contactValidator 300}}
+               onblur={{action setNoEmailOrContact}} />
+        <label class="input-label" for="contact-input">Contact No.</label>
+      </div>
+      <label for="contact-input" class="error-message {{invalidContact}}">Contact should be in a "+65 8888 8888" format</label>
+      <label for="contact-input" class="error-message {{noEmailOrContact}}">Either email or contact must be provided.</label>
+    </div>
+
+
+
+    <button class="sign-up-button" disabled={{invalidForm}}>
+      <span class="main-text">Join Now!</span><br>
+      <span class="sub-text">(or you may contact Elder Chan directly)</span>
+    </button>
+  </div>
+
+
+
+
+
+</section>

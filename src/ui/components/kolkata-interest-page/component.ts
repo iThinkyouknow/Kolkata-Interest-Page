@@ -1,8 +1,105 @@
 import Component, {tracked} from "@glimmer/component";
+const {log, clear} = console;
+
+const missionary = `Rev Emmanuel Singh`;
+
+const sectionItems = [
+  'CERC',
+  'Main',
+  'History',
+  'The Fellowship',
+  'Sermon Outlines',
+  'The Missionary',
+  'Letters',
+  'Make a Friend',
+  'Prayer Requests',
+  'Updates',
+  'Birthdays',
+  'Encourage Program',
+  'Kolkata'
+];
+
+const dasherizedTitle = (title) => {
+  const trimmedTitle = title.trim().toLowerCase();
+  const theLessTitle = trimmedTitle.replace(/^(the\s)/ig, '');
+  const dashedTitle = theLessTitle.replace(/\s/g, '-');
+  return dashedTitle;
+};
+
+const treatedMenuItems = (array) => {
+  return array.map((section, index) => {
+    const lowerCaseSection = (typeof section === 'string') ? section.toLowerCase() : section;
+
+    switch(lowerCaseSection) {
+      case `cerc`:
+        return {
+          id: lowerCaseSection,
+          link: `https://www.cerc.org.sg`,
+          class: ``,
+          title: section,
+          shortTitle: section,
+        };
+        break;
+      case `main`:
+        return {
+          id: lowerCaseSection,
+          link: ``,
+          class: `header-section`,
+          title: `The Fellowship of Kolkata`,
+          shortTitle: section,
+        };
+        break;
+      case `the missionary`:
+        return {
+          id: dasherizedTitle(section),
+          link: ``,
+          class: `${dasherizedTitle(section)}-section`,
+          title: missionary,
+          shortTitle: section,
+        };
+        break;
+      default:
+        return {
+          id: dasherizedTitle(section),
+          link: ``,
+          class: `${dasherizedTitle(section)}-section`,
+          title: section,
+          shortTitle: section,
+        };
+    }
+  });
+};
+
+
+const idMapGenerator = (array) => {
+  if (!Array.isArray(array)) return {array: array};
+  return array.reduce((acc, item, index) => {
+    if (item.id === undefined || item.id === null) return Object.assign(acc, {index: item});
+    return Object.assign(acc, {[item.id]: item});
+  }, {});
+};
+
+const compose = (acc, fn) => {
+  if (typeof fn !== 'function') return acc;
+  return fn(acc);
+};
+
+
 
 
 export default class KolkataInterestPage extends Component {
   @tracked gray = '';
+
+  mainHeader = 'The Mission Field of Kolkata';
+
+  get sections() {
+    const sectionsObj = [treatedMenuItems, idMapGenerator].reduce(compose, sectionItems);
+    log(`sectionsObj`);
+    log(sectionsObj);
+
+    return sectionsObj;
+  }
+
 
   turnGray(bool) {
     this.gray = bool ? 'gray' : '';
@@ -158,7 +255,7 @@ export default class KolkataInterestPage extends Component {
     Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
     sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
     pdfLink: 'Jul'
-  }]
+  }];
 
 
   prayerRequestsArray = [
@@ -183,6 +280,4 @@ export default class KolkataInterestPage extends Component {
     'Update 7',
     'Update 8',
   ];
-
-
 }

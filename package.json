@@ -1,7 +1,7 @@
 {
-  "name": "kolkata-interest-page",
+  "name": "Kolkata-Interest-Page",
   "version": "0.0.0",
-  "description": "A brand new Glimmer app.",
+  "description": "A page where you can get to know the Kolkata Fellowship",
   "directories": {
     "doc": "doc",
     "test": "tests"

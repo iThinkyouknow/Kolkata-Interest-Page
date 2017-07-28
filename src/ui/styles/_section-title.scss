@@ -2,6 +2,8 @@
   margin: 8.15vh auto 0 auto;
   text-align: center;
   max-width: 95vw;
+  position: relative;
+  z-index: $high-z;
 
   .section-title {
     font-family: $HN;

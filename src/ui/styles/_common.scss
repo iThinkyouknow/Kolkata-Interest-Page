@@ -1,6 +1,9 @@
 $white: rgb(255, 255, 255);
 $off-white: rgb(255, 250, 240);
 $dark-gray: rgb(84, 84, 84);
+$light-blue: rgb(81, 167, 249);
+$dark-navy-blue: rgb(22, 79, 134);
+$approved-green: rgb(152,251,152);
 $highlight-col: rgb(0,191,255);
 $standard-gap: 20px;
 $standard-gap-w: (20/414) * 100vw;
@@ -15,6 +18,27 @@ $mid-z: 500;
 $high-z: 1000;
 $ultra-high-z: 100000;
 
+$break-phone: 500px;
+$break-tablet: 1024px;
+$break-large: 1025;
+
+@mixin respond-to($media) {
+  @if $media == landscape {
+    @media all and (orientation:landscape) {
+      @content;
+    }
+  }
+  @if $media == phone {
+    @media all and (max-width: $break-small) { @content; }
+  }
+  @else if $media == tablet {
+    @media all and (min-width: $break-small + 1) and (max-width: $break-large - 1) { @content; }
+  }
+  @else if $media == monitor {
+    @media all and (min-width: $break-large) { @content; }
+  }
+}
+
 
 h1 {
   margin: 0;
@@ -25,6 +49,10 @@ h1 {
 h2 {
   margin: 0;
   line-height: 1;
+}
+
+h3 {
+  @extend h1;
 }
 
 a {
@@ -50,6 +78,9 @@ section {
     overflow-x: hidden;
     overflow-y: auto;
     min-height: 100vh;
+    @include respond-to(landscape) {
+      min-height: 100vh / 9 * 16;
+    }
 }
 
 .bold {
@@ -76,8 +107,19 @@ section {
 
 .subtitle {
   font-family: $HN;
-  font-weight: $fw-thin;
+  font-weight: $fw-light;
   font-size: 2.25rem;
+}
+
+
+//keyframes
+@keyframes expand {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  100% {
+    transform: scale3d(1.05, 1.05, 1);
+  }
 }
 
 
