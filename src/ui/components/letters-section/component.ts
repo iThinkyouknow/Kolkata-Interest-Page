@@ -1,28 +1,50 @@
 import Component, {tracked} from '@glimmer/component';
+import moment from 'moment';
 const { log } = console;
 export default class LetterSection extends Component {
+  const letterKeysArray = (() => {
+    return Object.keys(this.args.letters);
+  })();
 
-  @tracked selectedMonth = null;
+  @tracked selectedMonth = undefined || moment().format('YYYY-MM');
 
-  letter() {
-    return this.args.letters.find(letter => letter.date === (this.selectedMonth)) || this.args.letters[0];
+
+  @tracked('selectedMonth')
+  get availableMonth() {
+    const letters = this.args.letters;
+    const lastIndex = this.letterKeysArray.length - 1;
+    const lastKey = this.letterKeysArray[lastIndex];
+    const noLetterFound = (letters[this.selectedMonth] === undefined || letters[this.selectedMonth] === null);
+    return (noLetterFound) ?
+       this.args.letters[lastKey].date : this.selectedMonth;
   }
 
   @tracked('selectedMonth')
-  get letterToDisplay() {
-    const letter = this.letter();
-    log(letter);
-    return letter.letterContent;
+  get letterContent() {
+    const letters = this.args.letters;
+    return letters[this.availableMonth].letterContent;
+  }
+
+  get letterDates() {
+    const letterDates = this.letterKeysArray.map((letter) => {
+      const letterDate = this.args.letters[letter].date;
+      return {
+        isSelected: (this.availableMonth === letterDate),
+        date: moment(letterDate).format('MMMM YYYY')
+      };
+    });
+    const reversedLetterDates = letterDates.map(x => x).reverse();
+   return reversedLetterDates;
   }
 
   @tracked('selectedMonth')
   get pdfLink() {
-    const letter = this.letter();
-    return letter.pdfLink;
+    const letter = this.args.letters;
+    return letter[this.availableMonth].pdfLink;
   }
 
   monthSelected(e) {
-    this.selectedMonth = e.target.value;
+    this.selectedMonth = moment(e.target.value).format('YYYY-MM');
   }
 
   willDestroy() {

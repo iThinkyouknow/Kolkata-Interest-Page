@@ -1,4 +1,5 @@
 import Component, {tracked} from "@glimmer/component";
+import moment from 'moment'
 const {log, clear} = console;
 
 const missionary = `Rev Emmanuel Singh`;
@@ -85,6 +86,288 @@ const compose = (acc, fn) => {
 };
 
 
+let ourLettersData = {
+  '2017-03': {
+    date: '2017-03',
+    letterContent: `March Our Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+      arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+      arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
+    pdfLink: 'March'
+  },
+  '2017-04': {
+    date: '2017-04',
+    letterContent: `April Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+      arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+      arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
+    pdfLink: 'April'
+  },
+  '2017-05': {
+    date: '2017-05',
+    letterContent: `May Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+      arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+      arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
+    pdfLink: 'May'
+  },
+  '2017-12': {
+    date: '2017-12',
+    letterContent: `December Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+      arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+      arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
+    pdfLink: 'December'
+  }
+};
+
+
+let theirLettersData = {
+  '2017-03': {
+    date: '2017-03',
+    letterContent: `March their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+      arch their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+      arch their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
+    pdfLink: 'March'
+  },
+  '2017-04': {
+    date: '2017-04',
+    letterContent: `April their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+      arch their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+      arch their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
+    pdfLink: 'April'
+  },
+  '2017-05': {
+    date: '2017-05',
+    letterContent: `May their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+      arch their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+      arch their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
+    pdfLink: 'May'
+  },
+  '2017-12': {
+    date: '2017-12',
+    letterContent: `December their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+      arch their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+      arch their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+      Aenean commodo ligula eget dolor. Aenean massa. 
+      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
+      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
+    pdfLink: 'December'
+  }
+};
+
+
+let prayerRequestsData = {
+  constant: [
+    {
+      content: 'Prayer Requests Constant 1',
+      valid: true,
+      date: '2017-04-09'
+    }, {
+      content: 'Prayer Requests Constant 2',
+      valid: false,
+      date: '2017-06-09'
+    }, {
+      content: 'Prayer Requests Constant 3',
+      valid: true,
+      date: '2017-07-09'
+    },
+    {
+      content: 'Prayer Requests Constant 4',
+      valid: true,
+      date: '2017-07-21'
+    }
+  ],
+  adHoc: [
+    {
+      content: 'Prayer Requests ad-hoc 1',
+      valid: true,
+      date: '2017-07-21'
+    }, {
+      content: 'Prayer Requests ad-hoc 2',
+      valid: true,
+      date: '2017-07-21'
+    }, {
+      content: 'Prayer Requests ad-hoc 3 invalid',
+      valid: false,
+      date: '2017-07-21'
+    }, {
+      content: 'Prayer Requests ad-hoc 4',
+      valid: true,
+      date: '2017-07-21'
+    }, {
+      content: 'Prayer Requests ad-hoc 5',
+      valid: true,
+      date: '2017-07-21'
+    }, {
+      content: 'Prayer Requests ad-hoc 6 invalid',
+      valid: false,
+      date: '2017-07-21'
+    }, {
+      content: 'Prayer Requests ad-hoc 7',
+      valid: true,
+      date: '2017-07-21'
+    }, {
+      content: 'Prayer Requests ad-hoc 8',
+      valid: true,
+      date: '2017-07-21'
+    }
+  ]
+  //end of array
+};
+
+
+let updatesData = [
+  {
+    content: 'Updates 1',
+    valid: true,
+    date: '2017-04-09'
+  }, {
+    content: 'Updates 1',
+    valid: true,
+    date: '2017-04-09'
+  }, {
+    content: 'Updates 2 -invalid',
+    valid: false,
+    date: '2017-04-09'
+  }, {
+    content: 'Updates 1',
+    valid: true,
+    date: '2017-04-09'
+  }, {
+    content: 'Updates 1',
+    valid: true,
+    date: '2017-04-09'
+  }, {
+    content: 'Updates 5 -invalid',
+    valid: false,
+    date: '2017-04-09'
+  }, {
+    content: 'Updates 1',
+    valid: true,
+    date: '2017-04-09'
+  }, {
+    content: 'Updates 1',
+    valid: true,
+    date: '2017-04-09'
+  }
+];
+
+const singlePropertyCallback = (property) => (x) => {
+  if (x[property] !== undefined && x[property] !== null) {
+    return x[property];
+  };
+};
+
+const validPropCB = singlePropertyCallback('valid');
+const contentPropCB = singlePropertyCallback('content');
+const maxNumber = () => 8;
+
+const filterSliceMap = (array) => ([startIndex, endIndex]) => {
+  return array.filter(validPropCB).slice(startIndex, endIndex).map(contentPropCB);
+};
+
+const getPrayerRequestsData = (maxNum) => (prayerRequests) => {
+  const maxNumber = maxNum; //need to change based on screen size
+  const constantArray = filterSliceMap(prayerRequests.constant)([-maxNumber]);
+  const adHocSliceStartIndex = (maxNumber - constantArray.length) * -1;
+  const adHocArray = filterSliceMap(prayerRequests.adHoc)([adHocSliceStartIndex]);
+  return [...constantArray, ...adHocArray];
+};
+
+const getUpdatesData = (maxNum) => (updates) => {
+  const maxNumber = maxNum;
+  return filterSliceMap(updates)([-maxNumber]);
+};
 
 
 export default class KolkataInterestPage extends Component {
@@ -94,8 +377,7 @@ export default class KolkataInterestPage extends Component {
 
   get sections() {
     const sectionsObj = [treatedMenuItems, idMapGenerator].reduce(compose, sectionItems);
-    log(`sectionsObj`);
-    log(sectionsObj);
+    log(`something special`);
 
     return sectionsObj;
   }
@@ -109,175 +391,11 @@ export default class KolkataInterestPage extends Component {
     this[action](params);
   }
 
-  theirLetters = [{
-    date: 'March 2017',
-    letterContent: `March Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-    arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-    arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
-    pdfLink: 'March'
-  }, {
-    date: 'April 2017',
-    letterContent: `April Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-    arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-    arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
-    pdfLink: 'Apr'
-  }, {
-    date: 'June 2017',
-    letterContent: `June Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-    arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-    arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
-    pdfLink: 'Jun'
-  }, {
-    date: 'July 2017',
-    letterContent: `July Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-    arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-    arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
-    pdfLink: 'Jul'
-  }];
-
-  ourLetters = [{
-    date: 'March 2017',
-    letterContent: `March Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-    arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-    arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
-    pdfLink: 'March'
-  }, {
-    date: 'April 2017',
-    letterContent: `April Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-    arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-    arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
-    pdfLink: 'Apr'
-  }, {
-    date: 'June 2017',
-    letterContent: `June Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-    arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-    arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
-    pdfLink: 'Jun'
-  }, {
-    date: 'July 2017',
-    letterContent: `July Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-    arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-    arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Aenean commodo ligula eget dolor. Aenean massa. 
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-    sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
-    pdfLink: 'Jul'
-  }];
+  theirLetters = theirLettersData;
+  ourLetters = ourLettersData;
 
 
-  prayerRequestsArray = [
-    'Prayer Request 1',
-    'Prayer Request 2',
-    'Prayer Request 3',
-    'Prayer Request 4',
-    'Prayer Request 5',
-    'Prayer Request 6',
-    'Prayer Request 7',
-    'Prayer Request 8',
-    'Prayer Request 9',
-  ];
+  prayerRequestsArray = getPrayerRequestsData(maxNumber())(prayerRequestsData);
 
-  updatesArray = [
-    'Update 1',
-    'Update 2',
-    'Update 3',
-    'Update 4',
-    'Update 5',
-    'Update 6',
-    'Update 7',
-    'Update 8',
-  ];
+  updatesArray = getUpdatesData(maxNumber())(updatesData);
 }

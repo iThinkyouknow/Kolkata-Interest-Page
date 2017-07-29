@@ -1,14 +1,14 @@
 <section>
   <section-title @title={{@title}} />
   <select class="letter-selector" oninput={{action monthSelected}}>
-    {{#each @letters key="@index" as |letter|}}
-      <option value={{letter.date}}>{{letter.date}}</option>
+    {{#each letterDates key="@index" as |dateObj|}}
+      <option value={{dateObj.date}} selected={{dateObj.isSelected}} >{{dateObj.date}}</option>
     {{/each}}
   </select>
 
 
   <div class="letter-container">
-    <p class="letter">{{letterToDisplay}}</p>
+    <p class="letter">{{letterContent}}</p>
     <div class="veil hide-for-large" />
   </div>
 
