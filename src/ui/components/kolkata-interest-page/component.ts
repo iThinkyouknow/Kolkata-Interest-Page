@@ -1,8 +1,28 @@
 import Component, {tracked} from "@glimmer/component";
 import moment from 'moment'
 const {log, clear} = console;
+//todo
+/**
+ * Data
+ * Real Data
+ * Handle menu icon
+ * responsive: orientation, tablets, monitor,
+ * **/
 
-const missionary = `Rev Emmanuel Singh`;
+const missionaryData = {
+  name: `Rev Emmanuel Singh`,
+  age: 35,
+  birthday: '1982-02-17',
+  wife: 'Mrs Sonnali Singh',
+  text: [`Rev Emmanuel Singh is the Missionary Pastor of Covenant Evangelical Reformed Church (CERC).`,
+  `He is currently working in the mission field of Kolkata, and Lord Willing, instituted the mission field as a church there`],
+  imgArray: [
+    'assets/emmanuel-wo-bg.png',
+    'assets/emmanuel-and-sonali-singh-kolkota.png'
+  ],
+  link: `https://cksaltshakers.wordpress.com/2017/04/01/interview-with-rev-emmanuel-singh-i/`
+}
+  //`Rev Emmanuel Singh`;
 
 const sectionItems = [
   'CERC',
@@ -23,49 +43,103 @@ const sectionItems = [
 
 let historySectionData = {
   img: `assets/sanctuaryLARGE.jpg`,
-  text: `Lorem ipsum dolor. Sit amet vitae sed mauris et. Sed erat libero ullamcorper quis vestibulum vel optio in nibh semper blandit.
-  Aenean elementum purus nulla libero nibh. Vitae bibendum enim sollicitudin dicta quis.
-  Ipsum duis officia. Diam facere id. Dis augue vivamus. Vitae odio eu dictumst sapien
-  libero ornare in porttitor lorem risus neque consequat vitae aenean taciti
-  non pede vitae erat libero ullamcorper arcu eu et mi etiam. Eros mollis sed.
-  Sem elit consequat phasellus lacinia nam adipiscing sed porttitor. Pede justo et sed nullam in.
-  Aliquet varius ut lorem neque mollis. Consequat auctor lorem nisl ullamcorper a morbi minus at.
-  Vitae gravida eleifend. Pharetra metus neque omnis erat lobortis. Libero aliquam mauris quam sollicitudin ante.
-  Fugiat in nostrum nunc integer et. Lorem ipsum dolor. Sit amet vitae sed mauris et. Sed erat libero ullamcorper quis vestibulum vel optio in nibh semper blandit.
-  Aenean elementum purus nulla libero nibh. Vitae bibendum enim sollicitudin dicta quis.
-  Ipsum duis officia. Diam facere id. Dis augue vivamus. Vitae odio eu dictumst sapien
-  libero ornare in porttitor lorem risus neque consequat vitae aenean taciti
-  non pede vitae erat libero ullamcorper arcu eu et mi etiam. Eros mollis sed.
-  Sem elit consequat phasellus lacinia nam adipiscing sed porttitor. Pede justo et sed nullam in.
-  Aliquet varius ut lorem neque mollis. Consequat auctor lorem nisl ullamcorper a morbi minus at.
-  Vitae gravida eleifend. Pharetra metus neque omnis erat lobortis. Libero aliquam mauris quam sollicitudin ante.
-  Fugiat in nostrum nunc integer et.`
+  text: [`In 2009, Rev Emmanuel was connected to PRCA ministers while he was working for Para-church organizations “Operation Mobilisation” (OM) and “Back to the Bible” Radio Broadcast. 
+  During this time Rev Emmanuel was sharing the Reformed Gospel to the Bengali people in Kolkata as well as in the village’s area. 
+  As a result of the preaching of the gospel, many responded to the Reformed faith to learn more about Reformed doctrines. 
+  Rev Emmanuel then started Bible cell Groups so that through regular teaching a Church may be instituted.`,
+  `Until 2010, Rev Emmanuel was worshiping with “Brethren Assembly” but after coming to the Reformed faith, he did not find any reformed church in the Kolkata area. 
+  While there was one Mizo Presbyterian Church, they do not hold the Reformed Confessions (such as the Three Forms of Unity) or the Westminster Larger/Shorter Catechism. 
+  They were thus doing Bible study on the Lord’s Day. 
+  In 2013 they started to worship the Lord as a fellowship. 
+  From 2015 onwards, CERC Singapore started to oversee the work in Kolkata and now they are growing be an instituted church, Lord willing, in the next few years.`]
 };
 
 let fellowshipData = [
-  'Lorem Ipsum',
-  'Lorem Banananananana One',
-  'Lorem Banana Two',
-  'Lorem  3',
-  'Lorem Ipsum',
-  'Lorem Ipsum',
-  'Lorem 6',
-  'Lorem Ipsum',
-  'Lorem Ipsum',
+  'Stayan Park, Joka, Kolkata, (southern part of Kolkata)',
+  'Activities:',
+  'Sunday evening at 5:30 PM',
+  'Pre-confession Class to start soon',
+  'Friday Night Bible studies',
+  'Gospel tracts distribution',
+  'Meeting individuals for personal Evangelism',
+  'Visiting members’ house for cottage meeting',
+  'Gospel Preaching Seminar',
+  'Translation of Reformed Confessions',
+  'Joys:',
+  'to worship the Lord based on Reformed principles',
+  'good unity among them',
+  'willing to share the Gospel',
+  'Struggles:',
+  'having a meeting place'
 ];
+
+let sermonsData = {
+  '2017-04-04|0': {
+    date: '10.04.2017',
+    className: null,
+    sermonTitle: 'The Incarnation of the Son of God',
+    scriptureText: '',
+    sermonText: 'B.C. Article 18',
+    sermonPoints: [
+      'The Climax of History',
+      'The Reality of the Incarnation',
+      'He is Truly Both Man & God',
+      'Rejection of Errors - Anabaptists Heresy Concerning Christ\'s Incarnation'
+    ]
+  },
+  '2017-06-11|0': {
+    date: '17.04.2017',
+    className: null,
+    sermonTitle: 'WHERE HAS THE POWER GONE? (PENTECOST)',
+    scriptureText: 'Acts 1:8, 2 Timothy 1:7, Colossian 1:11',
+    sermonText: 'Judges 6: 12-13',
+    sermonPoints: [
+      'The Early Christian Had Great Spiritual Power',
+      'Why Do We Not have Such Power Today? Some Reasons For Current Lack',
+      'Conclusion: Evaluate Ourselves (2 Cor 10:12)'
+    ]
+  },
+  '2017-06-18|0': {
+    date: '24.04.2017',
+    className: null,
+    sermonTitle: 'THE ESSENCE OF KINGDOM LIFE',
+    scriptureText: '',
+    sermonText: 'John 3:1-10, Matthew 6:33, Matthew 6:9',
+    sermonPoints: [
+      'Seeing The the Kingdom of God - Regenerated by God',
+      'Seeking the the Kingdom of God - As a Supreme Priority in Our Life',
+      'Praying for the Kingdom of God - Our Calling to Pray'
+    ]
+  }
+};
 
 let personsData = {
   'Sudip Van Dyker': {
     birthday: '24-06',
     name: 'Sudip Van Dyker',
     img: 'assets/profile-circle-2.png',
-    text: ``
+    text: `Sudip Lorem ipsum dolor. Sit amet vitae sed mauris et.
+  Sed erat libero ullamcorper quis vestibulum vel optio in nibh semper blandit.
+  Aenean elementum purus nulla libero nibh. Vitae bibendum enim sollicitudin dicta quis.
+  Ipsum duis officia. Diam facere id. Dis augue vivamus. Vitae odio eu dictumst sapien libero ornare in porttitor
+  lorem risus neque consequat vitae aenean taciti non pede vitae erat libero ullamcorper arcu eu et mi etiam.
+  Eros mollis sed. Sem elit consequat phasellus lacinia nam adipiscing sed porttitor. Pede justo et sed nullam in.
+  Aliquet varius ut lorem neque mollis.`
   },
   'Ranjit Supramalam': {
     birthday: '24-06',
     name: 'Ranjit Supramalam',
     img: 'assets/profile-circle-5.png',
-    text: ``
+    text: `Ranjit Lorem ipsum dolor. Sit amet vitae sed mauris et.
+  Sed erat libero ullamcorper quis vestibulum vel optio in nibh semper blandit.
+  Aenean elementum purus nulla libero nibh. Vitae bibendum enim sollicitudin dicta quis.
+  Ipsum duis officia. Diam facere id. Dis augue vivamus. Ranjit Lorem ipsum dolor. Sit amet vitae sed mauris et.
+  Sed erat libero ullamcorper quis vestibulum vel optio in nibh semper blandit.
+  Aenean elementum purus nulla libero nibh. Vitae bibendum enim sollicitudin dicta quis.
+  Ipsum duis officia. Diam facere id. Dis augue vivamus. Ranjit Lorem ipsum dolor. Sit amet vitae sed mauris et.
+  Sed erat libero ullamcorper quis vestibulum vel optio in nibh semper blandit.
+  Aenean elementum purus nulla libero nibh. Vitae bibendum enim sollicitudin dicta quis.
+  Ipsum duis officia. Diam facere id. Dis augue vivamus.`
   },
   'Monisha Puraj': {
     birthday: '15-06',
@@ -104,6 +178,8 @@ let personsData = {
     text: ``
   }
 };
+
+let personsKeys = Object.keys(personsData);
 
 
 let ourLettersData = {
@@ -265,6 +341,11 @@ let theirLettersData = {
   }
 };
 
+let imageGalleryData = [
+    'assets/sanctuaryLarge.jpg',
+    'assets/scenery.jpg'
+];
+
 
 let prayerRequestsData = {
   constant: [
@@ -399,7 +480,7 @@ const treatedMenuItems = (array) => {
           id: dasherizedTitle(section),
           link: ``,
           class: `${dasherizedTitle(section)}-section`,
-          title: missionary,
+          title: missionaryData.name,
           shortTitle: section,
         };
         break;
@@ -486,15 +567,32 @@ export default class KolkataInterestPage extends Component {
   historySectionData = historySectionData;
 
   get personsDataForAboutSection() {
-    const personsKeys = Object.keys(personsData);
+
     const personsArray = personsKeys.map((person) => personsData[person].img);
     return personsArray;
   }
+
+  missionaryData = missionaryData;
+
+  sermonsData = sermonsData;
 
   fellowshipData = fellowshipData;
 
   theirLetters = theirLettersData;
   ourLetters = ourLettersData;
+  imageGalleryData = imageGalleryData;
+
+  get personsDataForFriendSection() {
+    const personsKeysArray = personsKeys.filter((person) => personsData[person].text).reverse();
+    const personsArray = personsKeysArray.reduce((acc, key) => acc.concat(personsData[key]), []);
+    return personsArray;
+  };
+
+  get personsDataForBirthdaySection() {
+    const keysArray = Object.keys(personsData);
+    const dataArray = keysArray.map(key => personsData[key]);
+    return dataArray;
+  }
 
   prayerRequestsArray = getPrayerRequestsData(maxNumber())(prayerRequestsData);
 

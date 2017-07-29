@@ -3,5 +3,11 @@
   <div class="picture-container">
     <img src={{@data.img}} alt="Picture of Congregation" />
   </div>
-  <p class="history-text">{{@data.text}}</p>
+  <div class="text-container">
+    {{#each @data.text key="@index" as |para|}}
+      <p class="history-text">{{para}}</p>
+    {{/each}}
+  </div>
+
+
 </Section>

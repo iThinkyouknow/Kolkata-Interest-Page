@@ -22,6 +22,8 @@ export default class SermonOutlinesSection extends Component {
   marginToMove = 160;
   thisWeek = 'this-week';
   fadeIn = 'fade-in';
+
+
   @tracked dateConMarginTop = 0; // will end up as %
   @tracked dragWheelIsFocused = false;
   @tracked touchStartPositon = 0;
@@ -29,62 +31,28 @@ export default class SermonOutlinesSection extends Component {
   @tracked sermonArrayIndex = 0;
   @tracked fadeInClass = ''; // or 'fade-in'
 
-  @tracked sermonInfo = [{
-    date: '10.04.2017',
-    className: null,
-    sermonTitle: 'Sermon Title',
-    scriptureText: 'Scripture Text',
-    sermonText: 'SermonText',
-    sermonPoints: [
-      'Point One',
-      'Point 2',
-      'Point 3'
-    ]
-  }, {
-    date: '17.04.2017',
-    className: null,
-    sermonTitle: 'Sermon Title B',
-    scriptureText: 'Scripture Text B',
-    sermonText: 'Sermon Text B',
-    sermonPoints: [
-      'Point A',
-      'Point B',
-      'Point C'
-    ]
-  }, {
-    date: '24.04.2017',
-    className: null,
-    sermonTitle: 'Sermon Title C',
-    scriptureText: 'Scripture Text C',
-    sermonText: 'SermonText C',
-    sermonPoints: [
-      'Point D',
-      'Point E',
-      'Point F'
-    ]
-  }, {
-    date: '17.05.2017',
-    className: null,
-    sermonTitle: 'Sermon Title D',
-    scriptureText: 'Scripture Text D',
-    sermonText: 'SermonText D',
-    sermonPoints: [
-      'Point 1',
-      'Point 2',
-      'Point 3'
-    ]
-  }, {
-    date: '30.05.2017',
-    className: null,
-    sermonTitle: 'Sermon Title E',
-    scriptureText: 'Scripture Text E',
-    sermonText: 'SermonText E',
-    sermonPoints: [
-      'Point 8',
-      'Point 9',
-      'Point 11'
-    ]
-  }];
+  @tracked sermonInfo = {
+    '': {
+      date: '',
+      className: '',
+      sermonTitle: '',
+      scriptureText: '',
+      sermonText: '',
+      sermonPoints: [
+        ''
+      ]
+    }
+  };
+
+  @tracked('sermonInfo')
+  @tracked get sermonInfoKeys() {
+    return Object.keys(this.sermonInfo);
+  }
+
+  @tracked('sermonInfoKeys')
+  get sermonInfoArray() {
+    return this.sermonInfoKeys.map((key) => this.sermonInfo[key]);
+  }
 
 
   slideToDate(e, index) {
@@ -109,7 +77,7 @@ export default class SermonOutlinesSection extends Component {
 
 
   touchEnd(e) {
-    let maxMarginTop = this.marginToMove * (this.sermonInfo.length - 2);
+    let maxMarginTop = this.marginToMove * (this.sermonInfoArray.length - 2);
     this.slideClass = 'slide';
 
     if (this.dateConMarginTop > this.marginToMove) {
@@ -118,7 +86,7 @@ export default class SermonOutlinesSection extends Component {
 
     } else if (this.dateConMarginTop < -maxMarginTop) {
       this.dateConMarginTop = -maxMarginTop;
-      this.sermonArrayIndex = this.sermonInfo.length - 1;
+      this.sermonArrayIndex = this.sermonInfoArray.length - 1;
 
     } else {
       let containerIndex = Math.round(this.dateConMarginTop / this.marginToMove);
@@ -127,14 +95,17 @@ export default class SermonOutlinesSection extends Component {
       this.sermonArrayIndex = -containerIndex + 1;
     }
 
-    let sermonInfoTemp = this.sermonInfo.map((info, index) => {
-      return {
-        ...info,
-        className: (index === this.sermonArrayIndex) ? this.thisWeek : null
-      }
-    });
 
-    this.sermonInfo = sermonInfoTemp;
+    const newSermonInfo = this.sermonInfoKeys.reduce((acc, key, index) => {
+      return {...acc, [key]: {
+        ...this.sermonInfoArray[index],
+        className: (index === this.sermonArrayIndex) ? `this-week` : ''
+      }};
+    }, {});
+
+    this.sermonInfo = newSermonInfo;
+
+
   }
 
 
@@ -153,69 +124,34 @@ export default class SermonOutlinesSection extends Component {
     setTimeout(() => {
       this.fadeInClass = this.fadeIn;
     }, 20);
-    return this.sermonInfo[this.sermonArrayIndex];
+    return this.sermonInfoArray[this.sermonArrayIndex];
   }
 
 
   setThisWeek() {
     log(`set this week`);
-    const dateFormat = 'DD.MM.YYYY';
+    const dateFormat = 'YYYY-MM-DD';
     const thisDay = moment().day(); // 0: Sunday, 1-6 other days
     const sundayMoment = thisDay ? moment().day(7) : thisDay;
+    const SundayDate = sundayMoment ? moment().add(7 - thisDay, 'd').format(dateFormat): moment().format(dateFormat);
+    const sundayKey = `${SundayDate}|0`;
+    const sermonAvailable = (this.sermonInfo[sundayKey] !== undefined && this.sermonInfo[sundayKey] !== null);
+    const actualKey = sermonAvailable ? sundayKey : this.sermonInfoKeys[this.sermonInfoKeys.length - 1];
+    const sundayObj = {
+      ...this.sermonInfo[actualKey],
+      className: `this-week`
+    };
 
-    let tempSermonInfo = this.sermonInfo.map((sermon, index) => {
-      let thisWeek;
-      let sermonDateMoment = moment(sermon.date, dateFormat);
+    this.sermonInfo = {...this.sermonInfo, [actualKey]: sundayObj};
 
-      if (sermonDateMoment.isSame(sundayMoment, 'day')) {
-        this.sermonArrayIndex = index;
-        thisWeek = this.thisWeek;
-
-      } else {
-        thisWeek = null;
-      }
-
-      return {
-        ...sermon,
-        className: thisWeek
-      };
-    });
-
-    if (!this.sermonArrayIndex) {
-      log(`!sermonArrayIndex`);
-      let lastIndex = this.sermonInfo.length - 1;
-      let lastIndexMoment = moment(this.sermonInfo[lastIndex].date, dateFormat);
-      let firstIndexMoment = moment(this.sermonInfo[0].date, dateFormat);
-
-      if (lastIndexMoment.isBefore(sundayMoment, 'day')) {
-        console.log(`befire!`);
-        this.sermonArrayIndex = lastIndex;
-
-      } else if (firstIndexMoment.isAfter(sundayMoment, 'day')) {
-        this.sermonArrayIndex = 0;
-
-      } else {
-        let i = lastIndex - 1;
-
-        while (!this.sermonArrayIndex && i > 0) {
-          let dateMoment = moment(tempSermonInfo[i].date, dateFormat);
-          let datePrevMoment = moment(tempSermonInfo[i + 1].date, dateFormat);
-          if (sundayMoment.isAfter(dateMoment, 'day') && sundayMoment.isSameOrBefore(datePrevMoment, 'day')) this.sermonArrayIndex = i + 1;
-          log(`this.sermonArrayIndex: ${this.sermonArrayIndex}`);
-
-          i--;
-        }
-      }
-      tempSermonInfo[this.sermonArrayIndex].className = this.thisWeek;
-    }
-
-    this.sermonInfo = tempSermonInfo;
+    this.sermonArrayIndex = this.sermonInfoKeys.findIndex((key) => key === actualKey);
     this.dateConMarginTop = -(this.sermonArrayIndex - 1) * this.marginToMove;
-
   }
 
 
   didInsertElement() {
+    log(`insert`);
+    this.sermonInfo = this.args.data;
     this.setThisWeek();
     this.dragWheelListener();
   }

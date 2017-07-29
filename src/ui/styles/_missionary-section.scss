@@ -41,7 +41,6 @@
         display: inline-block;
         max-width: 70%;
         vertical-align: text-top;
-
       }
     }
   }
@@ -49,6 +48,9 @@
   .👨🏾-details {
     margin: 1 * $standard-gap auto;
     max-height: 40vh;
+  }
 
+  a {
+    color: $light-blue;
   }
 }

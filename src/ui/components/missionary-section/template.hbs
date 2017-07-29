@@ -6,10 +6,20 @@
 
   <div class="bio-container">
     <h2 class="bold bio-heading">Bio</h2>
-    {{#each bioData key="@item" as |obj key|}}
+    {{#each missionaryBio key="@item" as |obj key|}}
       <p class="bio-text"><span>{{key}}</span>: <span>{{obj}}</span></p>
     {{/each}}
   </div>
 
-  <p class="👨🏾-details">{{revDetails}}</p>
+  <div class="description-container">
+    {{#each @data.text key="@index" as |para|}}
+      <p class="👨🏾-details">{{para}}</p>
+    {{/each}}
+    <p class="👨🏾-details">
+      <a href={{@data.link}} target="_blank" >
+        You may also read more about him at this Salt Shaker's <em>article</em>.
+      </a>
+    </p>
+  </div>
+
 </section>

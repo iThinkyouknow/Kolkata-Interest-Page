@@ -32,10 +32,11 @@
     .info-section-text {
       position: relative;
       margin: 0 auto;
+      padding-bottom: $font-gap;
       vertical-align: middle;
       font-family: $HN;
       font-weight: 100;
-      font-size: 4rem;
+      font-size: 3.2rem;
       text-align: center;
       width: 90vw;
       overflow: hidden;

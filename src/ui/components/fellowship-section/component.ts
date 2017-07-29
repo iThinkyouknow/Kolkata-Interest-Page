@@ -67,7 +67,7 @@ export default class FellowshipSection extends Component {
 
   removeFadeInClass() {
     this.photosArraySource.forEach((photo) => {
-      photo.className = undefined;
+      photo.className = '';
     });
   }
 
@@ -85,7 +85,6 @@ export default class FellowshipSection extends Component {
 
   @tracked('infoArray')
   get width() {
-    log(`${this.infoArray.length * 100}vw`);
     return `${this.infoArray.length * 100}vw`;
   }
 
@@ -112,11 +111,8 @@ export default class FellowshipSection extends Component {
   }
 
   didInsertElement() {
-
-    this.photosArraySource = this.args.photosData.map((img) => {return {img: img, className: undefined}});
+    this.photosArraySource = this.args.photosData.map((img) => {return {img: img, className: ''}});
     this.infoArray = this.args.infoData;
-    log(`this.args.infoData`);
-    log(this.args.infoData);
   }
 
 

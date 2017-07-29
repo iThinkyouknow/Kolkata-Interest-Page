@@ -18,48 +18,17 @@ export default class BirthdaySection extends Component {
     return Math.ceil(this.birthdayPersonsArray.length / this.birthdayPax);
   }
 
-  birthdayPersonsArray = [{
-    birthday: '24-06',
-    name: 'Sudip Van Dyker',
-    img: 'assets/profile-circle-2.png'
-  }, {
-    birthday: '24-06',
-    name: 'Ranjit Supramalam',
-    img: 'assets/profile-circle-5.png'
-  }, {
-    birthday: '15-06',
-    name: 'Monisha Puraj',
-    img: 'assets/profile-circle-6.png'
-  }, {
-    birthday: '20-06',
-    name: 'Johnny Manakam',
-    img: 'assets/profile-circle-1.png'
-  }, {
-    birthday: '24-02',
-    name: 'Manjan Pillai',
-    img: 'assets/profile-circle-3.png'
-  }, {
-    birthday: '24-03',
-    name: 'Bharath Singh',
-    img: 'assets/profile-circle-4.jpg'
-  }, {
-    birthday: '24-09',
-    name: 'Priyanka Puja',
-    img: 'assets/profile-circle-7.jpeg'
-  }, {
-    birthday: '24-12',
-    name: 'Kala Monashurat',
-    img: 'assets/profile-circle-8.jpeg'
-  }];
+  get birthdayPersonsArray() {
+
+    return this.args.data;
+  }
 
   birthdayPersonsValidator(birthdayPersonsArray) {
     return birthdayPersonsArray.reduce((a, person) => {
-      const personKeysArray = Object.keys(person);
-      const birthdayValid = personKeysArray[0] === 'birthday';
-      const nameValid = personKeysArray[1] === 'name';
-      const imgValid = personKeysArray[2] === 'img';
 
-      if (!(birthdayValid && nameValid && imgValid)) {
+      const {birthday, name, img} = person;
+
+      if (!(birthday && name && img)) {
         console.error(`Array passed in to 'sortPersonsByName' function must contain signature [{birthday, name, img}]`);
         return a * 0;
       } else {

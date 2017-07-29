@@ -1,7 +1,7 @@
 $selector-gap: 10px;
 
 .sermon-outlines-section {
-  height: 100vh;
+
   .sermon-details-container {
 
     margin: 2 * $standard-gap + 10px 50 / 414 * 100vw;
@@ -66,7 +66,7 @@ $selector-gap: 10px;
 
         flex-direction: column;
         justify-content: space-between;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         height: 100%;
         padding: $selector-gap 0;
         opacity: 0;
@@ -77,9 +77,12 @@ $selector-gap: 10px;
         }
 
         .sermon-point {
-          font-size: 2rem;
+          font-size: 1.3rem;
+          line-height: 1.5rem;
+          padding-bottom: $font-gap;
           font-family: 'Helvetica';
           font-weight: 200;
+          max-width: 100%;
 
         }
 
@@ -87,28 +90,29 @@ $selector-gap: 10px;
     }
   }
 
-  .sermon-title,
-  .scripture-text,
-  .sermon-text {
-    text-align: center;
+  .sermon-header-container {
+    margin-bottom: $standard-gap * 2;
+    .sermon-title,
+    .scripture-text,
+    .sermon-text {
+      text-align: center;
+      max-width: 90vw;
+      margin: 0 auto;
+      font-family: $HN;
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+    }
 
+    .sermon-title {
+      font-weight: $fw-light;
+      font-size: 2.2rem;
+      line-height: 2.5rem;
+    }
+
+    .scripture-text,
+    .sermon-text {
+      margin-top: $standard-gap * 0.5;
+    }
   }
-
-  .sermon-title {
-    font-family: $HN;
-    font-weight: $fw-light;
-    font-size: 2.5rem;
-  }
-
-  .scripture-text {
-    font-family: $HN;
-    font-size: 2rem;
-  }
-
-  .sermon-text {
-    font-family: $HN;
-    font-size: 2rem;
-  }
-
 
 }

@@ -3,15 +3,15 @@
   <header-section class={{sections.main.class}} @data={{sections.main}} />
   <history-section id="history" class="history-section" @actionHandler={{action actionHandler}} @data={{historySectionData}} />
   <fellowship-section id="fellowship" class="fellowship-section" @photosData={{personsDataForAboutSection}} @infoData={{fellowshipData}} />
-  <sermon-outlines-section id="sermon-outlines" class="sermon-outlines-section" />
-  <missionary-section id="missionary" class="missionary-section" />
+  <sermon-outlines-section id="sermon-outlines" class="sermon-outlines-section" @data={{sermonsData}} />
+  <missionary-section id="missionary" class="missionary-section" @data={{missionaryData}} />
   <letters-section id="letters" class="letters-section" @title="Our Letter to Kolkata" @letters={{ourLetters}} />
-  <gallery-section class="gallery-section" />
+  <gallery-section class="gallery-section" @data={{imageGalleryData}} />
   <letters-section class="letters-section" @title="Their Letter to Us" @letters={{theirLetters}} />
-  <friend-section id="make-a-friend" class="friend-section" />
+  <friend-section id="make-a-friend" class="friend-section" @data={{personsDataForFriendSection}} />
   <listing-section id="prayer-requests" class="listing-section" @title="Prayer Requests" @subtitle={{"Phillipians 4:6"}} @list={{prayerRequestsArray}} />
   <listing-section id="updates" class="listing-section" @title="Updates" @subtitle={{false}} @list={{updatesArray}} />
-  <birthday-section id="birthday" class="birthday-section" />
+  <birthday-section id="birthday" class="birthday-section" @data={{personsDataForBirthdaySection}} />
   <encourage-section id="encourage" class="encourage-section" />
   <kolkata-section id="kolkata" class="kolkata-section" />
 </div>
