@@ -3,9 +3,11 @@
 
   <div class="info-section {{slideLeft}}" style="transform: translate3d(-{{leftPosition}}vw, 0, 0); width: {{width}}">
     {{#each infoArray key="@index" as |info|}}
-      <h2 class="info-section-text {{info.transClass}}">{{info.title}}</h2>
-    {{/each}}
+      <span class="info-section-block">
+        <h2 class="info-section-text">{{info}}</h2>
+      </span>
 
+    {{/each}}
   </div>
 
   <div class="profile-pic-container">

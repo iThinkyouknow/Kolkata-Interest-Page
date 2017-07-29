@@ -20,69 +20,89 @@ const sectionItems = [
   'Kolkata'
 ];
 
-const dasherizedTitle = (title) => {
-  const trimmedTitle = title.trim().toLowerCase();
-  const theLessTitle = trimmedTitle.replace(/^(the\s)/ig, '');
-  const dashedTitle = theLessTitle.replace(/\s/g, '-');
-  return dashedTitle;
+
+let historySectionData = {
+  img: `assets/sanctuaryLARGE.jpg`,
+  text: `Lorem ipsum dolor. Sit amet vitae sed mauris et. Sed erat libero ullamcorper quis vestibulum vel optio in nibh semper blandit.
+  Aenean elementum purus nulla libero nibh. Vitae bibendum enim sollicitudin dicta quis.
+  Ipsum duis officia. Diam facere id. Dis augue vivamus. Vitae odio eu dictumst sapien
+  libero ornare in porttitor lorem risus neque consequat vitae aenean taciti
+  non pede vitae erat libero ullamcorper arcu eu et mi etiam. Eros mollis sed.
+  Sem elit consequat phasellus lacinia nam adipiscing sed porttitor. Pede justo et sed nullam in.
+  Aliquet varius ut lorem neque mollis. Consequat auctor lorem nisl ullamcorper a morbi minus at.
+  Vitae gravida eleifend. Pharetra metus neque omnis erat lobortis. Libero aliquam mauris quam sollicitudin ante.
+  Fugiat in nostrum nunc integer et. Lorem ipsum dolor. Sit amet vitae sed mauris et. Sed erat libero ullamcorper quis vestibulum vel optio in nibh semper blandit.
+  Aenean elementum purus nulla libero nibh. Vitae bibendum enim sollicitudin dicta quis.
+  Ipsum duis officia. Diam facere id. Dis augue vivamus. Vitae odio eu dictumst sapien
+  libero ornare in porttitor lorem risus neque consequat vitae aenean taciti
+  non pede vitae erat libero ullamcorper arcu eu et mi etiam. Eros mollis sed.
+  Sem elit consequat phasellus lacinia nam adipiscing sed porttitor. Pede justo et sed nullam in.
+  Aliquet varius ut lorem neque mollis. Consequat auctor lorem nisl ullamcorper a morbi minus at.
+  Vitae gravida eleifend. Pharetra metus neque omnis erat lobortis. Libero aliquam mauris quam sollicitudin ante.
+  Fugiat in nostrum nunc integer et.`
 };
 
-const treatedMenuItems = (array) => {
-  return array.map((section, index) => {
-    const lowerCaseSection = (typeof section === 'string') ? section.toLowerCase() : section;
+let fellowshipData = [
+  'Lorem Ipsum',
+  'Lorem Banananananana One',
+  'Lorem Banana Two',
+  'Lorem  3',
+  'Lorem Ipsum',
+  'Lorem Ipsum',
+  'Lorem 6',
+  'Lorem Ipsum',
+  'Lorem Ipsum',
+];
 
-    switch(lowerCaseSection) {
-      case `cerc`:
-        return {
-          id: lowerCaseSection,
-          link: `https://www.cerc.org.sg`,
-          class: ``,
-          title: section,
-          shortTitle: section,
-        };
-        break;
-      case `main`:
-        return {
-          id: lowerCaseSection,
-          link: ``,
-          class: `header-section`,
-          title: `The Fellowship of Kolkata`,
-          shortTitle: section,
-        };
-        break;
-      case `the missionary`:
-        return {
-          id: dasherizedTitle(section),
-          link: ``,
-          class: `${dasherizedTitle(section)}-section`,
-          title: missionary,
-          shortTitle: section,
-        };
-        break;
-      default:
-        return {
-          id: dasherizedTitle(section),
-          link: ``,
-          class: `${dasherizedTitle(section)}-section`,
-          title: section,
-          shortTitle: section,
-        };
-    }
-  });
-};
-
-
-const idMapGenerator = (array) => {
-  if (!Array.isArray(array)) return {array: array};
-  return array.reduce((acc, item, index) => {
-    if (item.id === undefined || item.id === null) return Object.assign(acc, {index: item});
-    return Object.assign(acc, {[item.id]: item});
-  }, {});
-};
-
-const compose = (acc, fn) => {
-  if (typeof fn !== 'function') return acc;
-  return fn(acc);
+let personsData = {
+  'Sudip Van Dyker': {
+    birthday: '24-06',
+    name: 'Sudip Van Dyker',
+    img: 'assets/profile-circle-2.png',
+    text: ``
+  },
+  'Ranjit Supramalam': {
+    birthday: '24-06',
+    name: 'Ranjit Supramalam',
+    img: 'assets/profile-circle-5.png',
+    text: ``
+  },
+  'Monisha Puraj': {
+    birthday: '15-06',
+    name: 'Monisha Puraj',
+    img: 'assets/profile-circle-6.png',
+    text: ``
+  },
+  'Johnny Manakam': {
+    birthday: '20-06',
+    name: 'Johnny Manakam',
+    img: 'assets/profile-circle-1.png',
+    text: ``
+  },
+  'Manjan Pillai': {
+    birthday: '24-02',
+    name: 'Manjan Pillai',
+    img: 'assets/profile-circle-3.png',
+    text: ``
+  },
+  'Bharath Singh': {
+    birthday: '24-03',
+    name: 'Bharath Singh',
+    img: 'assets/profile-circle-4.jpg',
+    text: ``
+  },
+  'Priyanka Puja': {
+    birthday: '24-09',
+    name: 'Priyanka Puja',
+    img: 'assets/profile-circle-7.jpeg',
+    text: ``
+  },
+  'Kala Monashurat': {
+    birthday: '24-12',
+    name: 'Kala Monashurat',
+    img: 'assets/profile-circle-8.jpeg',
+    text: ``
+  }
 };
 
 
@@ -339,8 +359,76 @@ let updatesData = [
     content: 'Updates 1',
     valid: true,
     date: '2017-04-09'
-  }
-];
+  };
+
+
+  //////////data end
+
+const dasherizedTitle = (title) => {
+  const trimmedTitle = title.trim().toLowerCase();
+  const theLessTitle = trimmedTitle.replace(/^(the\s)/ig, '');
+  const dashedTitle = theLessTitle.replace(/\s/g, '-');
+  return dashedTitle;
+};
+
+const treatedMenuItems = (array) => {
+  return array.map((section, index) => {
+    const lowerCaseSection = (typeof section === 'string') ? section.toLowerCase() : section;
+
+    switch(lowerCaseSection) {
+      case `cerc`:
+        return {
+          id: lowerCaseSection,
+          link: `https://www.cerc.org.sg`,
+          class: ``,
+          title: section,
+          shortTitle: section,
+        };
+        break;
+      case `main`:
+        return {
+          id: lowerCaseSection,
+          link: ``,
+          class: `header-section`,
+          title: `The Fellowship of Kolkata`,
+          shortTitle: section,
+        };
+        break;
+      case `the missionary`:
+        return {
+          id: dasherizedTitle(section),
+          link: ``,
+          class: `${dasherizedTitle(section)}-section`,
+          title: missionary,
+          shortTitle: section,
+        };
+        break;
+      default:
+        return {
+          id: dasherizedTitle(section),
+          link: ``,
+          class: `${dasherizedTitle(section)}-section`,
+          title: section,
+          shortTitle: section,
+        };
+    }
+  });
+};
+
+
+const idMapGenerator = (array) => {
+  if (!Array.isArray(array)) return {array: array};
+  return array.reduce((acc, item, index) => {
+    if (item.id === undefined || item.id === null) return Object.assign(acc, {index: item});
+    return Object.assign(acc, {[item.id]: item});
+  }, {});
+};
+
+const compose = (acc, fn) => {
+  if (typeof fn !== 'function') return acc;
+  return fn(acc);
+};
+
 
 const singlePropertyCallback = (property) => (x) => {
   if (x[property] !== undefined && x[property] !== null) {
@@ -369,6 +457,11 @@ const getUpdatesData = (maxNum) => (updates) => {
   return filterSliceMap(updates)([-maxNumber]);
 };
 
+/********************************************
+ *
+ *
+ *
+ ********************************************/
 
 export default class KolkataInterestPage extends Component {
   @tracked gray = '';
@@ -378,7 +471,6 @@ export default class KolkataInterestPage extends Component {
   get sections() {
     const sectionsObj = [treatedMenuItems, idMapGenerator].reduce(compose, sectionItems);
     log(`something special`);
-
     return sectionsObj;
   }
 
@@ -391,9 +483,18 @@ export default class KolkataInterestPage extends Component {
     this[action](params);
   }
 
+  historySectionData = historySectionData;
+
+  get personsDataForAboutSection() {
+    const personsKeys = Object.keys(personsData);
+    const personsArray = personsKeys.map((person) => personsData[person].img);
+    return personsArray;
+  }
+
+  fellowshipData = fellowshipData;
+
   theirLetters = theirLettersData;
   ourLetters = ourLettersData;
-
 
   prayerRequestsArray = getPrayerRequestsData(maxNumber())(prayerRequestsData);
 

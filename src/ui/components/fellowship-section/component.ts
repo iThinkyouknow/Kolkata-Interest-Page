@@ -1,59 +1,17 @@
 import Component, {tracked} from '@glimmer/component';
+const {log, clear} = console;
 
 export default class FellowshipSection extends Component {
   timeIntervalObj = {};
   timeOut;
 
   @tracked photosArraySource = [{
-    img: 'assets/profile-circle-1.png',
-    className: null
-  }, {
-    img: 'assets/profile-circle-5.png',
-    className: null
-  }, {
-    img: 'assets/profile-circle-2.png',
-    className: null
-  }, {
-    img: 'assets/profile-circle-6.png',
-    className: null
-  }, {
-    img: 'assets/profile-circle-3.png',
-    className: null
-  }, {
-    img: 'assets/profile-circle-7.jpeg',
-    className: null
-  }, {
-    img: 'assets/profile-circle-4.jpg',
-    className: null
-  }, {
-    img: 'assets/profile-circle-8.jpeg',
-    className: null
-  }, {
-    img: 'assets/profile-circle-9.jpeg',
-    className: null
-  }, {
-    img: 'assets/profile-circle-10.png',
-    className: null
-  }
-  ];
-
-
-  @tracked infoArray = [{
-    title: 'Lorem Ipsum',
-    transClass: null
-  }, {
-    title: 'Lorem One',
-    transClass: null
-  }, {
-    title: 'Lorem Two',
-    transClass: null
-  }, {
-    title: 'Lorem Three',
-    transClass: null
-  },{
-    title: 'Lorem Ipsum Lorem psum Lorem Ipsum ',
-    transClass: null
+    img: '',
+    className: ''
   }];
+
+
+  @tracked infoArray = [''];
 
 
 //photos
@@ -109,7 +67,7 @@ export default class FellowshipSection extends Component {
 
   removeFadeInClass() {
     this.photosArraySource.forEach((photo) => {
-      photo.className = null;
+      photo.className = undefined;
     });
   }
 
@@ -125,7 +83,9 @@ export default class FellowshipSection extends Component {
   //info
   @tracked slideLeft = 'slide-left';
 
+  @tracked('infoArray')
   get width() {
+    log(`${this.infoArray.length * 100}vw`);
     return `${this.infoArray.length * 100}vw`;
   }
 
@@ -149,7 +109,16 @@ export default class FellowshipSection extends Component {
     }, 2000);
 
     return this.infoCycle * 100;
-}
+  }
+
+  didInsertElement() {
+
+    this.photosArraySource = this.args.photosData.map((img) => {return {img: img, className: undefined}});
+    this.infoArray = this.args.infoData;
+    log(`this.args.infoData`);
+    log(this.args.infoData);
+  }
+
 
   willDestroyElement() {
     Object.keys(this.timeIntervalObj).forEach(key => {

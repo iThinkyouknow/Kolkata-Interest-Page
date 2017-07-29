@@ -3,8 +3,10 @@
   height: 100vh;
   background-color: $off-white;
   position: relative;
+  font-size: 0;
 
   .info-section {
+    display: flex;
     left: 0;
     position: relative;
     margin: $standard-gap auto;
@@ -18,22 +20,25 @@
       transition: transform 0.3s linear;
     }
 
-
-
-
+    .info-section-block {
+      width: 100vw;
+      align-self: center;
+      align-content: center;
+      display: inline-block;
+      top: 0;
+      justify-content: center;
+    }
 
     .info-section-text {
       position: relative;
-      //left: 100vw;
-      top: 0;
-      //margin-left: 100vw;
-      display: inline-block;
+      margin: 0 auto;
       vertical-align: middle;
       font-family: $HN;
       font-weight: 100;
       font-size: 4rem;
       text-align: center;
-      width: 100vw;
+      width: 90vw;
+      overflow: hidden;
       white-space: normal;
 
 
