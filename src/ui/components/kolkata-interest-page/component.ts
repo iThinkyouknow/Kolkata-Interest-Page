@@ -55,6 +55,7 @@ let historySectionData = {
 };
 
 let fellowshipData = [
+  'Location:',
   'Stayan Park, Joka, Kolkata, (southern part of Kolkata)',
   'Activities:',
   'Sunday evening at 5:30 PM',
@@ -114,68 +115,108 @@ let sermonsData = {
 };
 
 let personsData = {
-  'Sudip Van Dyker': {
-    birthday: '24-06',
-    name: 'Sudip Van Dyker',
-    img: 'assets/profile-circle-2.png',
-    text: `Sudip Lorem ipsum dolor. Sit amet vitae sed mauris et.
-  Sed erat libero ullamcorper quis vestibulum vel optio in nibh semper blandit.
-  Aenean elementum purus nulla libero nibh. Vitae bibendum enim sollicitudin dicta quis.
-  Ipsum duis officia. Diam facere id. Dis augue vivamus. Vitae odio eu dictumst sapien libero ornare in porttitor
-  lorem risus neque consequat vitae aenean taciti non pede vitae erat libero ullamcorper arcu eu et mi etiam.
-  Eros mollis sed. Sem elit consequat phasellus lacinia nam adipiscing sed porttitor. Pede justo et sed nullam in.
-  Aliquet varius ut lorem neque mollis.`
-  },
-  'Ranjit Supramalam': {
-    birthday: '24-06',
-    name: 'Ranjit Supramalam',
+  'Avijit Sirkar': {
+    birthday: '05-12',
+    name: 'Avijit Sirkar',
+    familyPos: '',
     img: 'assets/profile-circle-5.png',
-    text: `Ranjit Lorem ipsum dolor. Sit amet vitae sed mauris et.
-  Sed erat libero ullamcorper quis vestibulum vel optio in nibh semper blandit.
-  Aenean elementum purus nulla libero nibh. Vitae bibendum enim sollicitudin dicta quis.
-  Ipsum duis officia. Diam facere id. Dis augue vivamus. Ranjit Lorem ipsum dolor. Sit amet vitae sed mauris et.
-  Sed erat libero ullamcorper quis vestibulum vel optio in nibh semper blandit.
-  Aenean elementum purus nulla libero nibh. Vitae bibendum enim sollicitudin dicta quis.
-  Ipsum duis officia. Diam facere id. Dis augue vivamus. Ranjit Lorem ipsum dolor. Sit amet vitae sed mauris et.
-  Sed erat libero ullamcorper quis vestibulum vel optio in nibh semper blandit.
-  Aenean elementum purus nulla libero nibh. Vitae bibendum enim sollicitudin dicta quis.
-  Ipsum duis officia. Diam facere id. Dis augue vivamus.`
+    imgFamily: 'assets/profile-circle-5.png',
+    text: [`Avijit Sirkar comes from an orthodox Christian family. He has been with CERC Kolkata Fellowship for the past three years. 
+    His brother is married to Tandra Sirkar. 
+    He has two children: Julia and Joel. Avijit works for an insurance company as an agent.`,
+    `Rev Emmanuel met Avijit in 2012 while Rev Emmanuel was preaching in a small family gathering in the Kobordanga area. 
+    Since that time, Rev Emmanuel has developed a good relationship with him. 
+    He is also proactive in helping out with the evangelism work of Rev Emmanuel. 
+    They mostly go together for outreach and evangelism to make friendship with new contacts. 
+    This family is very friendly and loves the Reformed faith.`
+    ],
+    familyMembers: [
+      'Tandra Sirkar',
+      'Julia Avisikta Sirkar',
+      'Joel Rickjeet Sirkar'
+    ]
   },
-  'Monisha Puraj': {
-    birthday: '15-06',
-    name: 'Monisha Puraj',
-    img: 'assets/profile-circle-6.png',
-    text: ``
+  'Tandra Sirkar': {
+    birthday: '23-02',
+    name: 'Tandra Sirkar',
+    familyPos: 'wife',
+    img: 'assets/profile-circle-5.png',
+    imgFamily: 'assets/profile-circle-5.png',
+    text: [``],
+    familyMembers: [
+      'Avijit Sirkar',
+      'Julia Avisikta Sirkar',
+      'Joel Rickjeet Sirkar'
+    ]
   },
-  'Johnny Manakam': {
-    birthday: '20-06',
-    name: 'Johnny Manakam',
-    img: 'assets/profile-circle-1.png',
-    text: ``
+  'Julia Avisikta Sirkar': {
+    birthday: '08-08',
+    name: 'Julia Avisikta Sirkar',
+    familyPos: 'daughter',
+    img: 'assets/profile-circle-5.png',
+    imgFamily: 'assets/profile-circle-5.png',
+    text: [``],
+    familyMembers: [
+      'Avijit Sirkar',
+      'Julia Avisikta Sirkar',
+      'Joel Rickjeet Sirkar'
+    ]
   },
-  'Manjan Pillai': {
-    birthday: '24-02',
-    name: 'Manjan Pillai',
-    img: 'assets/profile-circle-3.png',
-    text: ``
+  'Joel Rickjeet Sirkar': {
+    birthday: '14-04',
+    name: 'Joel Rickjeet Sirkar',
+    familyPos: 'son',
+    img: 'assets/profile-circle-5.png',
+    imgFamily: 'assets/profile-circle-5.png',
+    text: [``],
+    familyMembers: [
+      'Avijit Sirkar',
+      'Julia Avisikta Sirkar',
+      'Joel Rickjeet Sirkar'
+    ]
   },
-  'Bharath Singh': {
+  'Bikash Chandra Seth': {
+    birthday: '06-01',
+    name: 'Bikash Chandra Seth',
+    familyPos: '',
+    img: 'assets/profile-circle-5.png',
+    imgFamily: 'assets/profile-circle-5.png',
+    text: [`Bikash Chandra Seth and Mrs Jaya Rani Seth came from a Hindu background. 
+    Rev Emmanuel has been instructing them in the Reformed Faith for the past two years. 
+    They originally came to know about christianity from the “New Apostolic Church” which is very much a cult like the “Jehovah’s Witnesses”. 
+    This family was introduce to the fellowship by Sudip Halder. We often have Bible studies in their home when they are free. 
+    They are attending the Baptism class. God willing, the family will be baptized.`,
+      `The family has one son - Mohan who is sixteen years old. He has just completed schooling this year.`,
+      `Bikash works in a firm as a daily Labourer.`
+    ],
+    familyMembers: [
+      'Jaya Rani Seth',
+      'Mohan Seth'
+    ]
+  },
+  'Jaya Rani Seth': {
     birthday: '24-03',
-    name: 'Bharath Singh',
-    img: 'assets/profile-circle-4.jpg',
-    text: ``
+    name: 'Jaya Rani Seth',
+    familyPos: 'wife',
+    img: 'assets/profile-circle-5.png',
+    imgFamily: 'assets/profile-circle-5.png',
+    text: [``],
+    familyMembers: [
+      'Bikash Chandra Seth',
+      'Mohan Seth'
+    ]
   },
-  'Priyanka Puja': {
-    birthday: '24-09',
-    name: 'Priyanka Puja',
-    img: 'assets/profile-circle-7.jpeg',
-    text: ``
-  },
-  'Kala Monashurat': {
-    birthday: '24-12',
-    name: 'Kala Monashurat',
-    img: 'assets/profile-circle-8.jpeg',
-    text: ``
+  'Mohan Seth': {
+    birthday: '10-04',
+    name: 'Mohan Seth',
+    familyPos: 'son',
+    img: 'assets/profile-circle-5.png',
+    imgFamily: 'assets/profile-circle-5.png',
+    text: [``],
+    familyMembers: [
+      'Bikash Chandra Seth',
+      'Jaya Rani Seth'
+    ]
   }
 };
 
@@ -183,80 +224,139 @@ let personsKeys = Object.keys(personsData);
 
 
 let ourLettersData = {
+  '2017-02': {
+    date: '2017-02',
+    letterContent: [`Dearly beloved saints in Kolkata, India:`,
+`Greetings in the name of our Lord and Savior, Jesus Christ, whose precious blood has redeemed us from all our sin!`,
+`We thank God for your faith in Jesus Christ, and for your love of the gospel, which is the power of God unto salvation. 
+Rev. Emmanuel Singh has told us about your desire to learn Reformed doctrine, and about your gratitude for the faithful preaching of the Scriptures. 
+We pray that God will continue to give you this holy desire, and that He will fill your hearts with the knowledge and love of Him as you receive the instruction of His Word.`,
+`We are sending you this letter to encourage you in your faith, and to keep you informed of our plans. 
+CERC in Singapore has appointed a Foreign Mission Committee (FMC) to work with Rev. Singh. 
+Pastor Emmanuel and the FMC will be communicating regularly, and he will keep you up to date on our various plans. 
+Nevertheless, we also would like to write to you from time to time in order to encourage you as brothers and sisters in Christ.`,
+`The most recent news from Singapore is the calling of Rev. Emmanuel Singh as missionary- pastor to Kolkata. 
+With gratitude to God, CERC installed Rev. Singh into the ministry of the gospel on 8 January 2017. 
+We are thankful to God for calling this brother to be His servant in Kolkata, and we pray that God will bless Pastor Emmanuel’s ministry among you. 
+Through the faithful preaching of the gospel, God saves His church, and nourishes our souls to everlasting life. 
+May God bless your fellowship through His servant.`,
+`We also are eagerly looking forward to the Kolkata Church Camp, with a target date in April 2017. 
+Brother Sudip is chairing the committee that is planning the camp, and a few of us from Singapore are assisting in the planning, along with Rev. Singh. 
+We pray that God will give us a time of spiritual profit as we study together what the Bible says about the church.`,
+`The topic of the church is important for us to study, because the next goal that we have in Kolkata is the organization of your fellowship as a church. 
+Although we do not know how long this will take; we are committed to working with you in following the principle of God’s Word regarding organization. 
+We will continue discussing with you at the upcoming Kolkata Church Camp as well as in future letters. 
+The most important thing is for the fellowship to be committed to the truth of the Bible, which is the revelation of God in Jesus Christ. 
+Through Rev. Singh’s preaching, through the Kolkata Church Camp, through your Bible Studies, and through your own personal study, God will immerse you in the Reformed faith. 
+We encourage you to study hard and to persevere in your learning, as God establishes a Reformed church in Kolkata through you.`,
+`Our church prays for you every Sunday in Singapore during our worship service. Many of our members also pray for you individually in our homes. We thank God for you, and may our faithful Father continue to bless you as you worship His holy name.`,
+`In Christ’s love,`,
+`Foreign Mission Committee of CERC Singapore`],
+    pdfLink: ''
+  },
   '2017-03': {
     date: '2017-03',
-    letterContent: `March Our Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-      arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-      arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
-    pdfLink: 'March'
-  },
-  '2017-04': {
-    date: '2017-04',
-    letterContent: `April Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-      arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-      arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
-    pdfLink: 'April'
+    letterContent: [
+      `Dearly beloved saints in Kolkata, India:`,
+      `Greetings in the name of Jesus Christ, whose blood washes away all our sins.`,
+      `Each time the Foreign Mission Committee of CERC meets, we begin with devotions. 
+      Today, our reading of God's Word included Acts 2:47 – "And the Lord added daily to the church such as should be saved." 
+      We would like to share some thoughts from this passage for your encouragement as we serve the Lord together.`,
+      `This verse records the growth of the church after Pentecost. 
+      Those must have been exciting days, as more and more people joined the church. 
+      In fact, every day, new people were being added, for the Lord added daily such as should be saved. We still live in exciting days today. 
+      Even though God does not usually add so many new people at one time anymore, He still brings new people to His church. 
+      Perhaps you have experienced this, as visitors join your worship services, and some of them return each week to hear the gospel. 
+      Be encouraged that God will make you grow and add new members in His own perfect time and according to His own perfect will.`,
+      `This verse also teaches us that God is sovereign in the gathering of His church. 
+      We are not able to reach peoples' hearts by our power, or make them understand and believe the gospel by our wisdom. 
+      Only God is able to do this, for we read, "The Lord added to the church...." 
+      God knows exactly how many He wants to add, and exactly whom He has chosen to add, for these are His chosen elect. 
+      They are "such as should be saved." 
+      What a great comfort for us as Christ's church! 
+      The gathering of the church depends on God, who is mighty to save His people! 
+      If our growth is fast or slow, this is all part of the sovereign work of God. 
+      Therefore, beloved saints, do not worry or fret about your rate of growth, but put your trust in God, and He will add such as should be saved.`,
+      `Finally, we learn from this verse that God uses the means of the gospel to save His people and add to His church. 
+      Acts 2 describes what happened at Pentecost, and most of the chapter is Peter's sermon about salvation through Jesus Christ. 
+      This sermon was the glorious gospel that God used to save His people in those days, and the good news of salvation in Jesus Christ is still how God gathers His church today.`,
+      `Therefore, preach the gospel! 
+      Rev. Singh, be faithful in preaching and teaching the truth. 
+      Fellow saints, be faithful in receiving the truth, and sharing it with others in your life as you have opportunity. 
+      Be faithful in evangelism for this is the chief calling of a Reformed church. 
+      Through this means, God will add to the church such as should be saved.`,
+      `We continue to pray for you, giving thanks to God for your love of the truth and your faithfulness in the gospel. 
+      We look forward to seeing you soon during your church camp in April.`,
+      `May God bless you and keep you through Jesus Christ our Lord.`,
+      `Your servants in Christ's love,`,
+      `The Foreign Mission Committee of CERC Singapore`
+    ],
+    pdfLink: ''
   },
   '2017-05': {
     date: '2017-05',
-    letterContent: `May Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-      arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-      arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
-    pdfLink: 'May'
+    letterContent: [
+      `Dearly beloved saints of CERC Kolkata,`,
+      `Greetings from Singapore in the name of the Lamb of God, who has cleansed us from all our sin!`,
+      `Elder Leong, Uncle Ishu, Uncle Boon, and Pastor Lanning returned home a few weeks ago. 
+      They reported that they enjoyed your fellowship at the church camp, and that the church camp seemed to be a good success. 
+      We thank God that they were able to fellowship with you in the Word of God and study the precious truth of the church.`,
+      `In CERC Singapore, we have begun a series of sermons from the Epistle of Paul to the Galatians. 
+      We would like to encourage you from Galatians 1:11 – 
+      “But I certify you, brethren, that the gospel which was preached of me is not after man.” 
+      Paul teaches that the gospel he preached did not come from man, but from Jesus Christ Himself. 
+      This is a great encouragement to God’s people, because we can be sure that truth of the Bible is not our word, but God’s. 
+      When we hear that Word, we are hearing God Himself!`,
+      `As God’s Word, the Bible is powerful. 
+      In another place, Paul calls the gospel “the power of God unto salvation to everyone that believeth” (Romans 1:16). 
+      This gospel, as the powerful Word of God, calls sinners unto eternal life. 
+      This is our experience and your experience as we sit under the preaching of the gospel together. 
+      We, who are sinners, are saved by Jesus Christ, proclaimed in the gospel! 
+      This gospel is also the power to deliver others in our neighborhoods, in our families, in our workplaces from their sin and death. 
+      The gospel of Jesus Christ is God’s power to save.`,
+      `Therefore, we urge you, brethren: Preach the gospel. 
+      By this means, God will continue to build you up in His grace. 
+      And by this means, God will continue to add to you such as should be saved.`,
+      `We are glad for your faithfulness to the gospel of God. We pray that He will continue to give you and us His precious Word.`,
+      `We still pray for you every week in our worship services. We love you in the Lord, and think of you often.`,
+      `Warmly in Christ,`,
+      `The Foreign Mission Committee of Covenant Evangelical Reformed Church in Singapore`
+    ],
+    pdfLink: ''
   },
-  '2017-12': {
-    date: '2017-12',
-    letterContent: `December Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-      arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-      arch Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
+  '2017-07': {
+    date: '2017-07',
+    letterContent: [
+      `Dearly beloved saints of Covenant Evangelical Reformed Church (Fellowship) in Kolkata,`,
+      `Greetings from Singapore in the name of our Saviour, Jesus Christ, who gathers His church from all nations.`,
+      `We pray that you are enjoying our heavenly Father’s blessings on your Fellowship as you continue to worship our covenant God. 
+      We remember you in prayer each week during our worship services in CERC Singapore, and we are confident that God will continue to bless you and keep you by His gospel.`,
+      `In the last few months, the Session of CERC Singapore has made some decisions regarding the work in Kolkata. We would like to use this letter to keep you informed of our plans.`,
+      `First, our overall goal is to organize CERC (Fellowship) Kolkata as an instituted church in about one year’s time. 
+      We observe that you have studied the Reformed faith for several years now, you have completed one round of the Heidelberg Catechism, you are nearing the completion of the Belgic Confession, and you have studied the five points of Calvinism (TULIP). 
+      In addition, you have received the faithful Reformed preaching of Rev. Singh for several years. 
+      We also heard from our delegation to your Church Camp in April that you desire to be organized as a church, so that there can be a Reformed presence in Kolkata for many generations to come. 
+      We rejoice with you in this goal, and we pray that God will bring our plans to completion.`,
+      `That means this next year is very important for your Fellowship, because there are two important steps to take to prepare for organization. 
+      The first step is to complete the Membership Class that Rev. Singh is teaching. 
+      Everyone who wants to be a member of CERC Kolkata should complete this class over the next year, so that everyone can join the church with the same doctrinal understanding of the truth of God’s Word, as taught in the Reformed confessions. 
+      After you complete the class, you will be able to join the church through an interview and a public Confession of Faith. 
+      Those who have not yet been baptized will also receive the sacrament of baptism at that occasion. 
+      By this, you will become the first (charter) members of the CERC Kolkata when it is organized next year, Lord willing.`,
+      `The second step is to complete the Office-bearer’s Class that Rev. Singh will be teaching. 
+      This class will prepare men to be chosen as elders and deacons to serve the church when it is organized. It is very important that the office-bearers are committed to the Reformed faith, so that they can lead the church in maintaining and promoting the truth of God’s Word. 
+      This class will be open to everyone to attend, so that the entire Fellowship can see in more detail what is the work and calling of an elder, deacon, and minister in Christ’s church.`,
+      `We encourage you to study hard in these classes, and to pray earnestly. 
+      In this way, God will finish preparing you to be organized as a faithful Reformed church.`,
+      `We encourage you to study hard in these classes, and to pray earnestly. 
+      In this way, God will finish preparing you to be organized as a faithful Reformed church.`,
+      `Although these are our plans, we must also acknowledge that God alone is in control of all things. 
+      Therefore, we submit ourselves to His perfect will, praying that He will bring these things to pass in His perfect time.`,
+      `We thank God for your fellowship in the gospel. 
+      May our gracious Lord continue to bless you and keep you in His sovereign hand.`,
+      `Warmly in Christ,`,
+      `The Foreign Mission Committee of Covenant Evangelical Reformed Church in Singapore`
+    ],
     pdfLink: 'December'
   }
 };
@@ -265,79 +365,8 @@ let ourLettersData = {
 let theirLettersData = {
   '2017-03': {
     date: '2017-03',
-    letterContent: `March their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-      arch their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-      arch their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
-    pdfLink: 'March'
-  },
-  '2017-04': {
-    date: '2017-04',
-    letterContent: `April their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-      arch their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-      arch their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
-    pdfLink: 'April'
-  },
-  '2017-05': {
-    date: '2017-05',
-    letterContent: `May their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-      arch their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-      arch their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
-    pdfLink: 'May'
-  },
-  '2017-12': {
-    date: '2017-12',
-    letterContent: `December their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-      arch their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-      arch their Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. 
-      Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, 
-      sem Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem`,
-    pdfLink: 'December'
+    letterContent: [''],
+    pdfLink: ''
   }
 };
 
@@ -583,9 +612,64 @@ export default class KolkataInterestPage extends Component {
   imageGalleryData = imageGalleryData;
 
   get personsDataForFriendSection() {
-    const personsKeysArray = personsKeys.filter((person) => personsData[person].text).reverse();
+    const personsKeysArray = personsKeys.filter((person) => personsData[person].text[0]).reverse();
     const personsArray = personsKeysArray.reduce((acc, key) => acc.concat(personsData[key]), []);
-    return personsArray;
+
+    const familyFn = (person, familyArray, index, finalObj) => {
+      log(person);
+      log(familyArray);
+      log(index);
+      log(finalObj);
+
+      if (!Array.isArray(familyArray) || (typeof person.familyPos !== 'string') || familyArray.length < 1) return {
+        ...person,
+        familyMembers: {}
+      };
+
+      console.log(`stepped through`);
+
+      let newObj;
+      const fMember = familyArray[index];
+
+      if (person.familyPos.trim() === '') {
+        if (personsData[fMember].familyPos === 'wife') {
+          newObj = {...finalObj, wife: fMember};
+        } else if (personsData[fMember].familyPos === 'son') {
+          newObj = {...finalObj, sons: finalObj.sons ? [...finalObj.sons, fMember] : [fMember]};
+        } else if (personsData[fMember].familyPos === 'daughter') {
+          newObj = {...finalObj, daughters: finalObj.daughters ? [...finalObj.daughters, fMember] : [fMember]};
+        }
+      } else if (person.familyPos.trim() === 'wife') {
+        if (personsData[fMember].familyPos === '') {
+          newObj = {...finalObj, husband: fMember};
+        } else if (personsData[fMember].familyPos === 'son') {
+          newObj = {...finalObj, sons: finalObj.sons ? [...finalObj.sons, fMember] : [fMember]};
+        } else if (personsData[fMember].familyPos === 'daughter') {
+          newObj = {...finalObj, daughters: finalObj.daughters ? [...finalObj.daughters, fMember] : [fMember]};
+        }
+      } else if (person.familyPos.trim() === 'son' || person.familyPos.trim() === 'daughter') {
+        if (personsData[fMember].familyPos === '') {
+          newObj = {...finalObj, father: fMember};
+        } else if (personsData[fMember].familyPos === 'wife') {
+          newObj = {...finalObj, mother: fMember};
+          //todo siblings
+      }
+
+
+      const newIndex = index + 1;
+      if (newIndex < familyArray.length) {
+        return familyFn(person, familyArray, newIndex, newObj);
+      } else {
+        return {...person, familyMembers: newObj };
+      }
+    };
+
+    const personsWFamilyArray = personsArray.map(person => {
+
+      return familyFn(person, person.familyMembers, 0, {});
+    });
+
+    return personsWFamilyArray;
   };
 
   get personsDataForBirthdaySection() {

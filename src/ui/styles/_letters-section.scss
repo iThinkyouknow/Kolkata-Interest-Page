@@ -17,11 +17,15 @@
 
   .letter-container {
     position: relative;
-    height: 45vh;
+    height: 45vh * 1.005;
+    overflow: hidden;
 
     .letter {
-      max-height: 45vh;
       overflow: hidden;
+
+      &:not(:first-child) {
+        margin-top: $standard-gap;
+      }
     }
 
     .veil {

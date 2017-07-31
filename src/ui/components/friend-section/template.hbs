@@ -5,7 +5,10 @@
       <div class="friend-container">
         <img src={{friend.img}} class="friend-picture" alt="">
         <h1 class="name">{{friend.name}}</h1>
-        <p class="description">{{friend.text}}</p>
+        {{#each friend.text key="@index" as |para|}}
+          <p class="description">{{para}}</p>
+        {{/each}}
+
       </div>
     {{/each}}
   </div>

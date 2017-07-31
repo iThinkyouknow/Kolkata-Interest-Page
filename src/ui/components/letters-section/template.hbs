@@ -8,7 +8,9 @@
 
 
   <div class="letter-container">
-    <p class="letter">{{letterContent}}</p>
+    {{#each letterContent key="@index" as |para|}}
+      <p class="letter">{{para}}</p>
+    {{/each}}
     <div class="veil hide-for-large" />
   </div>
 

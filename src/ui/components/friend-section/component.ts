@@ -1,4 +1,5 @@
 import Component, {tracked} from '@glimmer/component';
+const {log} = console;
 
 export default class FriendSection extends Component {
   @tracked friendNumber = 0;
@@ -26,8 +27,10 @@ export default class FriendSection extends Component {
   }
 
   get friends() {
+    log(this.args.data);
     return this.args.data
   }
+
 
 };
 

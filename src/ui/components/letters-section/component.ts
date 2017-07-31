@@ -22,7 +22,9 @@ export default class LetterSection extends Component {
   @tracked('selectedMonth')
   get letterContent() {
     const letters = this.args.letters;
-    return letters[this.availableMonth].letterContent;
+    return letters[this.availableMonth] ?
+      letters[this.availableMonth].letterContent :
+      letters[this.letterKeysArray[this.letterKeysArray.length - 1]].letterContent;
   }
 
   get letterDates() {
