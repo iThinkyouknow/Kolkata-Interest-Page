@@ -567,6 +567,88 @@ const getUpdatesData = (maxNum) => (updates) => {
   return filterSliceMap(updates)([-maxNumber]);
 };
 
+
+const familyPosChooser = (_personsData) => (person) => (fMember) => {
+  if (person.familyPos.trim() === '') {
+    if (_personsData[fMember].familyPos === 'wife') {
+      return {wife: fMember};
+    } else if (_personsData[fMember].familyPos === 'son') {
+      return {sons: fMember};
+    } else if (_personsData[fMember].familyPos === 'daughter') {
+      return {daughters: fMember};
+    } else {
+      return {};
+    }
+  } else if (person.familyPos.trim() === 'wife') {
+    if (_personsData[fMember].familyPos === '') {
+      return {husband: fMember};
+    } else if (_personsData[fMember].familyPos === 'son') {
+      return {sons: fMember};
+    } else if (_personsData[fMember].familyPos === 'daughter') {
+      return {daughters: fMember};
+    } else {
+      return {};
+    }
+  } else if (person.familyPos.trim() === 'son' || person.familyPos.trim() === 'daughter') {
+    if (_personsData[fMember].familyPos === '') {
+      return {father: fMember};
+    } else if (_personsData[fMember].familyPos === 'wife') {
+      return {mother: fMember};
+
+    } else if (_personsData[fMember].familyPos === 'son') {
+      return {brothers: fMember};
+    } else if (_personsData[fMember].familyPos === 'daughter') {
+      return {sisters: fMember};
+    } else {
+      return {};
+    }
+  } else {
+    return {};
+  }
+};
+
+const familyObjBuilder = (acc, obj) => {
+  log(`obj`);
+  log(obj);
+  log(acc);
+  const familyPosChecker = (type) => (accc) => (object) => {
+    return (object[type] !== undefined && object[type] !== null);
+  };
+
+  const sonsPresent = familyPosChecker('sons')(acc)(obj);
+  const daughtersPresent = familyPosChecker('daughters')(acc)(obj);
+  const brothersPresent = familyPosChecker('brothers')(acc)(obj);
+  const sistersPresent = familyPosChecker('sisters')(acc)(obj);
+
+  if (sonsPresent) {
+    if (Array.isArray(acc['sons']) && acc['sons'].length > 0) {
+      return {...acc, sons: [...acc['sons'], obj['sons']]};
+    } else {
+      return {...acc, sons: [obj['sons']]};
+    }
+  } else if (daughtersPresent) {
+    if (Array.isArray(acc['daughters']) && acc['daughters'].length > 0) {
+      return {...acc, daughters: [...acc['daughters'], obj['daughters']]};
+    } else {
+      return {...acc, daughters: [obj['daughters']]};
+    }
+  } else if (brothersPresent) {
+    if (Array.isArray(acc['brothers']) && acc['brothers'].length > 0) {
+      return {...acc, brothers: [...acc['brothers'], obj['brothers']]};
+    } else {
+      return {...acc, brothers: [obj['brothers']]};
+    }
+  } else if (sistersPresent) {
+    if (Array.isArray(acc['sisters']) && acc['sisters'].length > 0) {
+      return {...acc, sisters: [...acc['sisters'], obj['sisters']]};
+    } else {
+      return {...acc, sisters: [obj['sisters']]};
+    }
+  } else {
+    return {...acc, ...obj};
+  }
+};
+
 /********************************************
  *
  *
@@ -612,62 +694,15 @@ export default class KolkataInterestPage extends Component {
   imageGalleryData = imageGalleryData;
 
   get personsDataForFriendSection() {
-    const personsKeysArray = personsKeys.filter((person) => personsData[person].text[0]).reverse();
-    const personsArray = personsKeysArray.reduce((acc, key) => acc.concat(personsData[key]), []);
-
-    const familyFn = (person, familyArray, index, finalObj) => {
-      log(person);
-      log(familyArray);
-      log(index);
-      log(finalObj);
-
-      if (!Array.isArray(familyArray) || (typeof person.familyPos !== 'string') || familyArray.length < 1) return {
-        ...person,
-        familyMembers: {}
-      };
-
-      console.log(`stepped through`);
-
-      let newObj;
-      const fMember = familyArray[index];
-
-      if (person.familyPos.trim() === '') {
-        if (personsData[fMember].familyPos === 'wife') {
-          newObj = {...finalObj, wife: fMember};
-        } else if (personsData[fMember].familyPos === 'son') {
-          newObj = {...finalObj, sons: finalObj.sons ? [...finalObj.sons, fMember] : [fMember]};
-        } else if (personsData[fMember].familyPos === 'daughter') {
-          newObj = {...finalObj, daughters: finalObj.daughters ? [...finalObj.daughters, fMember] : [fMember]};
-        }
-      } else if (person.familyPos.trim() === 'wife') {
-        if (personsData[fMember].familyPos === '') {
-          newObj = {...finalObj, husband: fMember};
-        } else if (personsData[fMember].familyPos === 'son') {
-          newObj = {...finalObj, sons: finalObj.sons ? [...finalObj.sons, fMember] : [fMember]};
-        } else if (personsData[fMember].familyPos === 'daughter') {
-          newObj = {...finalObj, daughters: finalObj.daughters ? [...finalObj.daughters, fMember] : [fMember]};
-        }
-      } else if (person.familyPos.trim() === 'son' || person.familyPos.trim() === 'daughter') {
-        if (personsData[fMember].familyPos === '') {
-          newObj = {...finalObj, father: fMember};
-        } else if (personsData[fMember].familyPos === 'wife') {
-          newObj = {...finalObj, mother: fMember};
-          //todo siblings
-      }
-
-
-      const newIndex = index + 1;
-      if (newIndex < familyArray.length) {
-        return familyFn(person, familyArray, newIndex, newObj);
-      } else {
-        return {...person, familyMembers: newObj };
-      }
-    };
-
-    const personsWFamilyArray = personsArray.map(person => {
-
-      return familyFn(person, person.familyMembers, 0, {});
-    });
+    const personsWFamilyArray = personsKeys
+      .filter((person) => personsData[person].text[0])
+      .reverse()
+      .reduce((acc, key) => acc.concat(personsData[key]), [])
+      .map(person => {
+        return person.familyMembers
+          .map(familyPosChooser(personsData)(person))
+          .reduce(familyObjBuilder, {});
+      });
 
     return personsWFamilyArray;
   };
