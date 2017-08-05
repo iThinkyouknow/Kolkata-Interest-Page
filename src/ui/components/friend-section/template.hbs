@@ -3,12 +3,30 @@
   <div class="friends-container" style="transform: translate3d({{shiftLeftBy}}vw, 0, 0)">
     {{#each friends key="@index" as |friend|}}
       <div class="friend-container">
-        <img src={{friend.img}} class="friend-picture" alt="">
+        {{#if friend.imgToShow}}
+          <img src={{friend.imgToShow}} class="friend-picture" alt="">
+        {{else}}
+          <i class="fa fa-user friend-picture" aria-hidden="true"></i>
+        {{/if}}
+
         <h1 class="name">{{friend.name}}</h1>
         {{#each friend.text key="@index" as |para|}}
           <p class="description">{{para}}</p>
         {{/each}}
+        <div class="family-container">
+          {{#if friend.familyMembers}}
+            <h2 class="subtitle">Family Members</h2>
+          {{/if}}
+          {{#each friend.familyMembers key="@key" as |membersArray key|}}
+            <div class="family-members">
+              <span class="">{{key}}: </span>
+              {{#each membersArray key="@index" as |member|}}
+                <span class="">{{member}}</span>
+              {{/each}}
+            </div>
 
+          {{/each}}
+        </div>
       </div>
     {{/each}}
   </div>

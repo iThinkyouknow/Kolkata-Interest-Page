@@ -9,9 +9,9 @@
     width: 1000px;
     font-size: 0;
     white-space: nowrap;
-    -webkit-animation: scrollOne 60s linear infinite;
-    -o-animation: scrollOne 60s linear infinite;
-    animation: scrollOne 60s linear infinite;
+    -webkit-animation: scrollOne 800s linear infinite;
+    -o-animation: scrollOne 800s linear infinite;
+    animation: scrollOne 800s linear infinite;
     & img {
       display: inline-block;
       width: auto;
@@ -22,9 +22,9 @@
   .img-container-2 {
     @extend .img-container-1;
     top: 50vh;
-    -webkit-animation: scrollOne 80s linear infinite;
-    -o-animation: scrollOne 80s linear infinite;
-    animation: scrollOne 80s linear infinite;
+    -webkit-animation: scrollOne 600s linear infinite;
+    -o-animation: scrollOne 600s linear infinite;
+    animation: scrollOne 600s linear infinite;
   }
 
   @keyframes scrollOne {

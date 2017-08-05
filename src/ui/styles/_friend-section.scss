@@ -17,6 +17,9 @@
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
+        border-color: $dark-gray;
+        border-width: 1.5px;
+        border-style: solid;
         max-height: 35vh;
         width: auto;
         margin: 1.5 * $standard-gap auto;
@@ -33,6 +36,20 @@
       .description {
         margin: 1.5 * $standard-gap auto;
         white-space: normal;
+      }
+
+      .family-container {
+        margin: 2.5 * $standard-gap 30px;
+
+        .family-members {
+          font-size: 1.5rem;
+          font-weight: $fw-light;
+          white-space: normal;
+
+          &:first-of-type {
+            margin-top: $standard-gap * 0.5;
+          }
+        }
       }
     }
   }

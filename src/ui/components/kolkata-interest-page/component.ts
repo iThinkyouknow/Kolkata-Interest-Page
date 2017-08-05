@@ -5,6 +5,7 @@ const {log, clear} = console;
 /**
  * Data
  * Real Data
+ * *PR, Updates, photos - Random Order, landscape -> portrait
  * Handle menu icon
  * responsive: orientation, tablets, monitor,
  * **/
@@ -34,6 +35,7 @@ const sectionItems = [
   'Letters',
   'Make a Friend',
   'Prayer Requests',
+  'How We Can Help',
   'Updates',
   'Birthdays',
   'Encourage Program',
@@ -42,7 +44,7 @@ const sectionItems = [
 
 
 let historySectionData = {
-  img: `assets/sanctuaryLARGE.jpg`,
+  img: `assets/fellowship-image-main.jpg`,
   text: [`In 2009, Rev Emmanuel was connected to PRCA ministers while he was working for Para-church organizations “Operation Mobilisation” (OM) and “Back to the Bible” Radio Broadcast. 
   During this time Rev Emmanuel was sharing the Reformed Gospel to the Bengali people in Kolkata as well as in the village’s area. 
   As a result of the preaching of the gospel, many responded to the Reformed faith to learn more about Reformed doctrines. 
@@ -119,8 +121,8 @@ let personsData = {
     birthday: '05-12',
     name: 'Avijit Sirkar',
     familyPos: '',
-    img: 'assets/profile-circle-5.png',
-    imgFamily: 'assets/profile-circle-5.png',
+    img: 'assets/Sirkar-Avijit-circle.jpg',
+    imgFamily: 'assets/Sirkar-family-circle.jpg',
     text: [`Avijit Sirkar comes from an orthodox Christian family. He has been with CERC Kolkata Fellowship for the past three years. 
     His brother is married to Tandra Sirkar. 
     He has two children: Julia and Joel. Avijit works for an insurance company as an agent.`,
@@ -140,8 +142,8 @@ let personsData = {
     birthday: '23-02',
     name: 'Tandra Sirkar',
     familyPos: 'wife',
-    img: 'assets/profile-circle-5.png',
-    imgFamily: 'assets/profile-circle-5.png',
+    img: 'assets/Sirkar-Tandra-circle.jpg',
+    imgFamily: '',
     text: [``],
     familyMembers: [
       'Avijit Sirkar',
@@ -153,12 +155,12 @@ let personsData = {
     birthday: '08-08',
     name: 'Julia Avisikta Sirkar',
     familyPos: 'daughter',
-    img: 'assets/profile-circle-5.png',
-    imgFamily: 'assets/profile-circle-5.png',
+    img: 'assets/Sirkar-Julia-Avisikta-circle.jpg',
+    imgFamily: '',
     text: [``],
     familyMembers: [
+      'Tandra Sirkar',
       'Avijit Sirkar',
-      'Julia Avisikta Sirkar',
       'Joel Rickjeet Sirkar'
     ]
   },
@@ -166,21 +168,21 @@ let personsData = {
     birthday: '14-04',
     name: 'Joel Rickjeet Sirkar',
     familyPos: 'son',
-    img: 'assets/profile-circle-5.png',
-    imgFamily: 'assets/profile-circle-5.png',
+    img: 'assets/Sirkar-Joel-Rickjeet-circle.jpg',
+    imgFamily: '',
     text: [``],
     familyMembers: [
+      'Tandra Sirkar',
       'Avijit Sirkar',
       'Julia Avisikta Sirkar',
-      'Joel Rickjeet Sirkar'
     ]
   },
   'Bikash Chandra Seth': {
     birthday: '06-01',
     name: 'Bikash Chandra Seth',
     familyPos: '',
-    img: 'assets/profile-circle-5.png',
-    imgFamily: 'assets/profile-circle-5.png',
+    img: 'assets/Seth-Bikash-Chandra-circle.jpg',
+    imgFamily: 'assets/Seth-family-circle.jpg',
     text: [`Bikash Chandra Seth and Mrs Jaya Rani Seth came from a Hindu background. 
     Rev Emmanuel has been instructing them in the Reformed Faith for the past two years. 
     They originally came to know about christianity from the “New Apostolic Church” which is very much a cult like the “Jehovah’s Witnesses”. 
@@ -198,8 +200,8 @@ let personsData = {
     birthday: '24-03',
     name: 'Jaya Rani Seth',
     familyPos: 'wife',
-    img: 'assets/profile-circle-5.png',
-    imgFamily: 'assets/profile-circle-5.png',
+    img: 'assets/Seth-Jaya-Rani-circle.jpg',
+    imgFamily: '',
     text: [``],
     familyMembers: [
       'Bikash Chandra Seth',
@@ -210,8 +212,8 @@ let personsData = {
     birthday: '10-04',
     name: 'Mohan Seth',
     familyPos: 'son',
-    img: 'assets/profile-circle-5.png',
-    imgFamily: 'assets/profile-circle-5.png',
+    img: '',
+    imgFamily: '',
     text: [``],
     familyMembers: [
       'Bikash Chandra Seth',
@@ -363,113 +365,120 @@ We encourage you to study hard and to persevere in your learning, as God establi
 
 
 let theirLettersData = {
-  '2017-03': {
-    date: '2017-03',
-    letterContent: [''],
-    pdfLink: ''
-  }
+  // '2017-03': {
+  //   date: '2017-03',
+  //   letterContent: [''],
+  //   pdfLink: ''
+  // }
 };
 
 let imageGalleryData = [
-    'assets/sanctuaryLarge.jpg',
-    'assets/scenery.jpg'
+  'assets/Abhijeet-0.jpg',
+  'assets/Barui-Pradip-0.jpg',
+  'assets/Biswas-0.jpg',
+  'assets/Children-activity-1.jpg',
+  'assets/Daily-life-1.jpg',
+  'assets/Daily-life-2.jpg',
+  'assets/Daily-life-3.jpg',
+  'assets/Discussion-0.jpg',
+  'assets/Discussion-1.jpg',
+  'assets/Discussion-2.jpg',
+  'assets/Discussion-3.jpg',
+  'assets/Discussion-4.jpg',
+  'assets/Discussion-5.jpg',
+  'assets/Emmanuel-preaching-0.jpg',
+  'assets/Food-0.jpg',
+  'assets/Group-Photo-0.jpg',
+  'assets/Group-Photo-1.jpg',
+  'assets/Group-Photo-2',
+  'assets/Infant-0.jpg',
+  'assets/Jitesh-0.jpg',
+  'assets/Julia-and-Joel-0.jpg',
+  'assets/Kashi-Nath-Hui-0.jpg',
+  'assets/Motorcycle-0.jpg',
+  'assets/Obed-and-Priyodip.jpg',
+  'assets/Outing-0.jpg',
+  'assets/Outing-1.jpg',
+  'assets/Person-0.jpg',
+  'assets/Person-1.jpg',
+  'assets/Person-2.jpg',
+  'assets/Person-3.jpg',
+  'assets/Person-4.jpg',
+  'assets/Person-5.jpg',
+  'assets/Person-6.jpg',
+  'assets/Person-7.jpg',
+  'assets/Person-8.jpg',
+  'assets/Person-9.jpg',
+  'assets/Reading-0.jpg',
+  'assets/Seminar-0.jpg',
+  'assets/Shibram-0.jpg',
+  'assets/Sirkar-Family-1.jpg',
+  'assets/Worship-0.jpg',
+  'assets/Worship-2.jpg',
+  'assets/Worship-3.jpg',
+  'assets/Worship-4.jpg'
 ];
 
 
 let prayerRequestsData = {
   constant: [
     {
-      content: 'Prayer Requests Constant 1',
+      content: 'Pray for them',
       valid: true,
-      date: '2017-04-09'
+      date: '2017-08-04'
     }, {
-      content: 'Prayer Requests Constant 2',
-      valid: false,
-      date: '2017-06-09'
-    }, {
-      content: 'Prayer Requests Constant 3',
+      content: 'That the Lord may bless their labors',
       valid: true,
-      date: '2017-07-09'
-    },
-    {
-      content: 'Prayer Requests Constant 4',
-      valid: true,
-      date: '2017-07-21'
+      date: '2017-08-04'
     }
   ],
   adHoc: [
     {
-      content: 'Prayer Requests ad-hoc 1',
+      content: 'That they may have a place to worship',
       valid: true,
-      date: '2017-07-21'
-    }, {
-      content: 'Prayer Requests ad-hoc 2',
-      valid: true,
-      date: '2017-07-21'
-    }, {
-      content: 'Prayer Requests ad-hoc 3 invalid',
-      valid: false,
-      date: '2017-07-21'
-    }, {
-      content: 'Prayer Requests ad-hoc 4',
-      valid: true,
-      date: '2017-07-21'
-    }, {
-      content: 'Prayer Requests ad-hoc 5',
-      valid: true,
-      date: '2017-07-21'
-    }, {
-      content: 'Prayer Requests ad-hoc 6 invalid',
-      valid: false,
-      date: '2017-07-21'
-    }, {
-      content: 'Prayer Requests ad-hoc 7',
-      valid: true,
-      date: '2017-07-21'
-    }, {
-      content: 'Prayer Requests ad-hoc 8',
-      valid: true,
-      date: '2017-07-21'
+      date: '2017-08-04'
     }
   ]
   //end of array
 };
 
 
-let updatesData = [
-  {
-    content: 'Updates 1',
-    valid: true,
-    date: '2017-04-09'
-  }, {
-    content: 'Updates 1',
-    valid: true,
-    date: '2017-04-09'
-  }, {
-    content: 'Updates 2 -invalid',
-    valid: false,
-    date: '2017-04-09'
-  }, {
-    content: 'Updates 1',
-    valid: true,
-    date: '2017-04-09'
-  }, {
-    content: 'Updates 1',
-    valid: true,
-    date: '2017-04-09'
-  }, {
-    content: 'Updates 5 -invalid',
-    valid: false,
-    date: '2017-04-09'
-  }, {
-    content: 'Updates 1',
-    valid: true,
-    date: '2017-04-09'
-  }, {
-    content: 'Updates 1',
-    valid: true,
-    date: '2017-04-09'
-  };
+let updatesData = {
+  constant: [],
+  adHoc: [
+    // {
+    //   content: 'Prayer Requests ad-hoc 1',
+    //   valid: true,
+    //   date: '2017-07-21'
+    // }
+  ]
+  //end of array
+};
+
+
+let helpDesiredData = {
+  constant: [
+    {
+      content: 'Advice and Prayers',
+      valid: true,
+      date: '2017-08-04'
+    }
+  ],
+  adHoc: [
+    {
+      content: 'Someone who can teach the young people how to play the Psalters on piano',
+      valid: true,
+      date: '2017-08-04'
+    }, {
+      content: 'Setting up of Church Order',
+      valid: true,
+      date: '2017-08-04'
+    }
+  ]
+  //end of array
+};
+
+
 
 
   //////////data end
@@ -548,57 +557,56 @@ const singlePropertyCallback = (property) => (x) => {
 
 const validPropCB = singlePropertyCallback('valid');
 const contentPropCB = singlePropertyCallback('content');
-const maxNumber = () => 8;
 
 const filterSliceMap = (array) => ([startIndex, endIndex]) => {
   return array.filter(validPropCB).slice(startIndex, endIndex).map(contentPropCB);
 };
 
-const getPrayerRequestsData = (maxNum) => (prayerRequests) => {
+const getListData = (maxNum) => (list) => {
+  log(`liist`);
+  log(list);
   const maxNumber = maxNum; //need to change based on screen size
-  const constantArray = filterSliceMap(prayerRequests.constant)([-maxNumber]);
+  const constantArray = filterSliceMap(list.constant)([-maxNumber]);
   const adHocSliceStartIndex = (maxNumber - constantArray.length) * -1;
-  const adHocArray = filterSliceMap(prayerRequests.adHoc)([adHocSliceStartIndex]);
+  const adHocArray = filterSliceMap(list.adHoc)([adHocSliceStartIndex]);
+  log([...constantArray, ...adHocArray]);
   return [...constantArray, ...adHocArray];
-};
-
-const getUpdatesData = (maxNum) => (updates) => {
-  const maxNumber = maxNum;
-  return filterSliceMap(updates)([-maxNumber]);
 };
 
 
 const familyPosChooser = (_personsData) => (person) => (fMember) => {
+  if (person.name === fMember) return {};
+
   if (person.familyPos.trim() === '') {
     if (_personsData[fMember].familyPos === 'wife') {
-      return {wife: fMember};
+      return {Wife: [fMember]};
     } else if (_personsData[fMember].familyPos === 'son') {
-      return {sons: fMember};
+      return {Sons: fMember};
     } else if (_personsData[fMember].familyPos === 'daughter') {
-      return {daughters: fMember};
+      return {Daughters: fMember};
     } else {
       return {};
     }
   } else if (person.familyPos.trim() === 'wife') {
     if (_personsData[fMember].familyPos === '') {
-      return {husband: fMember};
+      return {Husband: [fMember]};
     } else if (_personsData[fMember].familyPos === 'son') {
-      return {sons: fMember};
+      return {Sons: fMember};
     } else if (_personsData[fMember].familyPos === 'daughter') {
-      return {daughters: fMember};
+      return {Daughters: fMember};
     } else {
       return {};
     }
   } else if (person.familyPos.trim() === 'son' || person.familyPos.trim() === 'daughter') {
     if (_personsData[fMember].familyPos === '') {
-      return {father: fMember};
+      return {Father: [fMember]};
     } else if (_personsData[fMember].familyPos === 'wife') {
-      return {mother: fMember};
+      return {Mother: [fMember]};
 
     } else if (_personsData[fMember].familyPos === 'son') {
-      return {brothers: fMember};
+      return {Brothers: fMember};
     } else if (_personsData[fMember].familyPos === 'daughter') {
-      return {sisters: fMember};
+      return {Sisters: fMember};
     } else {
       return {};
     }
@@ -615,34 +623,34 @@ const familyObjBuilder = (acc, obj) => {
     return (object[type] !== undefined && object[type] !== null);
   };
 
-  const sonsPresent = familyPosChecker('sons')(acc)(obj);
-  const daughtersPresent = familyPosChecker('daughters')(acc)(obj);
-  const brothersPresent = familyPosChecker('brothers')(acc)(obj);
-  const sistersPresent = familyPosChecker('sisters')(acc)(obj);
+  const sonsPresent = familyPosChecker('Sons')(acc)(obj);
+  const daughtersPresent = familyPosChecker('Daughters')(acc)(obj);
+  const brothersPresent = familyPosChecker('Brothers')(acc)(obj);
+  const sistersPresent = familyPosChecker('Sisters')(acc)(obj);
 
   if (sonsPresent) {
-    if (Array.isArray(acc['sons']) && acc['sons'].length > 0) {
-      return {...acc, sons: [...acc['sons'], obj['sons']]};
+    if (Array.isArray(acc['Sons']) && acc['Sons'].length > 0) {
+      return {...acc, Sons: [...acc['Sons'], obj['Sons']]};
     } else {
-      return {...acc, sons: [obj['sons']]};
+      return {...acc, Sons: [obj['Sons']]};
     }
   } else if (daughtersPresent) {
-    if (Array.isArray(acc['daughters']) && acc['daughters'].length > 0) {
-      return {...acc, daughters: [...acc['daughters'], obj['daughters']]};
+    if (Array.isArray(acc['Daughters']) && acc['Daughters'].length > 0) {
+      return {...acc, daughters: [...acc['Daughters'], obj['Daughters']]};
     } else {
-      return {...acc, daughters: [obj['daughters']]};
+      return {...acc, Daughters: [obj['Daughters']]};
     }
   } else if (brothersPresent) {
-    if (Array.isArray(acc['brothers']) && acc['brothers'].length > 0) {
-      return {...acc, brothers: [...acc['brothers'], obj['brothers']]};
+    if (Array.isArray(acc['Brothers']) && acc['Brothers'].length > 0) {
+      return {...acc, Brothers: [...acc['Brothers'], obj['Brothers']]};
     } else {
-      return {...acc, brothers: [obj['brothers']]};
+      return {...acc, Brothers: [obj['Brothers']]};
     }
   } else if (sistersPresent) {
-    if (Array.isArray(acc['sisters']) && acc['sisters'].length > 0) {
-      return {...acc, sisters: [...acc['sisters'], obj['sisters']]};
+    if (Array.isArray(acc['Sisters']) && acc['Sisters'].length > 0) {
+      return {...acc, Sisters: [...acc['Sisters'], obj['Sisters']]};
     } else {
-      return {...acc, sisters: [obj['sisters']]};
+      return {...acc, Sisters: [obj['Sisters']]};
     }
   } else {
     return {...acc, ...obj};
@@ -689,8 +697,8 @@ export default class KolkataInterestPage extends Component {
 
   fellowshipData = fellowshipData;
 
-  theirLetters = theirLettersData;
-  ourLetters = ourLettersData;
+  theirLetters = {data: theirLettersData, length: Object.keys(theirLettersData).length};
+  ourLetters = {data: ourLettersData, length: Object.keys(ourLettersData).length};
   imageGalleryData = imageGalleryData;
 
   get personsDataForFriendSection() {
@@ -699,9 +707,10 @@ export default class KolkataInterestPage extends Component {
       .reverse()
       .reduce((acc, key) => acc.concat(personsData[key]), [])
       .map(person => {
-        return person.familyMembers
+        const familyMembers = person.familyMembers
           .map(familyPosChooser(personsData)(person))
           .reduce(familyObjBuilder, {});
+        return {...person, familyMembers}
       });
 
     return personsWFamilyArray;
@@ -713,7 +722,13 @@ export default class KolkataInterestPage extends Component {
     return dataArray;
   }
 
-  prayerRequestsArray = getPrayerRequestsData(maxNumber())(prayerRequestsData);
+  maxNumber = () => {
+    return 8;
+  };
 
-  updatesArray = getUpdatesData(maxNumber())(updatesData);
+  getListDataWMaxNum = getListData(this.maxNumber());
+
+  prayerRequestsArray = this.getListDataWMaxNum(prayerRequestsData);
+  updatesArray = this.getListDataWMaxNum(updatesData);
+  helpDesiredArray = this.getListDataWMaxNum(helpDesiredData);
 }

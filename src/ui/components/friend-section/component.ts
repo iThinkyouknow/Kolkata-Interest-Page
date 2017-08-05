@@ -7,9 +7,12 @@ export default class FriendSection extends Component {
 
   @tracked('friendNumber')
   get shiftLeftBy() {
+    log('shift left by');
     const viewWidth = -100 * this.friendNumber;
 
     const friendNextTimeouts = setTimeout(() => {
+      log(this.friendNumber);
+      log(`this.friendNumber`);
       const nextFriendNumber = this.friendNumber + 1;
 
       if (nextFriendNumber < this.friends.length) {
@@ -27,8 +30,16 @@ export default class FriendSection extends Component {
   }
 
   get friends() {
+    log(`friends`);
     log(this.args.data);
-    return this.args.data
+
+    const processedData = this.args.data.map((friend) => {
+      const {imgFamily, img} = friend;
+      return {...friend, imgToShow: imgFamily || img };
+    });
+    log(`processedData`);
+    log(processedData);
+    return processedData
   }
 
 

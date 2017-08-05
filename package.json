@@ -1,7 +1,7 @@
 {
   "name": "Kolkata-Interest-Page",
   "version": "0.0.0",
-  "description": "A page where you can get to know the Kolkata Fellowship",
+  "description": "A brand new Glimmer app.",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -13,17 +13,14 @@
   },
   "devDependencies": {
     "@glimmer/application": "^0.4.0",
-    "@glimmer/application-pipeline": "^0.6.0-beta.2",
+    "@glimmer/application-pipeline": "^0.5.2",
     "@glimmer/blueprint": "^0.1.12",
     "@glimmer/component": "^0.3.8",
     "@glimmer/resolver": "^0.3.0",
-    "broccoli-asset-rev": "^2.5.0",
-    "ember-cli": "2.14.0-beta.1",
+    "ember-cli": "github:ember-cli/ember-cli",
     "ember-cli-inject-live-reload": "^1.6.1",
-    "ember-cli-moment-shim": "^3.1.0",
-    "ember-cli-sass": "^6.1.2",
-    "ember-cli-uglify": "^1.2.0",
-    "ember-moment": "^7.3.0",
+    "ember-cli-moment-shim": "^3.4.0",
+    "ember-moment": "^7.4.1",
     "typescript": "^2.2.2"
   },
   "engines": {

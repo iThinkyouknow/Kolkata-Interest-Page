@@ -91,7 +91,7 @@ $selector-gap: 10px;
   }
 
   .sermon-header-container {
-    margin-bottom: $standard-gap * 2;
+    margin: $standard-gap * 3.5 auto;
     .sermon-title,
     .scripture-text,
     .sermon-text {
@@ -105,7 +105,7 @@ $selector-gap: 10px;
 
     .sermon-title {
       font-weight: $fw-light;
-      font-size: 2.2rem;
+      font-size: 2rem;
       line-height: 2.5rem;
     }
 

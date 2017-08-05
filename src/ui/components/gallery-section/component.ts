@@ -3,10 +3,7 @@ import Component, {tracked} from '@glimmer/component';
 const { log } = console;
 
 export default class GallerySection extends Component {
-  galleryImages = [
-    'assets/sanctuaryLarge.jpg',
-    'assets/scenery.jpg'
-  ];
+  galleryImages = [];
 
 
   @tracked imgContainerWidth = null;

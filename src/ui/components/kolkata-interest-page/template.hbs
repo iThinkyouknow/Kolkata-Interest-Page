@@ -5,12 +5,32 @@
   <fellowship-section id="fellowship" class="fellowship-section" @photosData={{personsDataForAboutSection}} @infoData={{fellowshipData}} />
   <sermon-outlines-section id="sermon-outlines" class="sermon-outlines-section" @data={{sermonsData}} />
   <missionary-section id="missionary" class="missionary-section" @data={{missionaryData}} />
-  <letters-section id="letters" class="letters-section" @title="Our Letter to Kolkata" @letters={{ourLetters}} />
+  {{#if ourLetters.length}}
+  <letters-section id="letters" class="letters-section" @title="Our Letter to Kolkata" @letters={{ourLetters.data}} />
+  {{/if}}
+
   <gallery-section class="gallery-section" @data={{imageGalleryData}} />
-  <letters-section class="letters-section" @title="Their Letter to Us" @letters={{theirLetters}} />
+
+  {{#if theirLetters.length}}
+  <letters-section class="letters-section" @title="Their Letter to Us" @letters={{theirLetters.data}} />
+  {{/if}}
+
   <friend-section id="make-a-friend" class="friend-section" @data={{personsDataForFriendSection}} />
+
+  {{#if prayerRequestsArray.length}}
   <listing-section id="prayer-requests" class="listing-section" @title="Prayer Requests" @subtitle={{"Phillipians 4:6"}} @list={{prayerRequestsArray}} />
+  {{/if}}
+
+  {{#if updatesArray.length}}
   <listing-section id="updates" class="listing-section" @title="Updates" @subtitle={{false}} @list={{updatesArray}} />
+  {{/if}}
+
+  {{#if helpDesiredArray.length}}
+  <listing-section id="how-we-can-help" class="listing-section" @title="How We Can Help" @subtitle={{false}} @list={{helpDesiredArray}} />
+  {{/if}}
+
+
+
   <birthday-section id="birthday" class="birthday-section" @data={{personsDataForBirthdaySection}} />
   <encourage-section id="encourage" class="encourage-section" />
   <kolkata-section id="kolkata" class="kolkata-section" />

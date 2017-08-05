@@ -28,7 +28,7 @@ export default class BirthdaySection extends Component {
 
       const {birthday, name, img} = person;
 
-      if (!(birthday && name && img)) {
+      if (!(birthday && name)) {
         console.error(`Array passed in to 'sortPersonsByName' function must contain signature [{birthday, name, img}]`);
         return a * 0;
       } else {
