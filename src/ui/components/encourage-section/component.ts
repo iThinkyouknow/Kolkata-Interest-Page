@@ -18,7 +18,6 @@ function debounce(func, wait, immediate) {
 function dasherize(string = '') {
   if (typeof string !== 'string') return;
   const dasherizedString = string.replace(/([a-z]+)([A-Z])/g, '$1-$2').toLowerCase();
-  log(`dasherized: ${dasherizedString}`);
   return dasherizedString;
 }
 
@@ -86,8 +85,6 @@ export default class EncourageSection extends Component {
 
 
   setNoEmailOrContact() {
-    log(`no email or contact`);
-    log((!this.emailInput && !this.contactInput));
     this.noEmailOrContact = (!this.emailInput && !this.contactInput) ? dasherize(`noEmailOrContact`) : '';
   }
 

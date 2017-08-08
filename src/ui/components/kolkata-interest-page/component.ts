@@ -6,7 +6,7 @@ const {log, clear} = console;
  * Data
  * Real Data
  * *PR, Updates, photos - Random Order, landscape -> portrait
- * Handle menu icon
+ * Handle menu icon, scroll
  * responsive: orientation, tablets, monitor,
  * **/
 
@@ -390,7 +390,7 @@ let imageGalleryData = [
   'assets/Food-0.jpg',
   'assets/Group-Photo-0.jpg',
   'assets/Group-Photo-1.jpg',
-  'assets/Group-Photo-2',
+  'assets/Group-Photo-2.jpg',
   'assets/Infant-0.jpg',
   'assets/Jitesh-0.jpg',
   'assets/Julia-and-Joel-0.jpg',
@@ -563,13 +563,11 @@ const filterSliceMap = (array) => ([startIndex, endIndex]) => {
 };
 
 const getListData = (maxNum) => (list) => {
-  log(`liist`);
-  log(list);
+
   const maxNumber = maxNum; //need to change based on screen size
   const constantArray = filterSliceMap(list.constant)([-maxNumber]);
   const adHocSliceStartIndex = (maxNumber - constantArray.length) * -1;
   const adHocArray = filterSliceMap(list.adHoc)([adHocSliceStartIndex]);
-  log([...constantArray, ...adHocArray]);
   return [...constantArray, ...adHocArray];
 };
 
@@ -616,9 +614,6 @@ const familyPosChooser = (_personsData) => (person) => (fMember) => {
 };
 
 const familyObjBuilder = (acc, obj) => {
-  log(`obj`);
-  log(obj);
-  log(acc);
   const familyPosChecker = (type) => (accc) => (object) => {
     return (object[type] !== undefined && object[type] !== null);
   };
@@ -657,6 +652,22 @@ const familyObjBuilder = (acc, obj) => {
   }
 };
 
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function() {
+
+    var context = this, args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+};
+
 /********************************************
  *
  *
@@ -665,22 +676,103 @@ const familyObjBuilder = (acc, obj) => {
 
 export default class KolkataInterestPage extends Component {
   @tracked gray = '';
+  @tracked grayMenuIconElements = [];
 
   mainHeader = 'The Mission Field of Kolkata';
 
+
   get sections() {
-    const sectionsObj = [treatedMenuItems, idMapGenerator].reduce(compose, sectionItems);
-    log(`something special`);
-    return sectionsObj;
+    return treatedMenuItems(sectionItems);
+  }
+
+  scrollHandler(e) {
+    log(`scrolling`);
+    log(e);
+
+  }
+
+  setGrayPositions() {
+    const getDimensions = (elements /**children**/) => (id = '') => {
+      if (!elements || !id || (typeof id !== 'string' && isNaN(id))) return [];
+      const section = elements[id];
+      if (section === undefined || section === null) return [];
+
+      const {offsetTop, offsetHeight} = section;
+      const array = [offsetTop, offsetTop + offsetHeight];
+
+      return array;
+    };
+
+    const {children} = this.element;
+    log(`children`);
+    log(children);
+    const getDimWChildren = getDimensions(children);
+
+    const getListingSection = (id1) => (id2) => (id3) => {
+      const invalidId = (_id) => {
+        return (!_id || (typeof _id !== 'string' && isNaN(_id)));
+      }
+
+      if (invalidId(id1) || invalidId(id2) || invalidId(id3)) return [];
+      log(id1);
+      log(id2);
+      log(id3);
+
+      const prayerSection = getDimWChildren(id1) || [];
+      log(`prayerSection`);
+      log(prayerSection);
+      const prayerSectionDim = prayerSection.length ? prayerSection : [0, 0];
+
+      const updateSection = getDimWChildren(id2) || [];
+      log(`prayerSection`);
+      log(updateSection);
+      const updateSectionDim = updateSection.length ? updateSection : [0, 0];
+
+      const helpSection = getDimWChildren(id3) || [];
+      log(`prayerSection`);
+      log(helpSection);
+      const helpSectionDim = helpSection.length ? helpSection : [0, 0];
+
+      if (!Array.isArray(prayerSection) || !Array.isArray(updateSection) || !Array.isArray(helpSection)) return [];
+      return [prayerSectionDim[0], helpSectionDim[1]];
+    };
+
+
+
+
+
+
+
+    const header_dimensions_array = getDimWChildren('header');
+
+    const gallery_dimensions_array = getDimWChildren('gallery');
+    const encourage_dimensions_array = getDimWChildren('encourage');
+
+
+    const listing_section_dimensions_array = getListingSection('prayer-requests')('updates')('how-we-can-help');
+
+    this.grayMenuIconElements = [header_dimensions_array, gallery_dimensions_array, listing_section_dimensions_array, encourage_dimensions_array];
+    log(`this.grayMenuIconElements`);
+    log(this.grayMenuIconElements);
+  }
+
+  didInsertElement() {
+    this.setGrayPositions();
+    document.addEventListener('scroll', debounce(this.scrollHandler.bind(this), 300));
+
   }
 
 
-  turnGray(bool) {
-    this.gray = bool ? 'gray' : '';
+  get turnGray() {
+
+    log(document);
+    //header, gallery, prayer requests -> how we can help, encourage -> kolkata
+    //this.gray = bool ? 'gray' : '';
+    return 'gray';
   }
 
   actionHandler(action, params) {
-    this[action](params);
+    //this[action](params);
   }
 
   historySectionData = historySectionData;

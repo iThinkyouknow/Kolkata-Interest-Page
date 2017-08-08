@@ -13,8 +13,6 @@ export default class BirthdaySection extends Component {
 
   @tracked('birthdayPax')
   get maxCycle() {
-    log(`data`);
-    log(data);
     return Math.ceil(this.birthdayPersonsArray.length / this.birthdayPax);
   }
 
@@ -90,12 +88,9 @@ export default class BirthdaySection extends Component {
     const personsBirthdaySortedArrayisValid = this.birthdayPersonsValidator(personsBirthdaySorted);
     if (!personsBirthdaySortedArrayisValid) return;
 
-    log(personsBirthdaySorted);
     const indexOfBirthday = (this.shouldStartFromZero) ? 0 : this.getBirthdayIndex(personsBirthdaySorted, moment);
-    log(`indexOfBirthday: ${indexOfBirthday}`);
 
     const indexOfBirthdayForCycle = indexOfBirthday + this.birthdayDispCycle * this.birthdayPax;
-    log(indexOfBirthdayForCycle);
 
     const endIndex = indexOfBirthdayForCycle + this.birthdayPax;
 
@@ -116,10 +111,6 @@ export default class BirthdaySection extends Component {
     }, 3000);
 
     return arrayToDisplay;
-  }
-
-  didInsertElement() {
-    log(`did insert element`);
   }
 
 };

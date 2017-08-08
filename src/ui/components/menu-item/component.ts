@@ -8,13 +8,10 @@ export default class MenuItem extends Component {
     if !title return;
 
     let dasherizedTitle;
-    console.log(title);
 
     if (title.search(/^(cerc)/i) !== -1) {
       dasherizedTitle = 'http://www.cerc.org.sg';
       this.isLink = true;
-      console.log(this.isLink);
-      console.log(title.search(/^(cerc)/i));
 
     } else {
       let trimmedTitle = title.trim().toLowerCase();
@@ -57,11 +54,6 @@ export default class MenuItem extends Component {
 
       } else {
         clearInterval(timeout);
-        console.log(`interval cleared`);
-        console.log(distancePerUnitTime);
-        console.log(currentPosition);
-        console.log(targetElemAbsPosition);
-
       }
 
       window.scroll(0, currentPosition);

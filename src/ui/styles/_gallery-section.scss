@@ -22,9 +22,9 @@
   .img-container-2 {
     @extend .img-container-1;
     top: 50vh;
-    -webkit-animation: scrollOne 600s linear infinite;
-    -o-animation: scrollOne 600s linear infinite;
-    animation: scrollOne 600s linear infinite;
+    -webkit-animation: scrollOne 1200s linear infinite;
+    -o-animation: scrollOne 1200s linear infinite;
+    animation: scrollOne 1200s linear infinite;
   }
 
   @keyframes scrollOne {

@@ -56,8 +56,7 @@ export default class SermonOutlinesSection extends Component {
 
 
   slideToDate(e, index) {
-    console.log(`slideToDate`);
-    console.log(index);
+
   }
 
 
@@ -90,7 +89,6 @@ export default class SermonOutlinesSection extends Component {
 
     } else {
       let containerIndex = Math.round(this.dateConMarginTop / this.marginToMove);
-      console.log(containerIndex);
       this.dateConMarginTop = containerIndex * this.marginToMove;
       this.sermonArrayIndex = -containerIndex + 1;
     }
@@ -129,7 +127,6 @@ export default class SermonOutlinesSection extends Component {
 
 
   setThisWeek() {
-    log(`set this week`);
     const dateFormat = 'YYYY-MM-DD';
     const thisDay = moment().day(); // 0: Sunday, 1-6 other days
     const sundayMoment = thisDay ? moment().day(7) : thisDay;
@@ -150,7 +147,6 @@ export default class SermonOutlinesSection extends Component {
 
 
   didInsertElement() {
-    log(`insert`);
     this.sermonInfo = this.args.data;
     this.setThisWeek();
     this.dragWheelListener();

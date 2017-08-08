@@ -6,8 +6,8 @@
   <div class="menu-bg {{showMenu}}" onclick={{action toggleMenu}} />
 
   <div class="menu-list {{showMenu}}">
-    {{#each menuItems key="@index" as |menuItem|}}
-      <menu-item class="menu-item" @title={{menuItem}} />
+    {{#each @data key="@index" as |menuItem|}}
+      <menu-item class="menu-item" @title={{menuItem.shortTitle}} />
     {{/each}}
   </div>
 </div>

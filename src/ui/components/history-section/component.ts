@@ -22,20 +22,20 @@ export default class HistorySection extends Component {
 
 
   scrollHandler() {
-    return debounce(() => {
-      let top = this.element.getBoundingClientRect().top;
-      this.args.actionHandler('turnGray', (top < standardGap));
-    }, 200);
+    // return debounce(() => {
+    //   let top = this.element.getBoundingClientRect().top;
+    //   this.args.actionHandler('turnGray', (top < standardGap));
+    // }, 200);
   }
 
   didInsertElement() {
-    console.log(this);
-    this.element.ownerDocument.addEventListener('scroll', this.scrollHandler());
+
+    // this.element.ownerDocument.addEventListener('scroll', this.scrollHandler());
   }
 
   willDestroy() {
     console.log(`willDestroyElement`);
-    this.element.ownerDocument.removeEventListener('scroll', this.scrollHandler());
+    // this.element.ownerDocument.removeEventListener('scroll', this.scrollHandler());
   }
 
 

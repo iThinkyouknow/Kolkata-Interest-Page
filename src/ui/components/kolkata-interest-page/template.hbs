@@ -1,18 +1,18 @@
-<div id="main">
-  <main-menu @gray={{gray}} />
-  <header-section class={{sections.main.class}} @data={{sections.main}} />
+<div id="main" >
+  <main-menu @gray={{turnGray}} @data={{sections}} />
+  <header-section id="header" class={{sections.[1].class}} @data={{sections.[1]}} />
   <history-section id="history" class="history-section" @actionHandler={{action actionHandler}} @data={{historySectionData}} />
   <fellowship-section id="fellowship" class="fellowship-section" @photosData={{personsDataForAboutSection}} @infoData={{fellowshipData}} />
   <sermon-outlines-section id="sermon-outlines" class="sermon-outlines-section" @data={{sermonsData}} />
   <missionary-section id="missionary" class="missionary-section" @data={{missionaryData}} />
   {{#if ourLetters.length}}
-  <letters-section id="letters" class="letters-section" @title="Our Letter to Kolkata" @letters={{ourLetters.data}} />
+  <letters-section id="our-letters" class="letters-section" @title="Our Letter to Kolkata" @letters={{ourLetters.data}} />
   {{/if}}
 
-  <gallery-section class="gallery-section" @data={{imageGalleryData}} />
+  <gallery-section id="gallery" class="gallery-section" @data={{imageGalleryData}} />
 
   {{#if theirLetters.length}}
-  <letters-section class="letters-section" @title="Their Letter to Us" @letters={{theirLetters.data}} />
+  <letters-section id="their-letters" class="letters-section" @title="Their Letter to Us" @letters={{theirLetters.data}} />
   {{/if}}
 
   <friend-section id="make-a-friend" class="friend-section" @data={{personsDataForFriendSection}} />

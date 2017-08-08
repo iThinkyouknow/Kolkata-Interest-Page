@@ -10,7 +10,6 @@ export default class GallerySection extends Component {
 
 
   get galleryOne() {
-    console.log(this.args.data);
     return [...this.args.data, ...this.args.data, ...this.args.data];
   }
 
@@ -54,7 +53,6 @@ export default class GallerySection extends Component {
   }
 
   didInsertElement() {
-    log(`did insert element`);
     this.setImageContainerWidth();
   }
 
