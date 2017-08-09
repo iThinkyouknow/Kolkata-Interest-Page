@@ -1,5 +1,8 @@
 .listing-section {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0 , 0, 0, 0.5));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0 , 0, 0, 0.65)), url('assets/Discussion-3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: $white;
 
   .verse-subtitle {

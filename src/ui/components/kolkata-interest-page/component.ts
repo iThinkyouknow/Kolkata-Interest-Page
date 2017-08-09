@@ -6,7 +6,8 @@ const {log, clear} = console;
  * Data
  * Real Data
  * *PR, Updates, photos - Random Order, landscape -> portrait
- * Handle menu icon, scroll
+ * Handle menu icon,
+ * scroll
  * responsive: orientation, tablets, monitor,
  * **/
 
@@ -652,6 +653,53 @@ const familyObjBuilder = (acc, obj) => {
   }
 };
 
+const getDimensions = (elements /**children**/) => (id = '') => {
+  if (!elements || !id || (typeof id !== 'string' && isNaN(id))) return [];
+  const section = elements[id];
+  if (section === undefined || section === null) return [];
+
+  const {offsetTop, offsetHeight} = section;
+  const array = [offsetTop, offsetTop + offsetHeight];
+
+  return array;
+};
+
+const getListingSection = (getDimWChildren) => (id1) => (id2) => (id3) => {
+  const invalidId = (_id) => {
+    return (!_id || (typeof _id !== 'string' && isNaN(_id)));
+  }
+
+  if (invalidId(id1) || invalidId(id2) || invalidId(id3)) return [];
+
+  const prayerSection = getDimWChildren(id1) || [];
+  const updateSection = getDimWChildren(id2) || [];
+  const helpSection = getDimWChildren(id3) || [];
+
+  const prayerSectionExists = (Array.isArray(prayerSection) && prayerSection.length);
+  const updateSectionExists = (Array.isArray(updateSection) && updateSection.length);
+  const helpSectionExists = (Array.isArray(helpSection) && helpSection.length);
+
+  let topValue = 0;
+  if (prayerSectionExists) {
+    topValue = prayerSection[0];
+  } else if (updateSectionExists) {
+    topValue = updateSection[0];
+  } else if (helpSectionExists) {
+    topValue = helpSection[0];
+  }
+
+  let bottomValue = 0;
+  if (helpSectionExists) {
+    bottomValue = helpSection[1];
+  } else if (updateSectionExists) {
+    bottomValue = updateSection[1];
+  } else if (prayerSectionExists) {
+    bottomValue = prayerSection[1];
+  }
+
+  return [topValue, bottomValue];
+};
+
 function debounce(func, wait, immediate) {
   var timeout;
   return function() {
@@ -686,75 +734,32 @@ export default class KolkataInterestPage extends Component {
   }
 
   scrollHandler(e) {
-    log(`scrolling`);
-    log(e);
+    const y_pos = window.pageYOffset;
+    const result = this.grayMenuIconElements.reduce((init, [top, bottom]) => {
+      if ((y_pos >= top && y_pos <= bottom)) return init + 1;
+      return init;
+    }, 0);
+
+    this.gray = (result === 0) ? 'gray' : '';
 
   }
 
   setGrayPositions() {
-    const getDimensions = (elements /**children**/) => (id = '') => {
-      if (!elements || !id || (typeof id !== 'string' && isNaN(id))) return [];
-      const section = elements[id];
-      if (section === undefined || section === null) return [];
-
-      const {offsetTop, offsetHeight} = section;
-      const array = [offsetTop, offsetTop + offsetHeight];
-
-      return array;
-    };
-
     const {children} = this.element;
-    log(`children`);
-    log(children);
     const getDimWChildren = getDimensions(children);
 
-    const getListingSection = (id1) => (id2) => (id3) => {
-      const invalidId = (_id) => {
-        return (!_id || (typeof _id !== 'string' && isNaN(_id)));
-      }
-
-      if (invalidId(id1) || invalidId(id2) || invalidId(id3)) return [];
-      log(id1);
-      log(id2);
-      log(id3);
-
-      const prayerSection = getDimWChildren(id1) || [];
-      log(`prayerSection`);
-      log(prayerSection);
-      const prayerSectionDim = prayerSection.length ? prayerSection : [0, 0];
-
-      const updateSection = getDimWChildren(id2) || [];
-      log(`prayerSection`);
-      log(updateSection);
-      const updateSectionDim = updateSection.length ? updateSection : [0, 0];
-
-      const helpSection = getDimWChildren(id3) || [];
-      log(`prayerSection`);
-      log(helpSection);
-      const helpSectionDim = helpSection.length ? helpSection : [0, 0];
-
-      if (!Array.isArray(prayerSection) || !Array.isArray(updateSection) || !Array.isArray(helpSection)) return [];
-      return [prayerSectionDim[0], helpSectionDim[1]];
-    };
-
-
-
-
-
-
-
-    const header_dimensions_array = getDimWChildren('header');
-
-    const gallery_dimensions_array = getDimWChildren('gallery');
-    const encourage_dimensions_array = getDimWChildren('encourage');
-
-
-    const listing_section_dimensions_array = getListingSection('prayer-requests')('updates')('how-we-can-help');
-
-    this.grayMenuIconElements = [header_dimensions_array, gallery_dimensions_array, listing_section_dimensions_array, encourage_dimensions_array];
-    log(`this.grayMenuIconElements`);
-    log(this.grayMenuIconElements);
+    const dimensions_array = ['header', 'gallery', 'encourage', 'kolkata'].map(section_id => getDimWChildren(section_id));
+    const listing_section_dimensions_array = getListingSection(getDimWChildren)('prayer-requests')('updates')('how-we-can-help');
+    log(`dimensions_array`);
+    log(dimensions_array);
+    this.grayMenuIconElements = [...dimensions_array, listing_section_dimensions_array];
   }
+
+
+
+
+
+
 
   didInsertElement() {
     this.setGrayPositions();
