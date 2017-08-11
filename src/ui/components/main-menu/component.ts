@@ -1,4 +1,5 @@
 import Component, { tracked } from '@glimmer/component';
+const {log} = console;
 
 
 export default class MainMenu extends Component {
@@ -38,6 +39,7 @@ export default class MainMenu extends Component {
       this.shouldChangeIcon = !this.shouldChangeIcon;
     }, 300);
   }
+
 
   didInsertElement() {
 

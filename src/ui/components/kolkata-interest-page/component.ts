@@ -507,7 +507,7 @@ const treatedMenuItems = (array) => {
         break;
       case `main`:
         return {
-          id: lowerCaseSection,
+          id: 'header',
           link: ``,
           class: `header-section`,
           title: `The Fellowship of Kolkata`,
@@ -520,6 +520,22 @@ const treatedMenuItems = (array) => {
           link: ``,
           class: `${dasherizedTitle(section)}-section`,
           title: missionaryData.name,
+          shortTitle: section,
+        };
+      case `letters`:
+        return {
+          id: `our-letters`,
+          link: ``,
+          class: `${dasherizedTitle(section)}-section`,
+          title: section,
+          shortTitle: section,
+        };
+      case `encourage program`:
+        return {
+          id: `encourage`,
+          link: ``,
+          class: `${dasherizedTitle(section)}-section`,
+          title: `Encourage Rev Emmanuel Singh`,
           shortTitle: section,
         };
         break;
@@ -664,16 +680,16 @@ const getDimensions = (elements /**children**/) => (id = '') => {
   return array;
 };
 
-const getListingSection = (getDimWChildren) => (id1) => (id2) => (id3) => {
+const getListingSection = (list_of_dimensions) => (id1) => (id2) => (id3) => {
   const invalidId = (_id) => {
     return (!_id || (typeof _id !== 'string' && isNaN(_id)));
   }
 
   if (invalidId(id1) || invalidId(id2) || invalidId(id3)) return [];
 
-  const prayerSection = getDimWChildren(id1) || [];
-  const updateSection = getDimWChildren(id2) || [];
-  const helpSection = getDimWChildren(id3) || [];
+  const prayerSection = list_of_dimensions[id1] || [];
+  const updateSection = list_of_dimensions[id2] || [];
+  const helpSection = list_of_dimensions[id3] || [];
 
   const prayerSectionExists = (Array.isArray(prayerSection) && prayerSection.length);
   const updateSectionExists = (Array.isArray(updateSection) && updateSection.length);
@@ -716,6 +732,70 @@ function debounce(func, wait, immediate) {
   };
 };
 
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame    ||
+    function( callback ){
+      window.setTimeout(callback, 1000 / 60);
+    };
+})();
+
+// main function
+function scrollToY(scrollTargetY, speed, easing) {
+  // scrollTargetY: the target scrollY property of the window
+  // speed: time in pixels per second
+  // easing: easing equation to use
+
+  var scrollY = window.scrollY || document.documentElement.scrollTop,
+    scrollTargetY = scrollTargetY || 0,
+    speed = speed || 2000,
+    easing = easing || 'easeOutSine',
+    currentTime = 0;
+
+  // min time .1, max time .8 seconds
+  var time = Math.max(.1, Math.min(Math.abs(scrollY - scrollTargetY) / speed, .8));
+
+  // easing equations from https://github.com/danro/easing-js/blob/master/easing.js
+  var easingEquations = {
+    easeOutSine: function (pos) {
+      return Math.sin(pos * (Math.PI / 2));
+    },
+    easeInOutSine: function (pos) {
+      return (-0.5 * (Math.cos(Math.PI * pos) - 1));
+    },
+    easeInOutQuint: function (pos) {
+      if ((pos /= 0.5) < 1) {
+        return 0.5 * Math.pow(pos, 5);
+      }
+      return 0.5 * (Math.pow((pos - 2), 5) + 2);
+    }
+  };
+
+  // add animation loop
+  function tick() {
+    currentTime += 1 / 60;
+
+    var p = currentTime / time;
+    var t = easingEquations[easing](p);
+
+    if (p < 1) {
+      requestAnimFrame(tick);
+
+      window.scrollTo(0, scrollY + ((scrollTargetY - scrollY) * t));
+    } else {
+      console.log('scroll done');
+      window.scrollTo(0, scrollTargetY);
+    }
+  }
+
+  // call it once to get started
+  tick();
+}
+
+// scroll it!
+
+
 /********************************************
  *
  *
@@ -725,6 +805,14 @@ function debounce(func, wait, immediate) {
 export default class KolkataInterestPage extends Component {
   @tracked gray = '';
   @tracked grayMenuIconElements = [];
+  @tracked all_elements_top_bottom_w_Ids = {};
+  @tracked top_position = `0px`;
+  @tracked should_scroll = false;
+
+  @tracked('should_scroll')
+  get scroll() {
+    return this.should_scroll ?  'should-scroll' : '';
+  }
 
   mainHeader = 'The Mission Field of Kolkata';
 
@@ -748,36 +836,63 @@ export default class KolkataInterestPage extends Component {
     const {children} = this.element;
     const getDimWChildren = getDimensions(children);
 
-    const dimensions_array = ['header', 'gallery', 'encourage', 'kolkata'].map(section_id => getDimWChildren(section_id));
-    const listing_section_dimensions_array = getListingSection(getDimWChildren)('prayer-requests')('updates')('how-we-can-help');
-    log(`dimensions_array`);
-    log(dimensions_array);
+    const dimensions_array = ['header', 'gallery', 'encourage', 'kolkata'].map(section_id => this.all_elements_top_bottom_w_Ids[section_id]);
+    const listing_section_dimensions_array = getListingSection(this.all_elements_top_bottom_w_Ids)('prayer-requests')('updates')('how-we-can-help');
     this.grayMenuIconElements = [...dimensions_array, listing_section_dimensions_array];
   }
 
+  set_all_elements_top_bottom_w_Ids() {
+    const {children} = this.element;
+    log(`this.element`);
 
+    this.all_elements_top_bottom_w_Ids = [...children].reduce((acc, child) => {
+      if (typeof child.id === 'string') {
+        if (child.id.length < 1) return;
+        const {offsetTop, offsetHeight} = child;
+        return {...acc, [child.id]: [offsetTop, offsetTop + offsetHeight]};
 
+      } else if (!isNaN(child.id)) {
+        const {offsetTop, offsetHeight} = child;
+        return {...acc, [child.id]: [offsetTop, offsetTop + offsetHeight]};
+      }
 
+    }, {});
 
+  }
 
 
   didInsertElement() {
+    this.set_all_elements_top_bottom_w_Ids();
     this.setGrayPositions();
     document.addEventListener('scroll', debounce(this.scrollHandler.bind(this), 300));
 
   }
 
 
-  get turnGray() {
+  // get turnGray() {
+  //
+  //   log(document);
+  //   //header, gallery, prayer requests -> how we can help, encourage -> kolkata
+  //   //this.gray = bool ? 'gray' : '';
+  //   return 'gray';
+  // }
 
-    log(document);
-    //header, gallery, prayer requests -> how we can help, encourage -> kolkata
-    //this.gray = bool ? 'gray' : '';
-    return 'gray';
+  scroll_to_by_id([id]) {
+    log(`scroll to by id`);
+    log(window);
+    log(this.all_elements_top_bottom_w_Ids);
+    const top_position = (this.all_elements_top_bottom_w_Ids[id] !== undefined) ? this.all_elements_top_bottom_w_Ids[id][0] : undefined;
+    // this.top_position = (top_position !== undefined) ? `-${top_position}px`: undefined;
+
+    log(this.top_position);
+    scrollToY(top_position, 1000, 'easeInOutQuint');
+
+
   }
 
   actionHandler(action, params) {
-    //this[action](params);
+    if (typeof action !== 'string') return console.error(`please pass in action as type of string`);
+    this[action]([...arguments].slice(1));
   }
 
   historySectionData = historySectionData;

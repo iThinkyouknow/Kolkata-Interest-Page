@@ -7,7 +7,7 @@
 
   <div class="menu-list {{showMenu}}">
     {{#each @data key="@index" as |menuItem|}}
-      <menu-item class="menu-item" @title={{menuItem.shortTitle}} />
+      <menu-item class="menu-item" @data={{menuItem}} @actionUp={{@actionUp}} />
     {{/each}}
   </div>
 </div>

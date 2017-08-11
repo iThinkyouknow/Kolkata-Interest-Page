@@ -1,62 +1,41 @@
 import Component, {tracked} from '@glimmer/component';
 
+const {log} = console;
+
 export default class MenuItem extends Component {
   @tracked isLink = false;
 
   get scrollToID() {
-    let title = this.args.title;
-    if !title return;
+    const {id, link} = this.args.data;
+    if (!link) return `#${id}`;
 
-    let dasherizedTitle;
-
-    if (title.search(/^(cerc)/i) !== -1) {
-      dasherizedTitle = 'http://www.cerc.org.sg';
-      this.isLink = true;
-
+    if (typeof link === 'string') {
+      if (link.length > 0) {
+        return link;
+      } else {
+      return `#${id}`;
+      }
     } else {
-      let trimmedTitle = title.trim().toLowerCase();
-      let theLessTitle = trimmedTitle.replace(/^(the\s)/ig, '');
-      dasherizedTitle = theLessTitle.replace(/\s/g, '-');
-      dasherizedTitle = `#${dasherizedTitle}`;
-
+      return `#${id}`;
     }
-
-    return dasherizedTitle;
   }
+
+
 
 
 
   scrollTo(e) {
     e.preventDefault();
-    let target = e.target.hash || '';
-    let document = this.element.ownerDocument;
-    target = target.replace(/^#/, '');
-    let targetElement = document.getElementById(target) || this.element;
-    let targetElementTop = targetElement.getBoundingClientRect().top;
-    let documentTop = document.documentElement.getBoundingClientRect().top;
-
-    let targetElemAbsPosition = targetElementTop - documentTop;
-    let currentPosition = -documentTop;
-
-    let time = 500;
-    let refreshRate = 5; // refresh once every 5ms
-    let distance = Math.abs(targetElemAbsPosition - currentPosition);
-    let distancePerUnitTime = (distance / (time / refreshRate);
-    let cushionPos = 2;
+    if (typeof e.target.hash === 'string' && e.target.hash.length > 0) {
+      this.args.actionUp(`scroll_to_by_id`, e.target.hash.replace(/#/, ''));
+    } else {
+      window.open(e.target.href, '_blank');
+    }
 
 
-    let timeout = setInterval(() => {
-      if (currentPosition < (targetElemAbsPosition - cushionPos)) {
-        currentPosition += distancePerUnitTime;
-
-      } else if (currentPosition > targetElemAbsPosition + cushionPos) {
-        currentPosition -= distancePerUnitTime;
-
-      } else {
-        clearInterval(timeout);
-      }
-
-      window.scroll(0, currentPosition);
-    }, refreshRate);
+    log(e);
+    log(e.target);
+    log(e.target.hash);
+    log(e.target.href);
   }
 };
