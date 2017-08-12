@@ -732,66 +732,66 @@ function debounce(func, wait, immediate) {
   };
 };
 
-window.requestAnimFrame = (function(){
-  return  window.requestAnimationFrame ||
-    window.webkitRequestAnimationFrame ||
-    window.mozRequestAnimationFrame    ||
-    function( callback ){
-      window.setTimeout(callback, 1000 / 60);
-    };
-})();
-
-// main function
-function scrollToY(scrollTargetY, speed, easing) {
-  // scrollTargetY: the target scrollY property of the window
-  // speed: time in pixels per second
-  // easing: easing equation to use
-
-  var scrollY = window.scrollY || document.documentElement.scrollTop,
-    scrollTargetY = scrollTargetY || 0,
-    speed = speed || 2000,
-    easing = easing || 'easeOutSine',
-    currentTime = 0;
-
-  // min time .1, max time .8 seconds
-  var time = Math.max(.1, Math.min(Math.abs(scrollY - scrollTargetY) / speed, .8));
-
-  // easing equations from https://github.com/danro/easing-js/blob/master/easing.js
-  var easingEquations = {
-    easeOutSine: function (pos) {
-      return Math.sin(pos * (Math.PI / 2));
-    },
-    easeInOutSine: function (pos) {
-      return (-0.5 * (Math.cos(Math.PI * pos) - 1));
-    },
-    easeInOutQuint: function (pos) {
-      if ((pos /= 0.5) < 1) {
-        return 0.5 * Math.pow(pos, 5);
-      }
-      return 0.5 * (Math.pow((pos - 2), 5) + 2);
-    }
-  };
-
-  // add animation loop
-  function tick() {
-    currentTime += 1 / 60;
-
-    var p = currentTime / time;
-    var t = easingEquations[easing](p);
-
-    if (p < 1) {
-      requestAnimFrame(tick);
-
-      window.scrollTo(0, scrollY + ((scrollTargetY - scrollY) * t));
-    } else {
-      console.log('scroll done');
-      window.scrollTo(0, scrollTargetY);
-    }
-  }
-
-  // call it once to get started
-  tick();
-}
+// window.requestAnimFrame = (function(){
+//   return  window.requestAnimationFrame ||
+//     window.webkitRequestAnimationFrame ||
+//     window.mozRequestAnimationFrame    ||
+//     function( callback ){
+//       window.setTimeout(callback, 1000 / 60);
+//     };
+// })();
+//
+// // main function
+// function scrollToY(scrollTargetY, speed, easing) {
+//   // scrollTargetY: the target scrollY property of the window
+//   // speed: time in pixels per second
+//   // easing: easing equation to use
+//
+//   var scrollY = window.scrollY || document.documentElement.scrollTop,
+//     scrollTargetY = scrollTargetY || 0,
+//     speed = speed || 2000,
+//     easing = easing || 'easeOutSine',
+//     currentTime = 0;
+//
+//   // min time .1, max time .8 seconds
+//   var time = Math.max(.1, Math.min(Math.abs(scrollY - scrollTargetY) / speed, .8));
+//
+//   // easing equations from https://github.com/danro/easing-js/blob/master/easing.js
+//   var easingEquations = {
+//     easeOutSine: function (pos) {
+//       return Math.sin(pos * (Math.PI / 2));
+//     },
+//     easeInOutSine: function (pos) {
+//       return (-0.5 * (Math.cos(Math.PI * pos) - 1));
+//     },
+//     easeInOutQuint: function (pos) {
+//       if ((pos /= 0.5) < 1) {
+//         return 0.5 * Math.pow(pos, 5);
+//       }
+//       return 0.5 * (Math.pow((pos - 2), 5) + 2);
+//     }
+//   };
+//
+//   // add animation loop
+//   function tick() {
+//     currentTime += 1 / 60;
+//
+//     var p = currentTime / time;
+//     var t = easingEquations[easing](p);
+//
+//     if (p < 1) {
+//       requestAnimFrame(tick);
+//
+//       window.scrollTo(0, scrollY + ((scrollTargetY - scrollY) * t));
+//     } else {
+//       console.log('scroll done');
+//       window.scrollTo(0, scrollTargetY);
+//     }
+//   }
+//
+//   // call it once to get started
+//   tick();
+// }
 
 // scroll it!
 
@@ -881,11 +881,42 @@ export default class KolkataInterestPage extends Component {
     log(`scroll to by id`);
     log(window);
     log(this.all_elements_top_bottom_w_Ids);
+    log(pageYOffset);
     const top_position = (this.all_elements_top_bottom_w_Ids[id] !== undefined) ? this.all_elements_top_bottom_w_Ids[id][0] : undefined;
     // this.top_position = (top_position !== undefined) ? `-${top_position}px`: undefined;
 
     log(this.top_position);
-    scrollToY(top_position, 1000, 'easeInOutQuint');
+    const scrollDuration = 500;
+    
+    const scroll_timeout_Fn = requestAnimationFrame ||
+      webkitRequestAnimationFrame ||
+      mozRequestAnimationFrame ||
+      function(callback) {
+        setTimeout(callback, 0);
+    };
+
+    const scrollToY = (targetY, duration, curve) => {
+      let time = 0;
+      const cur_pos_y = pageYOffset;
+
+      const scroll_cb = () => {
+        if (time === 0) time = performance.now();
+        const progress = performance.now() - time;
+
+        const scroll_to_pos = cur_pos_y + (progress / duration) * (targetY - cur_pos_y);
+
+        const position_reached = Math.floor(targetY - scroll_to_pos);
+        if (progress <= duration && position_reached !== 0) {
+          scrollTo(0, scroll_to_pos);
+          scroll_timeout_Fn(scroll_cb);
+        } else {
+          scrollTo(0, targetY);
+        }
+      };
+      scroll_timeout_Fn(scroll_cb);
+    };
+
+    if (top_position !== undefined) scrollToY(top_position, scrollDuration, 'easeInOutQuint');
 
 
   }
