@@ -65,6 +65,26 @@
         @extend .person-0;
         transition: transform 0.65s ease-in-out 0.2s;
       }
+      .person-3 {
+        @extend .person-0;
+        transition: transform 0.65s ease-in-out 0.25s;
+      }
+      .person-4 {
+        @extend .person-0;
+        transition: transform 0.65s ease-in-out 0.3s;
+      }
+      .person-5 {
+        @extend .person-0;
+        transition: transform 0.65s ease-in-out 0.35s;
+      }
+      .person-6 {
+        @extend .person-0;
+        transition: transform 0.65s ease-in-out 0.4s;
+      }
+      .person-7 {
+        @extend .person-0;
+        transition: transform 0.65s ease-in-out 0.45s;
+      }
 
     }
   }

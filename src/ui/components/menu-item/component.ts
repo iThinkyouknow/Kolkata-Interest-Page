@@ -31,11 +31,5 @@ export default class MenuItem extends Component {
     } else {
       window.open(e.target.href, '_blank');
     }
-
-
-    log(e);
-    log(e.target);
-    log(e.target.hash);
-    log(e.target.href);
   }
 };

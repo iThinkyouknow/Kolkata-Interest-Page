@@ -5,9 +5,10 @@ const {log, clear} = console;
 /**
  * Data
  * Real Data
- * *PR, Updates, photos - Random Order, landscape -> portrait
- * Handle menu icon,
- * scroll
+ * *PR, Updates, photos - Random Order, landscape -> portrait√
+ * Handle menu icon,√
+ * scroll√
+ * Fellowship section image appear
  * responsive: orientation, tablets, monitor,
  * **/
 
@@ -849,9 +850,11 @@ export default class KolkataInterestPage extends Component {
 
   historySectionData = historySectionData;
 
-  get personsDataForAboutSection() {
+  get photosDataForAboutSection() {
+    const personsArray = personsKeys
+      .filter((person) => personsData[person].img)
+      .map((person) => personsData[person].img);
 
-    const personsArray = personsKeys.map((person) => personsData[person].img);
     return personsArray;
   }
 

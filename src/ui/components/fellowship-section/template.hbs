@@ -10,10 +10,10 @@
     {{/each}}
   </div>
 
-  <div class="profile-pic-container">
-    {{#each photosForDisplay key="@index" as |photo|}}
+  <div class="profile-pic-container {{fade_in}}">
+    {{#each photos_for_display key="@index" as |photo index|}}
       {{#if photo.img}}
-        <img class="profile-pic-small {{photo.className}}" src={{photo.img}} alt="" />
+        <img class="profile-pic-small" style="animation-delay: {{photo.transition_delay}}s" src={{photo.img}} alt="" />
       {{/if}}
     {{/each}}
 
