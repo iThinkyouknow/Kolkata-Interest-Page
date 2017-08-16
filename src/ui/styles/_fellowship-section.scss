@@ -56,6 +56,11 @@
     margin-top: $standard-gap * 2;
     text-align: right;
 
+    @include respond-to(landscape) {
+      text-align: center;
+      padding: 0 5%;
+    }
+
     .profile-pic-small {
       opacity: 0;
       position: relative;
@@ -68,13 +73,26 @@
 
       &:nth-child(odd) {
         float: left;
-
       }
 
       &:nth-child(1),
       &:nth-child(2) {
         margin-bottom: $standard-gap;
       }
+
+      @include respond-to(landscape) {
+        margin: 2 * $standard-gap 0.5 * $standard-gap;
+        &:nth-child(odd) {
+          float: none;
+        }
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+          margin-bottom: 0;
+        }
+      }
+
+
     }
 
     &.fade-in {

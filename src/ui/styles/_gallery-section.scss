@@ -1,27 +1,32 @@
 .gallery-section {
   position: relative;
 
+  @include respond-to(landscape) {
+    min-height: 200vh;
+  }
+
   .img-container-1 {
     position: absolute;
     top: 0;
     left: 0;
-    height: 50vh;
+    height: 50%;
     width: 1000px;
     font-size: 0;
     white-space: nowrap;
     -webkit-animation: scrollOne 800s linear infinite;
     -o-animation: scrollOne 800s linear infinite;
     animation: scrollOne 800s linear infinite;
-    & img {
+
+    img {
       display: inline-block;
       width: auto;
-      height: 50vh;
+      height: 100%;
     }
   }
 
   .img-container-2 {
     @extend .img-container-1;
-    top: 50vh;
+    top: 50%;
     -webkit-animation: scrollOne 1200s linear infinite;
     -o-animation: scrollOne 1200s linear infinite;
     animation: scrollOne 1200s linear infinite;

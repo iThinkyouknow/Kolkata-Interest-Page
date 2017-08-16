@@ -8,8 +8,11 @@ const {log, clear} = console;
  * *PR, Updates, photos - Random Order, landscape -> portrait√
  * Handle menu icon,√
  * scroll√
- * Fellowship section image appear
+ * Fellowship section image appear √
  * responsive: orientation, tablets, monitor,
+ * * The fellowship images
+ * * gallery images
+ ** Make a friend image
  * **/
 
 const missionaryData = {
@@ -826,13 +829,21 @@ export default class KolkataInterestPage extends Component {
     }, {});
   }
 
+  orientationHandler(e) {
+    log(`orientation changed`);
+    log(window);
+    log(e);
+  }
+
   didInsertElement() {
     setTimeout(() => {
       this.set_all_elements_top_bottom_w_Ids();
       this.setGrayPositions();
     }, 0);
 
-    document.addEventListener('scroll', debounce(this.scrollHandler.bind(this), 300));
+    window.addEventListener('scroll', debounce(this.scrollHandler.bind(this), 300));
+    window.matchMedia("(orientation: portrait)").addListener(this.orientationHandler);
+
   }
 
 

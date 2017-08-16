@@ -21,12 +21,19 @@ export default class FellowshipSection extends Component {
   @tracked fade_in = ''; // or fade-in;
   @tracked photos_per_container = 0;
 
+
   set_fade_in(bool = false) {
     this.fade_in = (bool) ? 'fade-in' : '';
   }
 
   set_photos_per_container() {
     //todo: dynamic amount based on vw
+    log(document);
+    log(window.ondeviceorientation);
+    // switch () {
+    //   case
+    // }
+
     this.photos_per_container = 4;
   }
 
@@ -58,94 +65,17 @@ export default class FellowshipSection extends Component {
 
     const timer = (photos_per_container < 1) ? 0 : 4000;
 
-    setTimeout(() => {
-      this.set_fade_in(false);
-      if (photos_cycle < max_cycle) {
-        this.photos_cycle = photos_cycle + 1;
-      } else {
-        this.photos_cycle = 0;
-      }
-    }, timer);
+    // setTimeout(() => {
+    //   this.set_fade_in(false);
+    //   if (photos_cycle < max_cycle) {
+    //     this.photos_cycle = photos_cycle + 1;
+    //   } else {
+    //     this.photos_cycle = 0;
+    //   }
+    // }, timer);
 
     return photos;
   }
-
-
-
-
-
-
-
-
-
-
-
-  // @tracked cycle = 0;
-  //
-  // get photosPerContainer() {
-  //   return 4;
-  // }
-  //
-  // numberOfCycles() {
-  //   log(`this.photosArraySource`);
-  //   log(this.photosArraySource);
-  //   return Math.ceil((this.photosArraySource.length / this.photosPerContainer));
-  // }
-  //
-  //
-  // @tracked('cycle')
-  // get photosForDisplay() {
-  //   this.removeFadeInClass();
-  //
-  //   let startIndex = this.cycle * this.photosPerContainer;
-  //   let endIndex = startIndex + this.photosPerContainer;
-  //
-  //   let photosArray = this.photosArraySource.slice(startIndex, endIndex).map((img_obj, index) => {
-  //     return {...img_obj, transition_delay: ((0.3 * 10 * index) / 10)};
-  //   });
-  //
-  //   setTimeout(() => {
-  //     this.setFadeInClass();
-  //   }, 50);
-  //
-  //   this.setCycle(photosArray);
-  //
-  //   return photosArray;
-  // }
-  //
-  //
-  // setFadeInClass() {
-  //   let picClassArrayIndex = this.cycle * this.photosPerContainer;
-  //
-  //   this.photosArraySource[picClassArrayIndex].className = 'fade-in';
-  //   picClassArrayIndex++;
-  //
-  //   let photoInterval = setInterval(() => {
-  //     this.photosArraySource[picClassArrayIndex].className = 'fade-in';
-  //
-  //     picClassArrayIndex++;
-  //     if (picClassArrayIndex === this.cycle * this.photosPerContainer + this.photosPerContainer || picClassArrayIndex === this.photosArraySource.length) {
-  //       clearInterval(photoInterval);
-  //     }
-  //   }, 300);
-  //
-  //   this.timeIntervalObj = {...this.timeIntervalObj, photoInterval};
-  //
-  // }
-  //
-  // removeFadeInClass() {
-  //   this.photosArraySource.forEach((photo) => {
-  //     photo.className = '';
-  //   });
-  // }
-  //
-  // setCycle(photosArray) {
-  //   let cycleTimeout = setTimeout(() => {
-  //     this.cycle = (this.cycle === this.numberOfCycles() - 1) ? 0 : this.cycle + 1;
-  //
-  //   }, photosArray.length * (1000) + 500);
-  //
-  // }
 
 
   //info

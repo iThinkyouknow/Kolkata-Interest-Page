@@ -23,6 +23,10 @@
         max-height: 35vh;
         width: auto;
         margin: 1.5 * $standard-gap auto;
+
+        @include respond-to(landscape) {
+          max-height: 45vh;
+        }
       }
 
       .name {
