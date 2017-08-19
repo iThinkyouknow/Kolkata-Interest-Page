@@ -2,7 +2,7 @@ import Component, {tracked} from '@glimmer/component';
 import moment from 'moment';
 const { log } = console;
 export default class LetterSection extends Component {
-  const letterKeysArray = (() => {
+  letterKeysArray = (() => {
     return Object.keys(this.args.letters);
   })();
 

@@ -32,7 +32,7 @@ export default class SermonOutlinesSection extends Component {
   @tracked fadeInClass = ''; // or 'fade-in'
 
   @tracked sermonInfo = {
-    '': {
+    id: {
       date: '',
       className: '',
       sermonTitle: '',
@@ -100,6 +100,7 @@ export default class SermonOutlinesSection extends Component {
         className: (index === this.sermonArrayIndex) ? `this-week` : ''
       }};
     }, {});
+    log(newSermonInfo);
 
     this.sermonInfo = newSermonInfo;
 

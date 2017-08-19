@@ -14,7 +14,7 @@ export default class MissionarySection extends Component {
     const changeRevImgTimeout = setTimeout(() => {
       this.fadeIn = null;
       this.revImageIndex = (this.revImageIndex < (imgArray.length - 1)) ? this.revImageIndex + 1 : 0;
-    }, 2000);
+    }, 3000);
     this.timeoutToClear.push(changeRevImgTimeout);
 
     const fadeInTimeout = setTimeout(() => {

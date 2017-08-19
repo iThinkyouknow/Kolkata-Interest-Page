@@ -27,28 +27,43 @@ export default class FellowshipSection extends Component {
   }
 
 
+  set_photos_per_container(orientation) {
 
-  @tracked('args.ori')
-  get set_photos_per_container() {
-    log(`set photos`);
-    //todo: dynamic amount based on vw
-    // log(`set_photos_per_container`);
-    // log(document);
-    // log(this.args.orientation);
-    // switch () {
-    //   case
-    // }
+    const get_photos_per_container = (_orientation) => {
+      if (_orientation === 'landscape') {
+        return 6;
+      } else {
+        return 4;
+      }
+    };
 
-     this.photos_per_container = 4;
-    return 'sdf';
+     this.photos_per_container = get_photos_per_container(orientation);
+  }
+
+  set_max_cycle(photos_data_length, photos_per_container) {
+    const is_equal_length = (photos_data_length === photos_per_container);
+    this.max_cycle = is_equal_length ?
+    Math.floor(photos_data_length / photos_per_container) - 1 :
+      Math.floor(photos_data_length / photos_per_container);
   }
 
   didInsertElement() {
     log(`did insert element`);
-    //this.set_photos_per_container();
-    this.max_cycle = Math.floor(this.args.photosData.length / this.photos_per_container);
+    setTimeout(() => {
+      this.set_photos_per_container(this.args.orientation);
+      this.set_max_cycle(this.args.photosData.length, this.photos_per_container);
 
-    this.infoArray = this.args.infoData;
+      this.infoArray = this.args.infoData;
+    }, 500);
+
+    addEventListener('resize', () => {
+      setTimeout(() => {
+        this.set_photos_per_container(this.args.orientation);
+        this.set_max_cycle(this.args.photosData.length, this.photos_per_container);
+      }, 800);
+
+    });
+
   }
 
   @tracked('photos_cycle')
@@ -71,14 +86,14 @@ export default class FellowshipSection extends Component {
 
     const timer = (photos_per_container < 1) ? 0 : 4000;
 
-    // setTimeout(() => {
-    //   this.set_fade_in(false);
-    //   if (photos_cycle < max_cycle) {
-    //     this.photos_cycle = photos_cycle + 1;
-    //   } else {
-    //     this.photos_cycle = 0;
-    //   }
-    // }, timer);
+    setTimeout(() => {
+      this.set_fade_in(false);
+      if (photos_cycle < max_cycle) {
+        this.photos_cycle = photos_cycle + 1;
+      } else {
+        this.photos_cycle = 0;
+      }
+    }, timer);
 
     return photos;
   }
@@ -118,9 +133,9 @@ export default class FellowshipSection extends Component {
 
 
   willDestroyElement() {
-    Object.keys(this.timeIntervalObj).forEach(key => {
-      clearInterval(this.timeIntervalObj.key);
-    });
-    clearTimeout(this.timeOut);
+    // Object.keys(this.timeIntervalObj).forEach(key => {
+    //   clearInterval(this.timeIntervalObj.key);
+    // });
+    // clearTimeout(this.timeOut);
   }
 };

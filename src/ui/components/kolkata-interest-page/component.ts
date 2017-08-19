@@ -508,7 +508,7 @@ const treatedMenuItems = (array) => {
           title: section,
           shortTitle: section,
         };
-        break;
+
       case `main`:
         return {
           id: 'header',
@@ -517,7 +517,7 @@ const treatedMenuItems = (array) => {
           title: `The Fellowship of Kolkata`,
           shortTitle: section,
         };
-        break;
+
       case `the missionary`:
         return {
           id: dasherizedTitle(section),
@@ -542,7 +542,7 @@ const treatedMenuItems = (array) => {
           title: `Encourage Rev Emmanuel Singh`,
           shortTitle: section,
         };
-        break;
+
       default:
         return {
           id: dasherizedTitle(section),
@@ -779,11 +779,7 @@ export default class KolkataInterestPage extends Component {
   @tracked all_elements_top_bottom_w_Ids = {};
   @tracked top_position = `0px`;
 
-
-
-
   mainHeader = 'The Mission Field of Kolkata';
-
 
   get sections() {
     return treatedMenuItems(sectionItems);
@@ -921,4 +917,6 @@ export default class KolkataInterestPage extends Component {
   prayerRequestsArray = this.getListDataWMaxNum(prayerRequestsData);
   updatesArray = this.getListDataWMaxNum(updatesData);
   helpDesiredArray = this.getListDataWMaxNum(helpDesiredData);
+
+  //class end
 }
