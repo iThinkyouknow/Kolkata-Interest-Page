@@ -1,8 +1,8 @@
-<div id="main" class={{scroll}}>
+<div id="main">
   <main-menu @gray={{gray}} @data={{sections}} @actionUp={{action actionHandler}} />
   <header-section id="header" class={{sections.[1].class}} @data={{sections.[1]}} />
   <history-section id="history" class="history-section" @actionHandler={{action actionHandler}} @data={{historySectionData}} />
-  <fellowship-section id="fellowship" class="fellowship-section" @photosData={{photosDataForAboutSection}} @infoData={{fellowshipData}} />
+  <fellowship-section id="fellowship" class="fellowship-section" @photosData={{photosDataForAboutSection}} @infoData={{fellowshipData}} @orientation={{orientation}} />
   <sermon-outlines-section id="sermon-outlines" class="sermon-outlines-section" @data={{sermonsData}} />
   <missionary-section id="missionary" class="missionary-section" @data={{missionaryData}} />
   {{#if ourLetters.length}}
@@ -30,9 +30,10 @@
   {{/if}}
 
 
-
   <birthday-section id="birthdays" class="birthday-section" @data={{personsDataForBirthdaySection}} />
   <encourage-section id="encourage" class="encourage-section" />
   <kolkata-section id="kolkata" class="kolkata-section" />
+
+
 </div>
 

@@ -26,20 +26,26 @@ export default class FellowshipSection extends Component {
     this.fade_in = (bool) ? 'fade-in' : '';
   }
 
-  set_photos_per_container() {
+
+
+  @tracked('args.ori')
+  get set_photos_per_container() {
+    log(`set photos`);
     //todo: dynamic amount based on vw
-    log(document);
-    log(window.ondeviceorientation);
+    // log(`set_photos_per_container`);
+    // log(document);
+    // log(this.args.orientation);
     // switch () {
     //   case
     // }
 
-    this.photos_per_container = 4;
+     this.photos_per_container = 4;
+    return 'sdf';
   }
 
   didInsertElement() {
     log(`did insert element`);
-    this.set_photos_per_container();
+    //this.set_photos_per_container();
     this.max_cycle = Math.floor(this.args.photosData.length / this.photos_per_container);
 
     this.infoArray = this.args.infoData;
