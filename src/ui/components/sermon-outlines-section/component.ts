@@ -68,6 +68,7 @@ export default class SermonOutlinesSection extends Component {
 
 
   dragWheel(wheelWidth, e) {
+    if (!e) return;
     let startPos = this.touchStartPositon;
     let diff = e.changedTouches[0].clientY - startPos;
     this.dateConMarginTop = this.dateConMarginTop + (diff / wheelWidth) * 100;

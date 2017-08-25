@@ -23,7 +23,7 @@ $ultra-high-z: 100000;
 
 $break-phone: 500px;
 $break-tablet: 1024px;
-$break-large: 1025;
+$break-large: 800px;
 
 @mixin respond-to($media) {
   @if $media == landscape {
@@ -31,14 +31,17 @@ $break-large: 1025;
       @content;
     }
   }
+
   @if $media == phone {
-    @media all and (max-width: $break-small) { @content; }
+    @media all and (max-width: $break-phone) { @content; }
   }
   @else if $media == tablet {
-    @media all and (min-width: $break-small + 1) and (max-width: $break-large - 1) { @content; }
+    @media all and (min-width: $break-phone + 1) and (max-width: $break-large - 1) { @content; }
   }
   @else if $media == monitor {
-    @media all and (min-width: $break-large) { @content; }
+    @media all and (min-width: $break-large) {
+      @content;
+    }
   }
 }
 
@@ -82,7 +85,10 @@ section {
     overflow-y: auto;
     min-height: 100vh;
     @include respond-to(landscape) {
-      min-height: 100vh / 9 * 16;
+      @include respond-to(phone) {
+        min-height: 100vh / 9 * 16;
+      }
+
     }
 }
 

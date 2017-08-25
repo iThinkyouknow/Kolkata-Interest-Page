@@ -21,48 +21,40 @@ export default class FellowshipSection extends Component {
   @tracked fade_in = ''; // or fade-in;
   @tracked photos_per_container = 0;
 
-
   set_fade_in(bool = false) {
     this.fade_in = (bool) ? 'fade-in' : '';
   }
 
-
-  set_photos_per_container(orientation) {
-
+  @tracked('photos_cycle')
+  get set_photos_per_container() {
+    const orientation = this.args.orientation;
     const get_photos_per_container = (_orientation) => {
       if (_orientation === 'landscape') {
         return 6;
-      } else {
+      } else if (_orientation === 'portrait') {
         return 4;
       }
     };
 
-     this.photos_per_container = get_photos_per_container(orientation);
+     this.photos_per_container = get_photos_per_container(orientation) || 0;
+    return '';
   }
 
-  set_max_cycle(photos_data_length, photos_per_container) {
+  @tracked('photos_cycle')
+  get set_max_cycle() {
+    const photos_data_length = this.args.photosData.length;
+    const photos_per_container = this.photos_per_container;
     const is_equal_length = (photos_data_length === photos_per_container);
     this.max_cycle = is_equal_length ?
     Math.floor(photos_data_length / photos_per_container) - 1 :
       Math.floor(photos_data_length / photos_per_container);
+    return '';
   }
 
   didInsertElement() {
-    log(`did insert element`);
     setTimeout(() => {
-      this.set_photos_per_container(this.args.orientation);
-      this.set_max_cycle(this.args.photosData.length, this.photos_per_container);
-
       this.infoArray = this.args.infoData;
-    }, 500);
-
-    addEventListener('resize', () => {
-      setTimeout(() => {
-        this.set_photos_per_container(this.args.orientation);
-        this.set_max_cycle(this.args.photosData.length, this.photos_per_container);
-      }, 800);
-
-    });
+    }, 0);
 
   }
 
@@ -84,7 +76,8 @@ export default class FellowshipSection extends Component {
       };
     });
 
-    const timer = (photos_per_container < 1) ? 0 : 4000;
+    // const timer = (photos_per_container < 1) ? 0 : 4000;
+    const timer = photos.length * 1000;
 
     setTimeout(() => {
       this.set_fade_in(false);

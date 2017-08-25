@@ -3,13 +3,17 @@
     <i class="{{faIcon}} {{@gray}} fa menu-icon" aria-hidden="true"></i>
   </div>
 
-  <div class="menu-bg {{showMenu}}" onclick={{action toggleMenu}} />
-
-  <div class="menu-list {{showMenu}}">
-    {{#each @data key="@index" as |menuItem|}}
-      <menu-item class="menu-item" @data={{menuItem}} @actionUp={{@actionUp}} />
-    {{/each}}
+  <div class="menu-bg {{showMenu}} {{@should_menu_bg_display}}" onclick={{action toggleMenu}} >
+    <div class="menu-list {{showMenu}} {{@not_header}}">
+      {{#each @data key="@index" as |menuItem|}}
+        <menu-item class="menu-item" @data={{menuItem}} @actionUp={{@actionUp}} />
+      {{/each}}
+    </div>
   </div>
+
+
+
+
 </div>
 
 

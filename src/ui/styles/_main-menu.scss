@@ -11,7 +11,10 @@
     right: $standard-gap;
     z-index: $ultra-high-z;
 
-    @media only screen and (min-width: 64.063em) {
+    @include respond-to(monitor) {
+      display: none;
+    }
+    @include respond-to(tablet) {
       display: none;
     }
 
@@ -27,39 +30,82 @@
   }
 
   .menu-bg {
-    display: none;
+    display: block;
     position: absolute;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 0vh;
     width: 100vw;
     z-index: $low-z;
 
-    &.slide-down {
-      display: block;
-    }
-  }
-
-  .menu-list {
-    @media only screen and (min-width: 64.063em) {
-
-
-    }
-
-    position: relative;
-    height: 0px;
-    width: 100vw;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0 ,0, 0.3));
-    overflow-y: scroll;
-    z-index: $mid-z;
-    -webkit-transition: height 0.5s ease-in-out;
 
     &.slide-down{
-      display: block;
-      height: 90vh;
+      height: auto;
     }
 
+    @include respond-to(monitor) {
+      position: static;
+      top: 0;
+      height: auto;
+      //transition: background-image 5s ease-in-out;
+      //overflow: auto;
+      &.should-bg-display {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+      }
+
+    }
+
+    .menu-list {
+      //display: block;
+
+      position: relative;
+      height: 0px;
+      width: 100vw;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0 ,0, 0.3));
+      overflow-y: scroll;
+      z-index: $mid-z;
+      -webkit-transition: height 0.5s ease-in-out;
+      transition: height 0.5s ease-in-out;
+
+      &.slide-down{
+        display: block;
+        height: 90vh;
+      }
+
+      @include respond-to(monitor) {
+        position: relative;
+        width: 80vw;
+        margin: 0 auto;
+        padding-top: 4vh;
+        height: auto;
+        text-align: center;
+        background-image: none;
+        transition: padding-top 0.5s ease-in-out;
+        //padding-top: 2 * $standard-gap;
+
+        &.slide-down{
+          height: auto;
+        }
+
+        &.not-header {
+          padding-top: 0;
+        }
+      }
+
+
+
+    }
+
+    //&.slide-down {
+    //  display: block;
+    //}
+
+
   }
+
+
+
+
 
 }
 

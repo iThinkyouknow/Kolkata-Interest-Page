@@ -2,19 +2,43 @@
 
   color: $white;
 
+  @include respond-to(monitor) {
+    display: inline-block;
+    margin: 0 0.5 * $standard-gap;
+  }
+
   .title-container {
     padding: $standard-gap;
     border-top: 1px solid white;
+
+    @include respond-to(monitor) {
+      padding: 0;
+      border: none;
+
+
+      .main-menu-links {
+        font-size: 1rem;
+        line-height: 1.5rem;
+
+      }
+    }
 
   }
 
   &:first-of-type {
     margin-top: 73px;
+
+    @include respond-to(monitor) {
+      margin-top: 0;
+    }
   }
 
   &:last-of-type {
     .title-container {
       border-bottom: 1px solid white;
+      @include respond-to(monitor) {
+        border-bottom: none;
+      }
     }
   }
 }

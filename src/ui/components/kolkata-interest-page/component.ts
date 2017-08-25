@@ -778,6 +778,10 @@ export default class KolkataInterestPage extends Component {
   @tracked grayMenuIconElements = [];
   @tracked all_elements_top_bottom_w_Ids = {};
   @tracked top_position = `0px`;
+  @tracked should_menu_bg_display = '';
+
+  @tracked not_header = '';
+
 
   mainHeader = 'The Mission Field of Kolkata';
 
@@ -792,7 +796,19 @@ export default class KolkataInterestPage extends Component {
       return init;
     }, 0);
 
+    const should_bg_display_class_name_gen = (bool) => {
+      return bool ? 'should-bg-display' : '';
+    };
+
+    const not_header_class_name_gen = (bool) => {
+      return bool ? 'not-header' : '';
+    };
+
     this.gray = (result === 0) ? 'gray' : '';
+    this.should_menu_bg_display = should_bg_display_class_name_gen(!!this.gray);
+    this.not_header = not_header_class_name_gen(y_pos >= this.all_elements_top_bottom_w_Ids.header[1]);
+
+
 
   }
 
@@ -822,12 +838,10 @@ export default class KolkataInterestPage extends Component {
     }, {});
   }
 
-  @tracked orientation = 'portrait';
+  @tracked orientation = ''; // 'portrait' or 'landscape';
 
 
   setDimensions() {
-    log(`resize happened`);
-    log(window.matchMedia("(orientation: portrait)"));
     this.set_all_elements_top_bottom_w_Ids();
     this.setGrayPositions();
 
@@ -836,10 +850,7 @@ export default class KolkataInterestPage extends Component {
       const landscape = 'landscape';
       return bool ? portrait : landscape;
     }
-
     this.orientation = getOrientationLabel(matchMedia("(orientation: portrait)").matches);
-    log(`this.orientation`);
-    log(this.orientation);
 
   }
 
@@ -850,8 +861,6 @@ export default class KolkataInterestPage extends Component {
     window.addEventListener('resize', debounce(this.setDimensions.bind(this), 100));
 
     window.addEventListener('scroll', debounce(this.scrollHandler.bind(this), 300));
-
-
   }
 
 

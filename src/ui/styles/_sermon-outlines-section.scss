@@ -88,6 +88,12 @@ $selector-gap: 10px;
 
       }
     }
+
+    @include respond-to(monitor) {
+      float: right;
+      width: 35vw;
+      margin: 2 * $standard-gap $standard-gap-w;
+    }
   }
 
   .sermon-header-container {
