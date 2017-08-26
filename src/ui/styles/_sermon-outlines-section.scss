@@ -1,4 +1,6 @@
 $selector-gap: 10px;
+$selector-width: 72px;
+$selector-height: 260px;
 
 .sermon-outlines-section {
 
@@ -7,14 +9,12 @@ $selector-gap: 10px;
     margin: 2 * $standard-gap + 10px 50 / 414 * 100vw;
     width: 100vw;
 
-
-
     .sermon-selector-container {
       display: inline-block;
       float: left;
       position: relative;
-      width: 72px;
-      height: 260px;
+      width: $selector-width;
+      height: $selector-height;
       overflow-y: hidden;
 
 
@@ -51,8 +51,6 @@ $selector-gap: 10px;
         }
       }
     }
-
-
 
     .sermon-details {
       display: inline-block;
@@ -91,8 +89,27 @@ $selector-gap: 10px;
 
     @include respond-to(monitor) {
       float: right;
-      width: 35vw;
-      margin: 2 * $standard-gap $standard-gap-w;
+      width: 40vw;
+      margin: 2.5 * $standard-gap $standard-gap-w;
+      white-space: nowrap;
+
+      .sermon-selector-container{
+        height: $selector-height * 1.5;
+        width: $selector-width * 1.5;
+
+        .date-container {
+          p {
+            margin-bottom: 165%;
+            font-size: 1rem;
+          }
+        }
+      }
+
+      .sermon-details {
+        width: 65%;
+        height: $selector-height * 1.5;
+        white-space: normal;
+      }
     }
   }
 
@@ -118,6 +135,10 @@ $selector-gap: 10px;
     .scripture-text,
     .sermon-text {
       margin-top: $standard-gap * 0.5;
+    }
+
+    @include respond-to(monitor) {
+      margin-top: 170px;
     }
   }
 

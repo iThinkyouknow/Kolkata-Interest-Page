@@ -24,12 +24,14 @@ export default class SermonOutlinesSection extends Component {
   fadeIn = 'fade-in';
 
 
+
   @tracked dateConMarginTop = 0; // will end up as %
   @tracked dragWheelIsFocused = false;
   @tracked touchStartPositon = 0;
   @tracked slideClass = 'slide'; // 'slide'
   @tracked sermonArrayIndex = 0;
   @tracked fadeInClass = ''; // or 'fade-in'
+  @tracked mousedown = false;
 
   @tracked sermonInfo = {
     id: {
@@ -63,16 +65,21 @@ export default class SermonOutlinesSection extends Component {
   touchStart(e) {
     e.preventDefault();
     this.slideClass = '';
-    this.touchStartPositon = e.changedTouches[0].clientY;
+    if (e.type === 'mousedown') this.mousedown = true;
+    this.touchStartPositon = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
   }
 
 
   dragWheel(wheelWidth, e) {
     if (!e) return;
-    let startPos = this.touchStartPositon;
-    let diff = e.changedTouches[0].clientY - startPos;
-    this.dateConMarginTop = this.dateConMarginTop + (diff / wheelWidth) * 100;
-    this.touchStartPositon = e.changedTouches[0].clientY;
+    if ((e.type !== 'mousemove') || (e.type === 'mousemove' && this.mousedown)) {
+      let startPos = this.touchStartPositon;
+      let diff = e.changedTouches ? e.changedTouches[0].clientY - startPos : e.clientY - startPos;
+      log(diff);
+      log((diff / wheelWidth) * 100);
+      this.dateConMarginTop = this.dateConMarginTop + (diff / wheelWidth) * 100;
+      this.touchStartPositon = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
+    }
   }
 
 
@@ -104,9 +111,11 @@ export default class SermonOutlinesSection extends Component {
     log(newSermonInfo);
 
     this.sermonInfo = newSermonInfo;
+    this.mousedown = false;
 
 
   }
+
 
 
   dragWheelListener() {
@@ -115,6 +124,10 @@ export default class SermonOutlinesSection extends Component {
     dragWheel.addEventListener("touchstart", this.touchStart.bind(this));
     dragWheel.addEventListener("touchmove", debounce(this.dragWheel.bind(this, wheelWidth), 5));
     dragWheel.addEventListener("touchend", this.touchEnd.bind(this));
+
+    dragWheel.addEventListener("mousedown", this.touchStart.bind(this));
+    this.element.addEventListener("mousemove", debounce(this.dragWheel.bind(this, wheelWidth), 5));
+    this.element.addEventListener("mouseup", this.touchEnd.bind(this));
   }
 
 
