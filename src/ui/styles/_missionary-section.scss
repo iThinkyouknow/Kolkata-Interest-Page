@@ -5,7 +5,7 @@
   .img-container {
     padding: 0 $standard-gap-w;
     height: 16rem;
-    margin: 1.5 * $standard-gap 0;
+    margin: 1.5 * $standard-gap auto;
     display: block;
     text-align: center;
     .👨🏾 {
@@ -16,6 +16,18 @@
       &.fade-in {
         opacity: 1;
         transition: opacity 2.0s;
+      }
+    }
+
+    @include respond-to(monitor) {
+      float: right;
+      height: auto;
+      width: 50vw;
+      margin: 0;
+      vertical-align: center;
+
+      .👨🏾 {
+        max-height: 70vh;
       }
     }
   }
@@ -43,11 +55,21 @@
         vertical-align: text-top;
       }
     }
+
+    @include respond-to(monitor) {
+      margin-top: 1.5 * $standard-gap;
+      margin-left: $standard-gap-w;
+    }
   }
 
   .👨🏾-details {
     margin: 1 * $standard-gap auto;
     max-height: 40vh;
+    @include respond-to(monitor) {
+      margin-top: 1.5 * $standard-gap;
+      margin-left: $standard-gap-w;
+      width: 45vw;
+    }
   }
 
   a {

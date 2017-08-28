@@ -2,12 +2,12 @@
   height: 100vh;
   width:100vw;
 
-  @include respond-to(monitor) {
-    .section-title-container {
-
-      text-align: left;
-    }
-  }
+  //@include respond-to(monitor) {
+  //  .section-title-container {
+  //
+  //    text-align: left;
+  //  }
+  //}
 
   .picture-container {
     margin: 1.5*$standard-gap auto 0 auto;
