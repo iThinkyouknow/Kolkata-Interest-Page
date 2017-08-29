@@ -5,6 +5,7 @@
     display: block;
     margin: 1.5 * $standard-gap auto;
     width: 80vw;
+    text-align-last:center;
     text-align: center;
     height: 2 * $standard-gap;
     border-radius: 10px;
@@ -13,6 +14,10 @@
     font-weight: $fw-light;
     padding-left: 22%;
     background-image: linear-gradient(rgb(248,248,248), rgb(232,232,232));
+
+    @include respond-to(monitor) {
+      margin: 2 * $standard-gap auto;
+    }
   }
 
   .letter-container {
@@ -35,6 +40,11 @@
       height: 50%;
       //background: $off-white;
       background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    }
+
+    @include respond-to(monitor) {
+      overflow: scroll;
+      height: 55vh;
     }
   }
 

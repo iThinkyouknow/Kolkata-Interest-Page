@@ -5,11 +5,17 @@
   position: relative;
   z-index: $high-z;
 
-  &.text-align-left {
-    @include respond-to(monitor) {
+  @include respond-to(monitor) {
+    &.text-align-left {
       text-align: left;
     }
+
+    &.text-align-right {
+      text-align: right;
+    }
   }
+
+
 
   .section-title {
     font-family: $HN;

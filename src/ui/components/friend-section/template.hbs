@@ -1,15 +1,18 @@
 <section>
-  <section-title @title="Make a Friend!" />
+  <section-title  @title="Make a Friend!" />
   <div class="friends-container" style="transform: translate3d({{shiftLeftBy}}vw, 0, 0)">
     {{#each friends key="@index" as |friend|}}
       <div class="friend-container">
-        {{#if friend.imgToShow}}
-          <img src={{friend.imgToShow}} class="friend-picture" alt="">
-        {{else}}
-          <i class="fa fa-user friend-picture" aria-hidden="true"></i>
-        {{/if}}
+        <div class="image-container">
+          {{#if friend.imgToShow}}
+            <img src={{friend.imgToShow}} class="friend-picture" alt="">
+          {{else}}
+            <i class="fa fa-user friend-picture" aria-hidden="true"></i>
+          {{/if}}
 
-        <h1 class="name">{{friend.name}}</h1>
+          <h1 class="name">{{friend.name}}</h1>
+        </div>
+        
         {{#each friend.text key="@index" as |para|}}
           <p class="description">{{para}}</p>
         {{/each}}

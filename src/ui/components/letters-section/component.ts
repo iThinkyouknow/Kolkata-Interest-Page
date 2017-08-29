@@ -27,6 +27,7 @@ export default class LetterSection extends Component {
       letters[this.letterKeysArray[this.letterKeysArray.length - 1]].letterContent;
   }
 
+  @tracked('selectedMonth')
   get letterDates() {
     const letterDates = this.letterKeysArray.map((letter) => {
       const letterDate = this.args.letters[letter].date;
@@ -46,7 +47,10 @@ export default class LetterSection extends Component {
   }
 
   monthSelected(e) {
-    this.selectedMonth = moment(e.target.value).format('YYYY-MM');
+    log(`month selected`);
+    log(e);
+    log(e.target.value);
+    this.selectedMonth = moment(e.target.value, 'MMMM YYYY').format('YYYY-MM');
   }
 
   willDestroy() {
