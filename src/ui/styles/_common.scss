@@ -127,6 +127,12 @@ section {
   }
 }
 
+.hide-for-small {
+  @include respond-to(phone) {
+    display: none;
+  }
+}
+
 
 //keyframes
 @keyframes expand {

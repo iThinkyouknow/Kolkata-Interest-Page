@@ -483,6 +483,12 @@ let helpDesiredData = {
   //end of array
 };
 
+const prayer_section_verse_array = [
+  'Be careful for nothing;',
+  'but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.',
+  'Phillipians 4:6'
+]
+
 
 
 
@@ -807,9 +813,6 @@ export default class KolkataInterestPage extends Component {
     this.gray = (result === 0) ? 'gray' : '';
     this.should_menu_bg_display = should_bg_display_class_name_gen(!!this.gray);
     this.not_header = not_header_class_name_gen(y_pos >= this.all_elements_top_bottom_w_Ids.header[1]);
-
-
-
   }
 
   setGrayPositions() {
@@ -922,6 +925,8 @@ export default class KolkataInterestPage extends Component {
   };
 
   getListDataWMaxNum = getListData(this.maxNumber());
+
+  prayer_section_verse_array = prayer_section_verse_array;
 
   prayerRequestsArray = this.getListDataWMaxNum(prayerRequestsData);
   updatesArray = this.getListDataWMaxNum(updatesData);

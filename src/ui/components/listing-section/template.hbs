@@ -1,7 +1,12 @@
 <section class="listing-section">
   <section-title @title={{@title}} />
   {{#if @subtitle}}
-    <div class="verse-subtitle">{{@subtitle}}</div>
+    <div class="subtitle-container">
+      <div class="verse-subtitle hide-for-small">{{@subtitle.[0]}}</div>
+      <div class="verse-subtitle hide-for-small">{{@subtitle.[1]}}</div>
+      <div class="verse-subtitle">{{@subtitle.[2]}}</div>
+    </div>
+
   {{/if}}
 
   <div class="list-container">
