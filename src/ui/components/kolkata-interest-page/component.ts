@@ -780,6 +780,9 @@ const scrollToY = (targetY, duration, curve) => {
  ********************************************/
 
 export default class KolkataInterestPage extends Component {
+
+  phone_width = 500;
+  monitor_width = 800;
   @tracked gray = '';
   @tracked grayMenuIconElements = [];
   @tracked all_elements_top_bottom_w_Ids = {};
@@ -843,6 +846,22 @@ export default class KolkataInterestPage extends Component {
 
   @tracked orientation = ''; // 'portrait' or 'landscape';
 
+  @tracked display_type = '';
+
+  set_display_type = (phone_width, monitor_width) => (width) => {
+    if (width <= phone_width) {
+      this.display_type = 'phone';
+    } else if (width < monitor_width) {
+      this.display_type = 'tablet';
+    } else if (width >= monitor_width) {
+      this.display_type = 'monitor';
+    }
+  };
+
+  set_display_type_w_dimensions = (width) => {
+    this.set_display_type(this.phone_width, this.monitor_width)(width);
+  };
+
 
   setDimensions() {
     this.set_all_elements_top_bottom_w_Ids();
@@ -854,6 +873,8 @@ export default class KolkataInterestPage extends Component {
       return bool ? portrait : landscape;
     }
     this.orientation = getOrientationLabel(matchMedia("(orientation: portrait)").matches);
+    log(this);
+    this.set_display_type_w_dimensions(this.element.offsetWidth);
 
   }
 

@@ -18,15 +18,15 @@
   <friend-section id="make-a-friend" class="friend-section" @data={{personsDataForFriendSection}} />
 
   {{#if prayerRequestsArray.length}}
-  <listing-section id="prayer-requests" class="listing-section" @title="Prayer Requests" @subtitle={{prayer_section_verse_array}} @list={{prayerRequestsArray}} />
+  <listing-section id="prayer-requests" class="listing-section" @title="Prayer Requests" @subtitle={{prayer_section_verse_array}} @list={{prayerRequestsArray}} @display_type={{display_type}} />
   {{/if}}
 
   {{#if updatesArray.length}}
-  <listing-section id="updates" class="listing-section" @title="Updates" @subtitle={{false}} @list={{updatesArray}} />
+  <listing-section id="updates" class="listing-section" @title="Updates" @subtitle={{false}} @list={{updatesArray}} @display_type={{display_type}} />
   {{/if}}
 
   {{#if helpDesiredArray.length}}
-  <listing-section id="how-we-can-help" class="listing-section" @title="How We Can Help" @subtitle={{false}} @list={{helpDesiredArray}} />
+  <listing-section id="how-we-can-help" class="listing-section" @title="How We Can Help" @subtitle={{false}} @list={{helpDesiredArray}} @display_type={{display_type}} />
   {{/if}}
 
 
