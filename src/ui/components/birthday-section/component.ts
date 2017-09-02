@@ -6,7 +6,7 @@ export default class BirthdaySection extends Component {
 
   month = moment().format(`MMMM`);
 
-  @tracked birthdayPax = 6;
+  @tracked birthdayPax = 0;
   @tracked birthdayDispCycle = 0;
   @tracked slideUp = '';
   @tracked shouldStartFromZero = false;
@@ -71,9 +71,11 @@ export default class BirthdaySection extends Component {
     });
   }
 
-  @tracked('birthdayDispCycle', 'birthdayPax')
+  @tracked('birthdayDispCycle')
   get persons() {
     //impure
+    this.set_birthday_pax(this.args.display_type);
+
     const personsArray = this.birthdayPersonsArray;
     const personsArrayisValid = this.birthdayPersonsValidator(personsArray);
     if (!personsArrayisValid) return;
@@ -100,7 +102,7 @@ export default class BirthdaySection extends Component {
     this.slideUp = 'slide-up';
 
     const setCycleTimeout = setTimeout(() => {
-      if (indexOfBirthdayForCycle + this.birthdayPax + 1 < personsBirthdaySorted.length) {
+      if (indexOfBirthdayForCycle + this.birthdayPax + 1 < personsBirthdaySorted.length && this.birthdayPax !== 0) {
         this.birthdayDispCycle = this.birthdayDispCycle + 1;
       } else {
         this.birthdayDispCycle = 0;
@@ -111,6 +113,18 @@ export default class BirthdaySection extends Component {
     }, 1000 * this.birthdayPax);
 
     return arrayToDisplay;
+  }
+
+  set_birthday_pax(display_type) {
+    this.birthdayPax = ((display_type) => {
+      if (display_type === 'phone') {
+        return 3;
+      } else if (display_type === 'monitor') {
+        return 6;
+      } else {
+        return 0;
+      }
+    })(display_type);
   }
 
 };
