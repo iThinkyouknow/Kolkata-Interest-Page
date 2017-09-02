@@ -10,13 +10,24 @@
   {{/if}}
 
   <div class="list-container">
-    <ol>
-      {{#each @list key="@index" as |item|}}
-        <li class="list-item">{{item}}</li>
+    {{#if is_monitor}}
+      {{#each lists_for_monitor key="@index" as |list|}}
+        <ol class="ol-monitor">
+          {{#each list key="@index" as |item index|}}
+            <li class="list-item">{{item}}</li>
+          {{/each}}
+        </ol>
       {{/each}}
-    </ol>
+    {{else}}
+      <ol>
+        {{#each @list key="@index" as |item|}}
+          <li class="list-item">{{item}}</li>
+        {{/each}}
+      </ol>
+    {{/if}}
+
   </div>
 
-{{test}}
+{{list_for_monitor}}
 
 </section>
