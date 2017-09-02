@@ -15,6 +15,16 @@
       overflow: hidden;
       transform: translate3d(0, 100vh, 0);
 
+      @include respond-to(monitor) {
+        float: left;
+        width: 30vw;
+        margin: $standard-gap-w * 0.25 $standard-gap-w * 0.5;
+
+        &:nth-of-type(n + 1) {
+          float: right;
+        }
+      }
+
       .person-image {
         width: 30vw;
         height: 30vw;
@@ -26,6 +36,10 @@
         border-style: solid;
         //display: inline-block;
         //vertical-align: top;
+        @include respond-to(monitor) {
+          width: 120px;
+          height: 120px;
+        }
       }
 
 
@@ -86,6 +100,10 @@
         transition: transform 0.65s ease-in-out 0.45s;
       }
 
+    }
+
+    @include respond-to(monitor) {
+      width: 70vw;
     }
   }
 

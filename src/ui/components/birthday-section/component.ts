@@ -6,7 +6,7 @@ export default class BirthdaySection extends Component {
 
   month = moment().format(`MMMM`);
 
-  @tracked birthdayPax = 3;
+  @tracked birthdayPax = 6;
   @tracked birthdayDispCycle = 0;
   @tracked slideUp = '';
   @tracked shouldStartFromZero = false;
@@ -108,7 +108,7 @@ export default class BirthdaySection extends Component {
       }
       this.slideUp = '';
       clearTimeout(setCycleTimeout);
-    }, 3000);
+    }, 1000 * this.birthdayPax);
 
     return arrayToDisplay;
   }
