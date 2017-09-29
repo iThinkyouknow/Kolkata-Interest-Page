@@ -9,10 +9,11 @@ const {log, clear} = console;
  * Handle menu icon,√
  * scroll√
  * Fellowship section image appear √
- * responsive: orientation, tablets, monitor,
- * * The fellowship images
- * * gallery images
- ** Make a friend image
+ * responsive: orientation, tablets, monitor √,
+ * * The fellowship images √
+ * * gallery images -- need to downsize :/
+ ** Make a friend image√
+ * tablet orientation
  * **/
 
 const missionaryData = {
@@ -821,6 +822,8 @@ export default class KolkataInterestPage extends Component {
   setGrayPositions() {
     const {children} = this.element;
     const getDimWChildren = getDimensions(children);
+    log(this);
+    log(this.all_elements_top_bottom_w_Ids);
 
     const dimensions_array = ['header', 'gallery', 'encourage', 'kolkata'].map(section_id => this.all_elements_top_bottom_w_Ids[section_id]);
     const listing_section_dimensions_array = getListingSection(this.all_elements_top_bottom_w_Ids)('prayer-requests')('updates')('how-we-can-help');
@@ -830,7 +833,10 @@ export default class KolkataInterestPage extends Component {
   set_all_elements_top_bottom_w_Ids() {
     const {children} = this.element;
 
-    this.all_elements_top_bottom_w_Ids = [...children].reduce((acc, child) => {
+    const array_of_children = Array.prototype.slice.call(children);
+
+
+    this.all_elements_top_bottom_w_Ids = array_of_children.reduce((acc, child) => {
       if (typeof child.id === 'string') {
         if (child.id.length < 1) return;
         const {offsetTop, offsetHeight} = child;
@@ -840,6 +846,8 @@ export default class KolkataInterestPage extends Component {
       } else if (!isNaN(child.id)) {
         const {offsetTop, offsetHeight} = child;
         return {...acc, [child.id]: [offsetTop, offsetTop + offsetHeight]};
+      } else {
+        return acc;
       }
     }, {});
   }
