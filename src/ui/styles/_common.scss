@@ -6,7 +6,7 @@ $dark-navy-blue: rgb(22, 79, 134);
 $approved-green: rgb(152,251,152);
 $highlight-col: rgb(0,191,255);
 $standard-gap: 20px;
-$standard-gap-w: (20/414) * 100vw; //
+$standard-gap-w: (20/414) * 100%; //
 $font-gap: 5px;
 $HN: 'Helvetica Neue';
 $Hel: 'Helvetica';
@@ -75,7 +75,7 @@ p {
   font-family: $HN;
   font-size: 1.25rem;
   overflow-y: scroll;
-  max-width: 88vw;
+  max-width: 88%;
   text-align: justify;
   margin: 0 auto;
 }
@@ -88,7 +88,12 @@ section {
       @include respond-to(phone) {
         min-height: 100vh / 9 * 16;
       }
+    }
 
+    @include respond-to(monitor) {
+      min-height: 0;
+      height: 100vh;
+      max-height: 1080px;
     }
 }
 
@@ -118,6 +123,14 @@ section {
   font-family: $HN;
   font-weight: $fw-light;
   font-size: 2.25rem;
+}
+
+.main-content {
+  @include respond-to(monitor) {
+    max-width: 1920px;
+    width: 100vw;
+    margin: 0 auto;
+  }
 }
 
 // responsive

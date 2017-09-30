@@ -31,11 +31,14 @@
 
     @include respond-to(monitor) {
       float: right;
-      width: 50vw;
-      margin: 0 $standard-gap-w ;
+      width: 50%;
+      margin: 0 $standard-gap-w;
 
-      .info {
+      h1 {
         margin: 0;
+      }
+      .info {
+        margin: $standard-gap 0;
       }
     }
   }
@@ -141,7 +144,7 @@
     }
 
     @include respond-to(monitor) {
-      width: 30vw;
+      width: 30%;
       margin: 1.5 * $standard-gap $standard-gap-w;
       .sign-up-container {
         margin: 0;

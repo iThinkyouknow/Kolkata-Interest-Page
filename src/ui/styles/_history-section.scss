@@ -3,10 +3,7 @@
   width:100vw;
 
   //@include respond-to(monitor) {
-  //  .section-title-container {
   //
-  //    text-align: left;
-  //  }
   //}
 
   .picture-container {
@@ -18,8 +15,8 @@
     @include respond-to(monitor) {
       float: right;
       display: inline-block;
-      min-width: 25vw;
-      max-width: 35vw;
+      min-width: 25%;
+      max-width: 35%;
       margin: 2 * $standard-gap $standard-gap-w;
       margin-left: 0;
     }
@@ -37,10 +34,10 @@
     @include respond-to(monitor) {
       float: left;
       display: inline-block;
-      max-width: 50vw;
+      max-width: 50%;
       margin: 2 * $standard-gap $standard-gap-w;
       margin-right: 0;
-      height: 50vh;
+      height: 50%;
     }
   }
 

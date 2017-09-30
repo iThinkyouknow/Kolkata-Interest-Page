@@ -89,7 +89,7 @@ $selector-height: 260px;
 
     @include respond-to(monitor) {
       float: right;
-      width: 40vw;
+      width: 40%;
       margin: 2.5 * $standard-gap $standard-gap-w;
       white-space: nowrap;
 
@@ -126,6 +126,16 @@ $selector-height: 260px;
       line-height: 1.8rem;
     }
 
+    @include respond-to(monitor) {
+      margin-top: 170px;
+      .sermon-title,
+      .scripture-text,
+      .sermon-text {
+        max-width: 90%;
+        margin: 0 auto;
+      }
+    }
+
     .sermon-title {
       font-weight: $fw-light;
       font-size: 2rem;
@@ -137,9 +147,7 @@ $selector-height: 260px;
       margin-top: $standard-gap * 0.5;
     }
 
-    @include respond-to(monitor) {
-      margin-top: 170px;
-    }
+
   }
 
 }

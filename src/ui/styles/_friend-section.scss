@@ -15,6 +15,14 @@
     transition: transform 0.5s ease-in-out;
     clear: both;
 
+    .main-content {
+      clear: both;
+      @include respond-to(monitor) {
+       // padding-right: $standard-gap-w;
+      }
+    }
+
+
     .friend-container {
       position: relative;
       display: inline-block;
@@ -39,8 +47,8 @@
           }
 
           @include respond-to(monitor) {
-            max-height: 50vh;
-            margin: 1.5 * $standard-gap 1.5 * $standard-gap-w  1.5 * $standard-gap 1 * $standard-gap-w;
+            max-height: 0.5 * 1080px;
+            margin: (7 * $standard-gap) (0)  (0) (0);
           }
         }
 

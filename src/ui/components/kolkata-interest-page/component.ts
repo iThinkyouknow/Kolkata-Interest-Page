@@ -11,8 +11,9 @@ const {log, clear} = console;
  * Fellowship section image appear √
  * responsive: orientation, tablets, monitor √,
  * * The fellowship images √
- * * gallery images -- need to downsize :/
- ** Make a friend image√
+ * * gallery images -- need to downsize :/ √
+ ** Make a friend image √
+ * Max size - Some sections left
  * tablet orientation
  * **/
 

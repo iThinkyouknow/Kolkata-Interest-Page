@@ -1,6 +1,13 @@
 .letters-section {
   min-height: 100vh;
 
+  @include respond-to (monitor) {
+    min-height: 720px;
+    //padding-bottom: $standard-gap * 5;
+  }
+
+
+
   .letter-selector {
     display: block;
     margin: 1.5 * $standard-gap auto;
@@ -17,6 +24,7 @@
 
     @include respond-to(monitor) {
       margin: 2 * $standard-gap auto;
+      width: 88%;
     }
   }
 
@@ -44,7 +52,8 @@
 
     @include respond-to(monitor) {
       overflow: scroll;
-      height: 55vh;
+      height: 45vh;
+      max-height: calc(1080px * 45%);
     }
   }
 

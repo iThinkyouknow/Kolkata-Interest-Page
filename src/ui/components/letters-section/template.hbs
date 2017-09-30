@@ -1,26 +1,29 @@
 <section>
   <section-title @title={{@title}} />
-  <select class="letter-selector" oninput={{action monthSelected}}>
-    {{#each letterDates key="@index" as |dateObj|}}
-      <option value={{dateObj.date}} selected={{dateObj.isSelected}} >{{dateObj.date}}</option>
-    {{/each}}
-  </select>
+  <div class="main-content">
+    <select class="letter-selector" oninput={{action monthSelected}}>
+      {{#each letterDates key="@index" as |dateObj|}}
+        <option value={{dateObj.date}} selected={{dateObj.isSelected}} >{{dateObj.date}}</option>
+      {{/each}}
+    </select>
 
 
-  <div class="letter-container">
-    {{#each letterContent key="@index" as |para|}}
-      <p class="letter">{{para}}</p>
-    {{/each}}
-    <div class="veil hide-for-large" />
+    <div class="letter-container">
+      {{#each letterContent key="@index" as |para|}}
+        <p class="letter">{{para}}</p>
+      {{/each}}
+      <div class="veil hide-for-large" />
+    </div>
+
+    <div class="pdf-link hide-for-large">
+      <a href={{pdfLink}} target="_blank">
+        <span class="pdf-link-text">Full Letter in</span>
+        &nbsp;
+        <i class="fa fa-file-pdf-o pdf-icon" />
+      </a>
+    </div>
   </div>
 
-  <div class="pdf-link hide-for-large">
-    <a href={{pdfLink}} target="_blank">
-      <span class="pdf-link-text">Full Letter in</span>
-      &nbsp;
-      <i class="fa fa-file-pdf-o pdf-icon" />
-    </a>
-  </div>
 
 
 </section>

@@ -1,33 +1,37 @@
 <Section>
   <section-title @title="Sermon Outlines" />
 
-  <div class="sermon-details-container">
-    <div class="sermon-selector-container">
-      <img src="assets/sermon-selector.png" alt="sermon-selector" class="sermon-selector">
-      <div class="date-container {{slideClass}}"
-           style="margin-top: {{dateConMarginTop}}%" draggable="true">
-        {{#each sermonInfo key="@index" as |sermonInfo|}}
-          <p class="bold {{sermonInfo.className}}">{{sermonInfo.date}}</p>
-        {{/each}}
+  <div class="main-content">
+    <div class="sermon-details-container">
+      <div class="sermon-selector-container">
+        <img src="assets/sermon-selector.png" alt="sermon-selector" class="sermon-selector">
+        <div class="date-container {{slideClass}}"
+             style="margin-top: {{dateConMarginTop}}%" draggable="true">
+          {{#each sermonInfo key="@index" as |sermonInfo|}}
+            <p class="bold {{sermonInfo.className}}">{{sermonInfo.date}}</p>
+          {{/each}}
 
+        </div>
+      </div>
+
+      <div class="sermon-details">
+        <div class="sermon-points-container {{fadeInClass}}">
+          {{#each displaySermonPoints.sermonPoints key="@index" as |sermonPoint index|}}
+            <h2 class="sermon-point">{{index-helper index}}. {{sermonPoint}}</h2>
+          {{/each}}
+
+
+        </div>
       </div>
     </div>
-
-    <div class="sermon-details">
-      <div class="sermon-points-container {{fadeInClass}}">
-        {{#each displaySermonPoints.sermonPoints key="@index" as |sermonPoint index|}}
-          <h2 class="sermon-point">{{index-helper index}}. {{sermonPoint}}</h2>
-        {{/each}}
-
-
-      </div>
+    <div class="sermon-header-container">
+      <div class="sermon-title">{{displaySermonPoints.sermonTitle}}</div>
+      <div class="scripture-text bold">{{displaySermonPoints.scriptureText}}</div>
+      <div class="sermon-text bold">{{displaySermonPoints.sermonText}}</div>
     </div>
   </div>
-  <div class="sermon-header-container">
-    <div class="sermon-title">{{displaySermonPoints.sermonTitle}}</div>
-    <div class="scripture-text bold">{{displaySermonPoints.scriptureText}}</div>
-    <div class="sermon-text bold">{{displaySermonPoints.sermonText}}</div>
-  </div>
+
+
 
 
 </Section>
