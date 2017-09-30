@@ -90,8 +90,7 @@ $selector-height: 260px;
     @include respond-to(monitor) {
       float: right;
       width: 40%;
-      margin: 2.5 * $standard-gap $standard-gap-w;
-      white-space: nowrap;
+      margin: 10vh 5% 0 2.5%;
 
       .sermon-selector-container{
         height: $selector-height * 1.5;
@@ -106,7 +105,7 @@ $selector-height: 260px;
       }
 
       .sermon-details {
-        width: 65%;
+        max-width: 75%;
         height: $selector-height * 1.5;
         white-space: normal;
       }
@@ -127,7 +126,9 @@ $selector-height: 260px;
     }
 
     @include respond-to(monitor) {
-      margin-top: 170px;
+      float: left;
+      margin-top: 22vh;
+      width: 50%;
       .sermon-title,
       .scripture-text,
       .sermon-text {

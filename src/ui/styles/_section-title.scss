@@ -6,6 +6,7 @@
   z-index: $high-z;
 
   @include respond-to(monitor) {
+    margin: 15vh auto 0 auto;
     &.text-align-left {
       text-align: left;
     }
@@ -27,7 +28,7 @@
     }
   }
 
-  @include respond-to(monitor) {
-    margin: 6 * $standard-gap $standard-gap-w 0;
-  }
+  //@include respond-to(monitor) {
+  //  margin: 6 * $standard-gap $standard-gap-w 0;
+  //}
 }

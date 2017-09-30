@@ -122,7 +122,7 @@ export default class BirthdaySection extends Component {
       } else if (display_type === 'monitor') {
         return 6;
       } else {
-        return 0;
+        return 3;
       }
     })(display_type);
   }

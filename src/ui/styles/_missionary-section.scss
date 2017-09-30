@@ -30,10 +30,8 @@
       float: right;
       width: 50%;
       height: auto;
-      //max-height: 720px;
       margin: 0;
       vertical-align: center;
-      //overflow: hidden;
 
       .👨🏾 {
         width: 100%;
@@ -69,20 +67,40 @@
     }
 
     @include respond-to(monitor) {
+      float: left;
       margin-top: 1.5 * $standard-gap;
-      margin-left: $standard-gap-w;
+      margin-left: 0;
+      width: 50%;
+
+      .bio-text {
+        max-width: 100%;
+      }
     }
   }
 
-  .👨🏾-details {
-    margin: 1 * $standard-gap auto;
-    max-height: 40vh;
-    @include respond-to(monitor) {
-      margin-top: 1.5 * $standard-gap;
-      margin-left: $standard-gap-w;
-      width: 45%;
+  .description-container {
+
+    .👨🏾-details {
+      margin: 1 * $standard-gap auto;
+      max-height: 40vh;
     }
+
+    @include respond-to(monitor) {
+      margin-top: 1 * $standard-gap;
+      float: left;
+      text-align: left;
+      width: 50%;
+
+      .👨🏾-details {
+        margin-top: 0;
+        //margin-left: $standard-gap-w;
+        max-width: 100%;
+      }
+    }
+
   }
+
+
 
   a {
     color: $light-blue;

@@ -3,7 +3,7 @@ $off-white: rgb(255, 250, 240);
 $dark-gray: rgb(84, 84, 84);
 $light-blue: rgb(81, 167, 249);
 $dark-navy-blue: rgb(22, 79, 134);
-$approved-green: rgb(152,251,152);
+$approved-green: rgb(0,251,152);
 $highlight-col: rgb(0,191,255);
 $standard-gap: 20px;
 $standard-gap-w: (20/414) * 100%; //
@@ -22,7 +22,6 @@ $high-z: 1000;
 $ultra-high-z: 100000;
 
 $break-phone: 500px;
-$break-tablet: 1024px;
 $break-large: 800px;
 
 @mixin respond-to($media) {
@@ -130,12 +129,20 @@ section {
     max-width: 1920px;
     width: 100vw;
     margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 }
 
 // responsive
 .hide-for-large {
   @include respond-to(monitor) {
+    display: none;
+  }
+}
+
+.hide-for-medium {
+  @include respond-to(tablet) {
     display: none;
   }
 }

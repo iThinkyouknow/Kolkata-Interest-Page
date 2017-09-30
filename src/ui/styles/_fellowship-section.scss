@@ -4,10 +4,7 @@
   background-color: $off-white;
   position: relative;
   font-size: 0;
-
-  @include respond-to(monitor) {
-    overflow: hidden;
-  }
+  overflow: hidden;
 
   .info-section {
     display: flex;
@@ -48,6 +45,7 @@
     }
     @include respond-to(monitor) {
       height: 20vh;
+      max-height: 0.2 * 1080px;
     }
   }
 
@@ -67,8 +65,24 @@
     }
 
     @include respond-to(monitor) {
+      text-align: center;
       width: 60vw;
+      max-width: 0.6 * 1920px;
       margin: $standard-gap auto;
+
+      @include respond-to(landscape) {
+        padding: 0;
+      }
+    }
+
+    @include respond-to(tablet) {
+      text-align: center;
+      width: 80vw;
+      max-width: 0.6 * 1920px;
+      margin: $standard-gap auto;
+      @include respond-to(landscape) {
+        padding: 0;
+      }
     }
 
     .profile-pic-small {
@@ -103,11 +117,36 @@
       }
 
       @include respond-to(monitor) {
-        width: 10vw;
-        height: 10vw;
+        width: 20%;
+        height: auto;
+        max-width: none;
+        max-height: none;
+        margin-left: 0.5 * $standard-gap;
+        margin-right: 0.5 * $standard-gap;
+
         &:nth-child(n) {
           float: none;
           margin-bottom: 0;
+        }
+
+      }
+
+      @include respond-to(tablet) {
+        width: 40%;
+        height: auto;
+        max-width: none;
+        max-height: none;
+        margin-left: 0.5 * $standard-gap;
+        margin-right: 0.5 * $standard-gap;
+
+        &:nth-child(n) {
+          float: none;
+          margin-bottom: 0;
+        }
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          margin-bottom: $standard-gap;
         }
 
       }

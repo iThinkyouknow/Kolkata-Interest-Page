@@ -17,7 +17,7 @@
       display: inline-block;
       min-width: 25%;
       max-width: 35%;
-      margin: 2 * $standard-gap $standard-gap-w;
+      margin: 2 * $standard-gap 0;
       margin-left: 0;
     }
   }
@@ -35,9 +35,13 @@
       float: left;
       display: inline-block;
       max-width: 50%;
-      margin: 2 * $standard-gap $standard-gap-w;
+      margin: 2 * $standard-gap 0;
       margin-right: 0;
       height: 50%;
+
+      .history-text {
+        max-width: 100%;
+      }
     }
   }
 
