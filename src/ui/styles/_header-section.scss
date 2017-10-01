@@ -8,9 +8,9 @@
   height: 100vh;
   padding: 45vh 0;
 
-  @include respond-to(monitor) {
-    max-height: 1080px;
-  }
+  //@include respond-to(monitor) {
+  //  max-height: 1080px;
+  //}
 
   .page-title-container {
     width: 90%;

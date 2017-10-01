@@ -13,8 +13,8 @@ const {log, clear} = console;
  * * The fellowship images √
  * * gallery images -- need to downsize :/ √
  ** Make a friend image √
- * Max size - Some sections left
- * tablet orientation
+ * Max size - Some sections left√
+ * tablet orientation √
  * **/
 
 const missionaryData = {
