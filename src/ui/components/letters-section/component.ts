@@ -47,9 +47,6 @@ export default class LetterSection extends Component {
   }
 
   monthSelected(e) {
-    log(`month selected`);
-    log(e);
-    log(e.target.value);
     this.selectedMonth = moment(e.target.value, 'MMMM YYYY').format('YYYY-MM');
   }
 

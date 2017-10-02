@@ -823,8 +823,6 @@ export default class KolkataInterestPage extends Component {
   setGrayPositions() {
     const {children} = this.element;
     const getDimWChildren = getDimensions(children);
-    log(this);
-    log(this.all_elements_top_bottom_w_Ids);
 
     const dimensions_array = ['header', 'gallery', 'encourage', 'kolkata'].map(section_id => this.all_elements_top_bottom_w_Ids[section_id]);
     const listing_section_dimensions_array = getListingSection(this.all_elements_top_bottom_w_Ids)('prayer-requests')('updates')('how-we-can-help');
@@ -882,7 +880,6 @@ export default class KolkataInterestPage extends Component {
       return bool ? portrait : landscape;
     }
     this.orientation = getOrientationLabel(matchMedia("(orientation: portrait)").matches);
-    log(this);
     this.set_display_type_w_dimensions(this.element.offsetWidth);
 
   }

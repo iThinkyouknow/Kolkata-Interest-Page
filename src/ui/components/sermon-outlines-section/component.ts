@@ -75,8 +75,6 @@ export default class SermonOutlinesSection extends Component {
     if ((e.type !== 'mousemove') || (e.type === 'mousemove' && this.mousedown)) {
       let startPos = this.touchStartPositon;
       let diff = e.changedTouches ? e.changedTouches[0].clientY - startPos : e.clientY - startPos;
-      log(diff);
-      log((diff / wheelWidth) * 100);
       this.dateConMarginTop = this.dateConMarginTop + (diff / wheelWidth) * 100;
       this.touchStartPositon = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
     }
@@ -108,7 +106,6 @@ export default class SermonOutlinesSection extends Component {
         className: (index === this.sermonArrayIndex) ? `this-week` : ''
       }};
     }, {});
-    log(newSermonInfo);
 
     this.sermonInfo = newSermonInfo;
     this.mousedown = false;
