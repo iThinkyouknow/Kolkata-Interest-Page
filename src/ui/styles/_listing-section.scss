@@ -2,8 +2,12 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0 , 0, 0, 0.65)), url('assets/Discussion-3.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
   color: $white;
+
+  @include respond-to(monitor) {
+    background-attachment: fixed;
+  }
 
   .subtitle-container {
     margin-top: 0.5 * $standard-gap;

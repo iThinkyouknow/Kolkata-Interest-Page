@@ -15,6 +15,8 @@ const {log, clear} = console;
  ** Make a friend image √
  * Max size - Some sections left√
  * tablet orientation √
+ * Mobile - background img√
+ * max-height√
  * **/
 
 const missionaryData = {

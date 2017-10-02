@@ -1,9 +1,12 @@
 .birthday-section {
+  height: 100vh;
+  //overflow: hidden;
 
   .persons-container {
     margin: 0 auto;
-    margin-top: 3 * $standard-gap;
+    margin-top: 0.5 * $standard-gap;
     width: $center-aligned-width-phone - 8vw;
+    overflow: hidden;
 
     .person-container {
       display: flex;
@@ -12,7 +15,7 @@
       align-items: center;
       width: auto;
       margin: 1.5 * $standard-gap auto;
-      overflow: hidden;
+      //overflow: hidden;
       transform: translate3d(0, 100vh, 0);
 
       @include respond-to(monitor) {

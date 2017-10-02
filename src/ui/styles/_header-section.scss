@@ -3,14 +3,14 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
   width: 100vw;
   height: 100vh;
   padding: 45vh 0;
 
-  //@include respond-to(monitor) {
-  //  max-height: 1080px;
-  //}
+  @include respond-to(monitor) {
+    background-attachment: fixed;
+  }
 
   .page-title-container {
     width: 90%;

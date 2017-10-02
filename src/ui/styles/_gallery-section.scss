@@ -1,5 +1,6 @@
 .gallery-section {
   position: relative;
+  -webkit-backface-visibility: hidden;
 
   @include respond-to(landscape) {
     min-height: 200vh;
@@ -13,9 +14,10 @@
     width: 1000px;
     font-size: 0;
     white-space: nowrap;
-    -webkit-animation: scrollOne 800s linear infinite;
-    -o-animation: scrollOne 800s linear infinite;
-    animation: scrollOne 800s linear infinite;
+    -webkit-backface-visibility: hidden;
+    -webkit-animation: scrollOne 800s linear 2s infinite;
+    -o-animation: scrollOne 800s linear 2s infinite;
+    animation: scrollOne 800s linear 2s infinite;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 
@@ -32,9 +34,9 @@
   .img-container-2 {
     @extend .img-container-1;
     top: 50%;
-    -webkit-animation: scrollOne 1200s linear infinite;
-    -o-animation: scrollOne 1200s linear infinite;
-    animation: scrollOne 1200s linear infinite;
+    -webkit-animation: scrollOne 1200s linear 2s infinite;
+    -o-animation: scrollOne 1200s linear 2s infinite;
+    animation: scrollOne 1200s linear 2s infinite;
   }
 
   @keyframes scrollOne {

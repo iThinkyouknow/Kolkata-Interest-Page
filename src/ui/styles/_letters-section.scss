@@ -1,5 +1,5 @@
 .letters-section {
-  min-height: 100vh;
+  max-height: 100vh;
 
   @include respond-to (monitor) {
     min-height: 720px;

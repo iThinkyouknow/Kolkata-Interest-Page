@@ -8,7 +8,7 @@
 
   .picture-container {
     margin: 1.5*$standard-gap auto 0 auto;
-    width: 70vw;
+    width: 65vw;
     max-width: 400px;
     box-shadow: 10px 10px 5px #888888;
 
@@ -24,7 +24,7 @@
 
   .text-container {
     margin-top: 2*$standard-gap;
-    height: 42.5vh;
+    height: 42vh;
     overflow: scroll;
 
     .history-text:not(:first-child) {
