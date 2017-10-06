@@ -28,7 +28,7 @@ const missionaryData = {
   `He is currently working in the mission field of Kolkata, and Lord Willing, instituted the mission field as a church there`],
   imgArray: [
     'assets/emmanuel-wo-bg.png',
-    'assets/emmanuel-and-sonali-singh-kolkota.png'
+    'assets/emmanuel-and-sonali-singh-kolkota.jpg'
   ],
   link: `https://cksaltshakers.wordpress.com/2017/04/01/interview-with-rev-emmanuel-singh-i/`
 }
